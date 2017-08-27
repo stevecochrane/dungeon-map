@@ -22,6 +22,9 @@ app.set("view engine", "pug");
 //	Compress all requests
 app.use(compression());
 
+//	Set contents of /public to be served as static files with "/static/" URL prefix
+app.use("/static", express.static("/public"));
+
 //	Default app view, which displays all elements from the API
 app.get("/", function(req, res) {
 	res.render("index");
