@@ -7,7 +7,8 @@
   "main": "dungeon-map.js",
   "scripts": {
     "build": "webpack",
-    "start": "node dungeon-map.js"
+    "start": "node dungeon-map.js",
+    "watch": "webpack --watch"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
