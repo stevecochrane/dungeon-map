@@ -2,12 +2,11 @@
   "name": "dungeon-map",
   "version": "1.0.0",
   "description": "A web applicaton for mapping old videogames.",
-  "main": "index.js",
+  "author": "Steve Cochrane <steve@stevecochrane.com>",
+  "license": "ISC",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Steve Cochrane <steve@stevecochrane.com>",
-  "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.0",
