@@ -1,0 +1,11 @@
+{
+  "name": "dungeon-map",
+  "version": "1.0.0",
+  "description": "A web applicaton for mapping old videogames.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Steve Cochrane <steve@stevecochrane.com>",
+  "license": "ISC"
+}
