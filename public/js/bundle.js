@@ -65,41 +65,9 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__module_1_js__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__module_2_js__ = __webpack_require__(2);
-console.log("hello this is index.js! test 2");
-
-
-
-
-console.log("Message from first module: " + __WEBPACK_IMPORTED_MODULE_0__module_1_js__["a" /* componentX */]);
-console.log("Message from second module: " + __WEBPACK_IMPORTED_MODULE_1__module_2_js__["a" /* componentY */]);
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return componentX; });
-let componentX = "foo";
-
-
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return componentY; });
-let componentY = "bar";
-
-
 
 
 /***/ })
