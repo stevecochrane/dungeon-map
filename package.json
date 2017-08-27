@@ -4,6 +4,7 @@
   "description": "A web applicaton for mapping old videogames.",
   "author": "Steve Cochrane <steve@stevecochrane.com>",
   "license": "ISC",
+  "main": "dungeon-map.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
