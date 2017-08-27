@@ -1,1 +1,3 @@
-export default "foo";
+let componentX = "foo";
+
+export { componentX };

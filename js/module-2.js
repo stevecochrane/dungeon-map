@@ -1,1 +1,3 @@
-export default "bar";
+let componentY = "bar";
+
+export { componentY };

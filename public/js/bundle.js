@@ -70,29 +70,37 @@
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__module_1_js__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__module_1_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__module_1_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__module_2_js__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__module_2_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__module_2_js__);
 console.log("hello this is index.js! test 2");
 
 
 
 
-console.log("Message from first module: " + __WEBPACK_IMPORTED_MODULE_0__module_1_js__["componentX"]);
-console.log("Message from second module: " + __WEBPACK_IMPORTED_MODULE_1__module_2_js__["componentY"]);
+console.log("Message from first module: " + __WEBPACK_IMPORTED_MODULE_0__module_1_js__["a" /* componentX */]);
+console.log("Message from second module: " + __WEBPACK_IMPORTED_MODULE_1__module_2_js__["a" /* componentY */]);
 
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module parse failed: /Users/stevecochrane/Documents/Projects/dungeon-map/js/module-1.js Unexpected token (3:7)\nYou may need an appropriate loader to handle this file type.\n| let componentX = \"foo\";\n| \n| export componentX;\n| ");
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return componentX; });
+let componentX = "foo";
+
+
+
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module parse failed: /Users/stevecochrane/Documents/Projects/dungeon-map/js/module-2.js Unexpected token (3:7)\nYou may need an appropriate loader to handle this file type.\n| let componentY = \"bar\";\n| \n| export componentY;\n| ");
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return componentY; });
+let componentY = "bar";
+
+
+
 
 /***/ })
 /******/ ]);
