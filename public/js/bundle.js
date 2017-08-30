@@ -1051,21 +1051,15 @@ var preact = {
 
 var _preact = __webpack_require__(0);
 
-var _app = __webpack_require__(2);
+var _App = __webpack_require__(2);
 
-var _app2 = _interopRequireDefault(_app);
+var _App2 = _interopRequireDefault(_App);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// This is the entry file, which kicks off all rendering.
-//
-// We import h() here because that's the function our JSX elements transpile to.
-// That is to say - this:
-//     <div a="b">foo</div>
-// ... is converted to this:
-//     h('div', { a: 'b' }, 'foo')
-
-(0, _preact.render)((0, _preact.h)(_app2.default, null), document.body);
+document.addEventListener("DOMContentLoaded", function (event) {
+	(0, _preact.render)((0, _preact.h)(_App2.default, null), document.getElementById("root"));
+});
 
 /***/ }),
 /* 2 */
@@ -1082,9 +1076,9 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _preact = __webpack_require__(0);
 
-var _hello = __webpack_require__(3);
+var _EditableTextField = __webpack_require__(3);
 
-var _hello2 = _interopRequireDefault(_hello);
+var _EditableTextField2 = _interopRequireDefault(_EditableTextField);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1112,9 +1106,9 @@ var App = function (_Component) {
 				(0, _preact.h)(
 					"h1",
 					null,
-					"Hello!"
+					"Hello! This is the App component."
 				),
-				(0, _preact.h)(_hello2.default, null)
+				(0, _preact.h)(_EditableTextField2.default, null)
 			);
 		}
 	}]);
@@ -1123,6 +1117,7 @@ var App = function (_Component) {
 }(_preact.Component);
 
 exports.default = App;
+;
 
 /***/ }),
 /* 3 */
@@ -1135,15 +1130,55 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _preact = __webpack_require__(0);
 
-exports.default = function () {
-	return (0, _preact.h)(
-		"p",
-		{ "class": "hello" },
-		"Hello, cruel world!"
-	);
-};
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var EditableTextField = function (_Component) {
+	_inherits(EditableTextField, _Component);
+
+	function EditableTextField() {
+		_classCallCheck(this, EditableTextField);
+
+		return _possibleConstructorReturn(this, (EditableTextField.__proto__ || Object.getPrototypeOf(EditableTextField)).apply(this, arguments));
+	}
+
+	_createClass(EditableTextField, [{
+		key: "_showEditor",
+		value: function _showEditor() {
+			console.log("hi");
+		}
+	}, {
+		key: "render",
+		value: function render() {
+			return (0, _preact.h)(
+				"div",
+				null,
+				(0, _preact.h)(
+					"h1",
+					null,
+					"And this is the EditableTextField component."
+				),
+				(0, _preact.h)(
+					"h1",
+					{ onClick: this._showEditor },
+					"This is an editable text field. Click on me to edit!"
+				)
+			);
+		}
+	}]);
+
+	return EditableTextField;
+}(_preact.Component);
+
+exports.default = EditableTextField;
+;
 
 /***/ })
 /******/ ]);
