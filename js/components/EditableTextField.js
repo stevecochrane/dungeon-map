@@ -1,15 +1,28 @@
 import { h, Component } from "preact";
 
 export default class EditableTextField extends Component {
-	_showEditor() {
-		console.log("hi");
+	constructor() {
+		super();
+	}
+	componentWillMount() {
+		this.setState({
+			isEditing: true
+		});
 	}
 	render() {
 		return (
-			<div>
-				<h1>And this is the EditableTextField component.</h1>
-				<h1 onClick={this._showEditor}>This is an editable text field. Click on me to edit!</h1>
-			</div>
+			<h1 onClick={this._showEditor.bind(this)}>This is an editable text field. Click on me to edit!</h1>
 		);
+	}
+	_showEditor() {
+		if (this.state.isEditing) {
+			this.setState({
+				isEditing: false
+			});
+		} else {
+			this.setState({
+				isEditing: true
+			});
+		}
 	}
 };
