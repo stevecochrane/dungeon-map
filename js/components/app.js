@@ -1,7 +1,7 @@
 import preact from "preact";
 import EditableTextField from "./EditableTextField";
 
-export default class App extends preact.Component {
+class App extends preact.Component {
 	render() {
 		return (
 			<div class="app">
@@ -11,3 +11,5 @@ export default class App extends preact.Component {
 		)
 	}
 };
+
+export default App;

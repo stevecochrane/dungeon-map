@@ -1,6 +1,6 @@
 import preact from "preact";
 
-export default class EditableTextField extends preact.Component {
+class EditableTextField extends preact.Component {
 	constructor(props) {
 		super(props);
 
@@ -27,3 +27,5 @@ export default class EditableTextField extends preact.Component {
 		}
 	}
 };
+
+export default EditableTextField;
