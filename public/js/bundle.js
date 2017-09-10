@@ -1499,6 +1499,10 @@ var _EditableTextField = __webpack_require__(4);
 
 var _EditableTextField2 = _interopRequireDefault(_EditableTextField);
 
+var _Map = __webpack_require__(5);
+
+var _Map2 = _interopRequireDefault(_Map);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1506,6 +1510,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var mapData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 var App = function (_preact$Component) {
 	_inherits(App, _preact$Component);
@@ -1525,9 +1531,10 @@ var App = function (_preact$Component) {
 				_preact2.default.h(
 					"h1",
 					null,
-					"Hello! This is the App component."
+					"DUNGEON MAP"
 				),
-				_preact2.default.h(_EditableTextField2.default, null)
+				_preact2.default.h(_EditableTextField2.default, null),
+				_preact2.default.h(_Map2.default, { initialData: mapData })
 			);
 		}
 	}]);
@@ -1610,6 +1617,69 @@ var EditableTextField = function (_preact$Component) {
 ;
 
 exports.default = EditableTextField;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _preact = __webpack_require__(0);
+
+var _preact2 = _interopRequireDefault(_preact);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Map = function (_preact$Component) {
+	_inherits(Map, _preact$Component);
+
+	function Map(props) {
+		_classCallCheck(this, Map);
+
+		var _this = _possibleConstructorReturn(this, (Map.__proto__ || Object.getPrototypeOf(Map)).call(this, props));
+
+		_this.state = {
+			data: props.initialData
+		};
+		return _this;
+	}
+
+	_createClass(Map, [{
+		key: "render",
+		value: function render() {
+			return _preact2.default.h(
+				"table",
+				null,
+				_preact2.default.h(
+					"tbody",
+					null,
+					this.state.data.map(function (tableRow, rowIndex) {
+						return _preact2.default.h("tr", null);
+					})
+				)
+			);
+		}
+	}]);
+
+	return Map;
+}(_preact2.default.Component);
+
+;
+
+exports.default = Map;
 
 /***/ })
 /******/ ]);
