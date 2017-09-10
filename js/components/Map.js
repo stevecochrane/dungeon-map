@@ -13,7 +13,15 @@ class Map extends preact.Component {
 			<table>
 				<tbody>
 					{this.state.data.map(function(tableRow, rowIndex) {
-						return <tr></tr>;
+						return (
+							<tr>
+								{tableRow.map(function(tableCell, cellIndex) {
+									return (
+										<td></td>
+									);
+								})}
+							</tr>
+						);
 					})}
 				</tbody>
 			</table>

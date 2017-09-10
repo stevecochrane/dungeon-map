@@ -1667,7 +1667,13 @@ var Map = function (_preact$Component) {
 					"tbody",
 					null,
 					this.state.data.map(function (tableRow, rowIndex) {
-						return _preact2.default.h("tr", null);
+						return _preact2.default.h(
+							"tr",
+							null,
+							tableRow.map(function (tableCell, cellIndex) {
+								return _preact2.default.h("td", null);
+							})
+						);
 					})
 				)
 			);
