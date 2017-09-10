@@ -1062,7 +1062,7 @@ var _App2 = _interopRequireDefault(_App);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 document.addEventListener("DOMContentLoaded", function (event) {
-	_preact2.default.render(_preact2.default.h(_App2.default, null), document.getElementById("root"));
+	_preact2.default.render(_preact2.default.h(_App2.default, null), document.getElementById("app"));
 });
 
 /***/ }),
@@ -1535,8 +1535,9 @@ var App = function (_preact$Component) {
 	return App;
 }(_preact2.default.Component);
 
-exports.default = App;
 ;
+
+exports.default = App;
 
 /***/ }),
 /* 4 */
@@ -1606,8 +1607,9 @@ var EditableTextField = function (_preact$Component) {
 	return EditableTextField;
 }(_preact2.default.Component);
 
-exports.default = EditableTextField;
 ;
+
+exports.default = EditableTextField;
 
 /***/ })
 /******/ ]);
