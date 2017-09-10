@@ -1,6 +1,6 @@
-import { h, Component } from "preact";
+import preact from "preact";
 
-export default class EditableTextField extends Component {
+export default class EditableTextField extends preact.Component {
 	constructor() {
 		super();
 	}

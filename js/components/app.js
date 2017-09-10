@@ -1,7 +1,7 @@
-import { h, Component } from "preact";
+import preact from "preact";
 import EditableTextField from "./EditableTextField";
 
-export default class App extends Component {
+export default class App extends preact.Component {
 	render() {
 		return (
 			<div class="app">

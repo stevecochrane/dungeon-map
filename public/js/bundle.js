@@ -1051,6 +1051,8 @@ var preact = {
 
 var _preact = __webpack_require__(0);
 
+var _preact2 = _interopRequireDefault(_preact);
+
 __webpack_require__(2);
 
 var _App = __webpack_require__(3);
@@ -1060,7 +1062,7 @@ var _App2 = _interopRequireDefault(_App);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 document.addEventListener("DOMContentLoaded", function (event) {
-	(0, _preact.render)((0, _preact.h)(_App2.default, null), document.getElementById("root"));
+	_preact2.default.render(_preact2.default.h(_App2.default, null), document.getElementById("root"));
 });
 
 /***/ }),
@@ -1491,6 +1493,8 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _preact = __webpack_require__(0);
 
+var _preact2 = _interopRequireDefault(_preact);
+
 var _EditableTextField = __webpack_require__(4);
 
 var _EditableTextField2 = _interopRequireDefault(_EditableTextField);
@@ -1503,8 +1507,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var App = function (_Component) {
-	_inherits(App, _Component);
+var App = function (_preact$Component) {
+	_inherits(App, _preact$Component);
 
 	function App() {
 		_classCallCheck(this, App);
@@ -1515,21 +1519,21 @@ var App = function (_Component) {
 	_createClass(App, [{
 		key: "render",
 		value: function render() {
-			return (0, _preact.h)(
+			return _preact2.default.h(
 				"div",
 				{ "class": "app" },
-				(0, _preact.h)(
+				_preact2.default.h(
 					"h1",
 					null,
 					"Hello! This is the App component."
 				),
-				(0, _preact.h)(_EditableTextField2.default, null)
+				_preact2.default.h(_EditableTextField2.default, null)
 			);
 		}
 	}]);
 
 	return App;
-}(_preact.Component);
+}(_preact2.default.Component);
 
 exports.default = App;
 ;
@@ -1549,14 +1553,18 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _preact = __webpack_require__(0);
 
+var _preact2 = _interopRequireDefault(_preact);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var EditableTextField = function (_Component) {
-	_inherits(EditableTextField, _Component);
+var EditableTextField = function (_preact$Component) {
+	_inherits(EditableTextField, _preact$Component);
 
 	function EditableTextField() {
 		_classCallCheck(this, EditableTextField);
@@ -1574,7 +1582,7 @@ var EditableTextField = function (_Component) {
 	}, {
 		key: "render",
 		value: function render() {
-			return (0, _preact.h)(
+			return _preact2.default.h(
 				"h1",
 				{ onClick: this._showEditor.bind(this) },
 				"This is an editable text field. Click on me to edit!"
@@ -1596,7 +1604,7 @@ var EditableTextField = function (_Component) {
 	}]);
 
 	return EditableTextField;
-}(_preact.Component);
+}(_preact2.default.Component);
 
 exports.default = EditableTextField;
 ;
