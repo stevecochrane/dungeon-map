@@ -3,11 +3,11 @@ import EditableTextField from "./EditableTextField";
 import Map from "./Map";
 
 var mapData = [
-	0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0
+	[ 0, 0, 0, 0, 0 ],
+	[ 0, 0, 0, 0, 0 ],
+	[ 0, 0, 0, 0, 0 ],
+	[ 0, 0, 0, 0, 0 ],
+	[ 0, 0, 0, 0, 0 ]
 ];
 
 class App extends preact.Component {
