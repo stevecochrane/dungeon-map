@@ -1566,25 +1566,25 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var EditableTextField = function (_preact$Component) {
 	_inherits(EditableTextField, _preact$Component);
 
-	function EditableTextField() {
+	function EditableTextField(props) {
 		_classCallCheck(this, EditableTextField);
 
-		return _possibleConstructorReturn(this, (EditableTextField.__proto__ || Object.getPrototypeOf(EditableTextField)).call(this));
+		var _this = _possibleConstructorReturn(this, (EditableTextField.__proto__ || Object.getPrototypeOf(EditableTextField)).call(this, props));
+
+		_this._showEditor = _this._showEditor.bind(_this);
+
+		_this.state = {
+			isEditing: true
+		};
+		return _this;
 	}
 
 	_createClass(EditableTextField, [{
-		key: "componentWillMount",
-		value: function componentWillMount() {
-			this.setState({
-				isEditing: true
-			});
-		}
-	}, {
 		key: "render",
 		value: function render() {
 			return _preact2.default.h(
 				"h1",
-				{ onClick: this._showEditor.bind(this) },
+				{ onClick: this._showEditor },
 				"This is an editable text field. Click on me to edit!"
 			);
 		}

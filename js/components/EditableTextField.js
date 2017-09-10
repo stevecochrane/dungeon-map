@@ -4,13 +4,15 @@ export default class EditableTextField extends preact.Component {
 	constructor(props) {
 		super(props);
 
+		this._showEditor = this._showEditor.bind(this);
+
 		this.state = {
 			isEditing: true
 		};
 	}
 	render() {
 		return (
-			<h1 onClick={this._showEditor.bind(this)}>This is an editable text field. Click on me to edit!</h1>
+			<h1 onClick={this._showEditor}>This is an editable text field. Click on me to edit!</h1>
 		);
 	}
 	_showEditor() {
