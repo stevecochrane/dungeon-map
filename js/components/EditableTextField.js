@@ -1,13 +1,12 @@
 import preact from "preact";
 
 export default class EditableTextField extends preact.Component {
-	constructor() {
-		super();
-	}
-	componentWillMount() {
-		this.setState({
+	constructor(props) {
+		super(props);
+
+		this.state = {
 			isEditing: true
-		});
+		};
 	}
 	render() {
 		return (
