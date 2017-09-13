@@ -8,7 +8,7 @@
   "scripts": {
     "build": "webpack",
     "start": "node dungeon-map.js",
-    "watch": "webpack --watch"
+    "watch": "webpack --progress --watch"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
