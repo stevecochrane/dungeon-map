@@ -7,7 +7,8 @@
   "main": "dungeon-map.js",
   "scripts": {
     "build": "webpack",
-    "start": "node dungeon-map.js",
+    "start": "webpack-dev-server --open",
+    "server": "node dungeon-map.js",
     "watch": "webpack --progress --watch"
   },
   "devDependencies": {
