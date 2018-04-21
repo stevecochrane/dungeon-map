@@ -1,6 +1,6 @@
-import preact from "preact";
+import React from "react";
 
-class Map extends preact.Component {
+class Map extends React.Component {
 	constructor(props) {
 		super(props);
 

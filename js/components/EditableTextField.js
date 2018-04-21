@@ -1,6 +1,6 @@
-import preact from "preact";
+import React from "react";
 
-class EditableTextField extends preact.Component {
+class EditableTextField extends React.Component {
 	constructor(props) {
 		super(props);
 

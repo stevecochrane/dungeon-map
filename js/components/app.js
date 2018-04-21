@@ -1,4 +1,4 @@
-import preact from "preact";
+import React from "react";
 import EditableTextField from "./EditableTextField";
 import Map from "./Map";
 
@@ -10,7 +10,7 @@ var mapData = [
 	[ 0, 0, 0, 0, 0 ]
 ];
 
-class App extends preact.Component {
+class App extends React.Component {
 	render() {
 		return (
 			<div class="app">

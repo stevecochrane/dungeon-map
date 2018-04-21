@@ -1,8 +1,8 @@
-import preact from "preact";
-import "preact/devtools";
+import React from "react";
+import ReactDOM from "react-dom";
 
 import App from "./components/App";
 
 document.addEventListener("DOMContentLoaded", function(event) {
-	preact.render(<App />, document.getElementById("app"));
+	ReactDOM.render(<App />, document.getElementById("app"));
 });
