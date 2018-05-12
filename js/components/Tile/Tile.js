@@ -19,9 +19,8 @@ class Tile extends React.Component {
 		return(
 			<div
 				className={className}
-				onClick={() => { this._toggleTile(); }}>
-				Tile
-			</div>
+				onClick={() => { this._toggleTile(); }}
+			></div>
 		);
 	}
 	_toggleTile() {
