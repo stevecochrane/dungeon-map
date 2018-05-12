@@ -13,13 +13,13 @@ var mapData = [
 class App extends React.Component {
 	render() {
 		return (
-			<div class="app">
+			<div className="app">
 				<h1>DUNGEON MAP</h1>
 				<EditableTextField />
 				<Map initialData={mapData} />
 			</div>
-		)
+		);
 	}
-};
+}
 
 export default App;

@@ -26,6 +26,6 @@ class EditableTextField extends React.Component {
 			});
 		}
 	}
-};
+}
 
 export default EditableTextField;

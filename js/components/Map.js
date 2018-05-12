@@ -6,7 +6,7 @@ class Map extends React.Component {
 
 		this.state = {
 			data: props.initialData
-		}
+		};
 	}
 	render() {
 		return (
@@ -27,6 +27,6 @@ class Map extends React.Component {
 			</table>
 		);
 	}
-};
+}
 
 export default Map;
