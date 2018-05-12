@@ -10,6 +10,17 @@ module.exports = {
 		rules: [
 			{
 				test: /\.css$/,
+				exclude: /node_modules/,
+				enforce: "pre",
+				loader: "postcss-loader",
+				options: {
+					plugins: () => {[
+						require("stylelint")()
+					]}
+				}
+			},
+			{
+				test: /\.css$/,
 				use: [
 					"style-loader",
 					"css-loader",
@@ -17,7 +28,7 @@ module.exports = {
 						loader: "postcss-loader",
 						options: {
 							plugins: () => ([
-								require("autoprefixer")
+								require("autoprefixer")()
 							])
 						}
 					}

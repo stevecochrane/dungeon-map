@@ -11,6 +11,7 @@
   "main": "dungeon-map.js",
   "scripts": {
     "build": "webpack --mode=production",
+    "lint:css": "stylelint css/*.css",
     "lint:js": "eslint --ignore-path .eslintignore --cache .",
     "server": "node dungeon-map.js",
     "start": "webpack-dev-server --open",
@@ -31,6 +32,7 @@
     "react": "~16.3.2",
     "react-dom": "~16.3.2",
     "style-loader": "^0.21.0",
+    "stylelint": "^9.2.0",
     "webpack": "~4.8.2",
     "webpack-cli": "~2.1.3",
     "webpack-dev-server": "~3.1.3"
