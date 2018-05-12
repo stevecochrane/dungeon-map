@@ -13,7 +13,15 @@ module.exports = {
 				exclude: /node_modules/,
 				use: [
 					"style-loader",
-					"css-loader"
+					"css-loader",
+					{
+						loader: "postcss-loader",
+						options: {
+							plugins: () => ([
+								require("autoprefixer")
+							])
+						}
+					}
 				],
 			},
 			{
