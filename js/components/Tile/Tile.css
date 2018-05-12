@@ -1,0 +1,9 @@
+.Tile {
+	background: #ddd;
+	height: 100px;
+	width: 100px;
+}
+
+.Tile.is-active {
+	background: #96ccff;
+}

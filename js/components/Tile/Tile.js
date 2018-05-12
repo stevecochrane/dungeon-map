@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./Tile.css";
+
 class Tile extends React.Component {
 	constructor(props) {
 		super(props);
@@ -9,9 +11,14 @@ class Tile extends React.Component {
 		};
 	}
 	render() {
+		let className = "Tile";
+		if (this.state.isActive) {
+			className += " is-active";
+		}
+
 		return(
 			<div
-				className={this.state.isActive ? "is-active" : ""}
+				className={className}
 				onClick={() => { this._toggleTile(); }}>
 				Tile
 			</div>
