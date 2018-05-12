@@ -7,8 +7,9 @@
   "main": "dungeon-map.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --open",
+    "lint:js": "eslint --ignore-path .eslintignore --cache .",
     "server": "node dungeon-map.js",
+    "start": "webpack-dev-server --open",
     "watch": "webpack --progress --watch"
   },
   "devDependencies": {
