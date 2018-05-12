@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 class Map extends React.Component {
 	constructor(props) {
@@ -28,5 +29,9 @@ class Map extends React.Component {
 		);
 	}
 }
+
+Map.propTypes = {
+	initialData: PropTypes.array
+};
 
 export default Map;
