@@ -1,6 +1,7 @@
 import React from "react";
-import EditableTextField from "./EditableTextField";
-import Tile from "./Tile";
+
+import EditableTextField from "../EditableTextField/EditableTextField";
+import Tile from "../Tile/Tile";
 
 class App extends React.Component {
 	render() {
