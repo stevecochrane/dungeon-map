@@ -4,29 +4,26 @@ import PropTypes from "prop-types";
 class Map extends React.Component {
 	constructor(props) {
 		super(props);
-
-		this.state = {
-			data: props.initialData
-		};
 	}
 	render() {
-		return (
-			<table>
-				<tbody>
-					{this.state.data.map(function(tableRow) {
-						return (
-							<tr>
-								{tableRow.map(function(tableCell) {
-									return (
-										<td></td>
-									);
-								})}
-							</tr>
-						);
-					})}
-				</tbody>
-			</table>
-		);
+		return(<div></div>);
+		// return (
+		// 	<table>
+		// 		<tbody>
+		// 			{this.state.data.map(function(tableRow) {
+		// 				return (
+		// 					<tr>
+		// 						{tableRow.map(function() {
+		// 							return (
+		// 								<td></td>
+		// 							);
+		// 						})}
+		// 					</tr>
+		// 				);
+		// 			})}
+		// 		</tbody>
+		// 	</table>
+		// );
 	}
 }
 
