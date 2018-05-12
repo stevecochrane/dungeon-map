@@ -11,11 +11,20 @@ class Map extends React.Component {
 	render() {
 		return(
 			<div className="Map">
-				<Tile />
-				<Tile />
-				<Tile />
-				<Tile />
-				<Tile />
+				<div className="Map-row">
+					<Tile />
+					<Tile />
+					<Tile />
+					<Tile />
+					<Tile />
+				</div>
+				<div className="Map-row">
+					<Tile />
+					<Tile />
+					<Tile />
+					<Tile />
+					<Tile />
+				</div>
 			</div>
 		);
 	}
