@@ -3,6 +3,6 @@ import ReactDOM from "react-dom";
 
 import App from "./components/App";
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function() {
 	ReactDOM.render(<App />, document.getElementById("app"));
 });

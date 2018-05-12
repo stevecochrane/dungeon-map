@@ -12,10 +12,10 @@ class Map extends React.Component {
 		return (
 			<table>
 				<tbody>
-					{this.state.data.map(function(tableRow, rowIndex) {
+					{this.state.data.map(function(tableRow) {
 						return (
 							<tr>
-								{tableRow.map(function(tableCell, cellIndex) {
+								{tableRow.map(function(tableCell) {
 									return (
 										<td></td>
 									);
