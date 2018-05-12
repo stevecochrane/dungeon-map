@@ -18,15 +18,10 @@ class Tile extends React.Component {
 		);
 	}
 	_toggleTile() {
-		if (this.state.isActive) {
-			this.setState({
-				isActive: false
-			});
-		} else {
-			this.setState({
-				isActive: true
-			});
-		}
+		let toggled = !this.state.isActive;
+		this.setState({
+			isActive: toggled
+		});
 	}
 }
 
