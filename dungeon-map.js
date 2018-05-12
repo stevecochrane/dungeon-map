@@ -14,7 +14,7 @@ app.set("strict routing", true);
 app.set("port", process.env.PORT || 3000);
 
 //	Set /views as the default views directory
-app.set("views", "./views");
+app.set("views", "./app/views");
 
 //	Set Pug as the default template engine
 app.set("view engine", "pug");
