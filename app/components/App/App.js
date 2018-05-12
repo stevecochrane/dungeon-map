@@ -1,7 +1,7 @@
 import React from "react";
 
 import EditableTextField from "../EditableTextField/EditableTextField";
-import Tile from "../Tile/Tile";
+import Map from "../Map/Map";
 
 class App extends React.Component {
 	render() {
@@ -9,7 +9,7 @@ class App extends React.Component {
 			<div className="app">
 				<h1>DUNGEON MAP</h1>
 				<EditableTextField />
-				<Tile />
+				<Map />
 			</div>
 		);
 	}
