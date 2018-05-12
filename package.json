@@ -4,6 +4,10 @@
   "description": "A React web applicaton for mapping old videogames.",
   "author": "Steve Cochrane <steve@stevecochrane.com>",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stevecochrane/dungeon-map.git"
+  },
   "main": "dungeon-map.js",
   "scripts": {
     "build": "webpack",
