@@ -18,7 +18,8 @@ module.exports = merge([
 		},
 		plugins: [
 			new HtmlWebpackPlugin({
-				title: "Dungeon Map"
+				inject: true,
+				template: "app/templates/index.html"
 			})
 		]
 	},

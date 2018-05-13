@@ -1,5 +1,6 @@
 const compression = require("compression");
 const express     = require("express");
+const path        = require("path");
 
 //	Initialize Express
 const app = express();
@@ -13,21 +14,15 @@ app.set("strict routing", true);
 //	Default to port 3000
 app.set("port", process.env.PORT || 3000);
 
-//	Set /views as the default views directory
-app.set("views", "./app/views");
-
-//	Set Pug as the default template engine
-app.set("view engine", "pug");
-
 //	Compress all requests
 app.use(compression());
 
-//	Set contents of /public to be served as static files with "/static/" URL prefix
-app.use("/static", express.static(__dirname + "/public"));
+//	Set contents of /public to be served as static files at base directory
+app.use("/", express.static(__dirname + "/public"));
 
 //	Default app view, which displays all elements from the API
 app.get("/", function(req, res) {
-	res.render("index");
+	res.render("/index.html");
 });
 
 //	Handle 404 errors
