@@ -6,6 +6,7 @@ const clean              = require("./parts/clean");
 const commonConfig       = require("./common");
 const extractCSS         = require("./parts/extractCSS");
 const generateSourceMaps = require("./parts/generateSourceMaps");
+const minifyJS           = require("./parts/minifyJS");
 const paths              = require("./parts/paths");
 
 const productionConfig = merge([
@@ -25,6 +26,7 @@ const productionConfig = merge([
 		]
 	},
 	clean(paths.build),
+	minifyJS(),
 	generateSourceMaps({
 		type: "source-map"
 	}),
