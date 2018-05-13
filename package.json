@@ -10,12 +10,12 @@
   },
   "main": "dungeon-map.js",
   "scripts": {
-    "build": "webpack --config webpack.prod.config.js",
+    "build": "webpack --config webpack/production.js",
     "lint:css": "stylelint css/*.css",
     "lint:js": "eslint --ignore-path .eslintignore --cache .",
     "server": "node dungeon-map.js",
-    "start": "webpack-serve --config webpack.dev.config.js --open",
-    "watch": "webpack --config webpack.dev.config.js --progress --watch"
+    "start": "webpack-serve --config webpack/development.js --open",
+    "watch": "webpack --config webpack/development.js --progress --watch"
   },
   "devDependencies": {
     "autoprefixer": "^8.4.1",
