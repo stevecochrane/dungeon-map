@@ -1,8 +1,8 @@
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = ({ include, exclude, use }) => {
-	const plugin = new ExtractTextPlugin({
-		filename: "[name].[contenthash].css"
+	const plugin = new MiniCssExtractPlugin({
+		filename: "[name].[chunkhash].css"
 	});
 
 	return {
@@ -12,10 +12,9 @@ module.exports = ({ include, exclude, use }) => {
 					test: /\.css$/,
 					include,
 					exclude,
-					use: plugin.extract({
-						use,
-						fallback: "style-loader"
-					})
+					use: [
+						MiniCssExtractPlugin.loader
+					].concat(use)
 				}
 			]
 		},
