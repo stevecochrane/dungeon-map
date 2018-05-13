@@ -14,7 +14,21 @@ while playing them.
 Here's how to get it running:
 
 ```bash
+# Install dependencies
 npm install
+
+# Lint test CSS
+npm run lint:css
+
+# Lint test JavaScript
+npm run lint:js
+
+# Run in development mode
+npm run start
+
+# Build for production
 npm run build
-npm start
+
+# Run in production mode
+npm run server
 ```
