@@ -1,4 +1,5 @@
-const merge = require("webpack-merge");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const merge             = require("webpack-merge");
 
 const lintCSS = require("./parts/lintCSS");
 const lintJS  = require("./parts/lintJS");
@@ -14,7 +15,12 @@ module.exports = merge([
 		output: {
 			path:     paths.build,
 			filename: "[name].js"
-		}
+		},
+		plugins: [
+			new HtmlWebpackPlugin({
+				title: "Dungeon Map"
+			})
+		]
 	},
 	lintJS({
 		include: paths.app
