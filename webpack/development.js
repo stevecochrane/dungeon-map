@@ -1,57 +1,25 @@
-const path = require("path");
+const merge = require("webpack-merge");
 
-module.exports = {
-	mode: "development",
-	entry: "./app/index.js",
-	output: {
-		filename: "bundle.js",
-		path: path.join(__dirname, "/public/js")
+const commonConfig       = require("./common");
+const devServer          = require("./parts/devServer");
+const generateSourceMaps = require("./parts/generateSourceMaps");
+const loadCSS            = require("./parts/loadCSS");
+
+const developmentConfig = merge([
+	{
+		output: {
+			devtoolModuleFilenameTemplate: "webpack:///[absolute-resource-path]"
+		}
 	},
-	module: {
-		rules: [
-			{
-				test: /\.css$/,
-				exclude: /node_modules/,
-				enforce: "pre",
-				loader: "postcss-loader",
-				options: {
-					plugins: () => {[
-						require("stylelint")()
-					]}
-				}
-			},
-			{
-				test: /\.css$/,
-				use: [
-					"style-loader",
-					"css-loader",
-					{
-						loader: "postcss-loader",
-						options: {
-							plugins: () => ([
-								require("autoprefixer")()
-							])
-						}
-					}
-				],
-			},
-			{
-				test: /\.js$/,
-				exclude: /node_modules/,
-				enforce: "pre",
-				loader: "eslint-loader",
-				options: {
-					emitWarning: true
-				}
-			},
-			{
-				test: /\.js$/,
-				exclude: /node_modules/,
-				loader: "babel-loader",
-				options: {
-					cacheDirectory: true
-				}
-			}
-		]
-	}
-};
+	generateSourceMaps({
+		type: "cheap-module-eval-source-map"
+	}),
+	devServer({
+		//	Customize host/port here if needed
+		host: process.env.HOST,
+		port: process.env.PORT
+	}),
+	loadCSS()
+]);
+
+module.exports = merge(commonConfig, developmentConfig);

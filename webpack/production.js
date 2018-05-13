@@ -1,57 +1,38 @@
-const path = require("path");
+const merge   = require("webpack-merge");
+const webpack = require("webpack");
 
-module.exports = {
-	mode: "production",
-	entry: "./app/index.js",
-	output: {
-		filename: "bundle.js",
-		path: path.join(__dirname, "/public/js")
-	},
-	module: {
-		rules: [
-			{
-				test: /\.css$/,
-				exclude: /node_modules/,
-				enforce: "pre",
-				loader: "postcss-loader",
-				options: {
-					plugins: () => {[
-						require("stylelint")()
-					]}
-				}
-			},
-			{
-				test: /\.css$/,
-				use: [
-					"style-loader",
-					"css-loader",
-					{
-						loader: "postcss-loader",
-						options: {
-							plugins: () => ([
-								require("autoprefixer")()
-							])
-						}
-					}
-				],
-			},
-			{
-				test: /\.js$/,
-				exclude: /node_modules/,
-				enforce: "pre",
-				loader: "eslint-loader",
-				options: {
-					emitWarning: true
-				}
-			},
-			{
-				test: /\.js$/,
-				exclude: /node_modules/,
-				loader: "babel-loader",
-				options: {
-					cacheDirectory: true
-				}
-			}
+const autoprefix         = require("./parts/autoprefix");
+const clean              = require("./parts/clean");
+const commonConfig       = require("./common");
+const extractCSS         = require("./parts/extractCSS");
+const generateSourceMaps = require("./parts/generateSourceMaps");
+const paths              = require("./parts/paths");
+
+const productionConfig = merge([
+	{
+		output: {
+			chunkFilename: "[name].[chunkhash].js",
+			filename: "[name].[chunkhash].js"
+		},
+		performance: {
+			hints: "warning",
+			maxEntrypointSize: 100000,
+			maxAssetSize: 450000
+		},
+		plugins: [
+			new webpack.HashedModuleIdsPlugin()
 		]
-	}
-};
+	},
+	clean(paths.build),
+	generateSourceMaps({
+		type: "source-map"
+	}),
+	extractCSS({
+		use: [
+			"css-loader",
+			autoprefix()
+		]
+	})
+]);
+
+module.exports = merge(commonConfig, productionConfig);
