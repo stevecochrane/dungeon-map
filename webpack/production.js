@@ -10,6 +10,7 @@ const paths              = require("./parts/paths");
 
 const productionConfig = merge([
 	{
+		mode: "production",
 		output: {
 			chunkFilename: "[name].[chunkhash].js",
 			filename: "[name].[chunkhash].js"

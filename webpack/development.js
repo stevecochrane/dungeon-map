@@ -7,6 +7,7 @@ const loadCSS            = require("./parts/loadCSS");
 
 const developmentConfig = merge([
 	{
+		mode: "development",
 		output: {
 			devtoolModuleFilenameTemplate: "webpack:///[absolute-resource-path]"
 		}
