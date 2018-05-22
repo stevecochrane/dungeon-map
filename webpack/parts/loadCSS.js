@@ -1,4 +1,4 @@
-const autoprefix = require("./autoprefix");
+const postCSS = require("./postCSS");
 
 module.exports = ({ include, exclude } = {}) => ({
 	module: {
@@ -10,7 +10,7 @@ module.exports = ({ include, exclude } = {}) => ({
 				use: [
 					"style-loader",
 					"css-loader",
-					autoprefix()
+					postCSS()
 				]
 			}
 		]
