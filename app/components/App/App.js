@@ -6,7 +6,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="app">
-				<h1>Dungeon Map</h1>
+				<h1 className="text-center">Dungeon Map</h1>
 				<Map />
 			</div>
 		);
