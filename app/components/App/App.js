@@ -5,8 +5,8 @@ import Map from "../Map/Map";
 class App extends React.Component {
 	render() {
 		return (
-			<div className="app">
-				<h1 className="text-center">Dungeon Map</h1>
+			<div>
+				<h1 className="py-8 text-center">Dungeon Map</h1>
 				<Map />
 			</div>
 		);
