@@ -10,7 +10,7 @@ class Map extends React.Component {
 	}
 	render() {
 		return(
-			<div className="Map">
+			<div className={`Map ${this.props.className}`}>
 				<div className="Map-row">
 					<Tile />
 					<Tile />
@@ -31,6 +31,7 @@ class Map extends React.Component {
 }
 
 Map.propTypes = {
+	className: PropTypes.string,
 	initialData: PropTypes.array
 };
 
