@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Tile from "../Tile/Tile";
-import "./Map.css";
 
 class Map extends React.Component {
 	constructor(props) {
@@ -11,14 +10,14 @@ class Map extends React.Component {
 	render() {
 		return(
 			<div className={`Map ${this.props.className}`}>
-				<div className="Map-row">
+				<div className="Map-row flex justify-center">
 					<Tile />
 					<Tile />
 					<Tile />
 					<Tile />
 					<Tile />
 				</div>
-				<div className="Map-row">
+				<div className="Map-row flex justify-center">
 					<Tile />
 					<Tile />
 					<Tile />
