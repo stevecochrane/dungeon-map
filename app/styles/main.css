@@ -2,14 +2,4 @@
 
 @tailwind components;
 
-*,
-*::before,
-*::after {
-	box-sizing: inherit;
-}
-
-html {
-	box-sizing: border-box;
-}
-
 @tailwind utilities;
