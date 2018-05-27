@@ -2,10 +2,6 @@
 
 @tailwind components;
 
-:root {
-	--backgroundColor: #fff;
-}
-
 *,
 *::before,
 *::after {
@@ -14,10 +10,6 @@
 
 html {
 	box-sizing: border-box;
-}
-
-body {
-	background: var(--backgroundColor);
 }
 
 @tailwind utilities;
