@@ -1,8 +1,8 @@
 .Tile {
 	background: #ddd;
 	border: 2px solid #fff;
-	height: 100px;
-	width: 100px;
+	height: 30px;
+	width: 30px;
 }
 
 .Tile.is-active {
