@@ -2,7 +2,7 @@ import React from "react";
 
 import Map from "../Map/Map";
 
-class App extends React.Component {
+export default class App extends React.Component {
 	render() {
 		return (
 			<div className="flex flex-col flex-grow">
@@ -12,5 +12,3 @@ class App extends React.Component {
 		);
 	}
 }
-
-export default App;

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import Tile from "../Tile/Tile";
 
-class Map extends React.Component {
+export default class Map extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -28,7 +28,7 @@ class Map extends React.Component {
 						<div key={rowIndex} className="Map-row flex justify-center">
 							{row.map(function(column, columnIndex) {
 								return(
-									<Tile key={columnIndex} />
+									<Tile key={columnIndex}  />
 								);
 							}, this)}
 						</div>
@@ -44,5 +44,3 @@ Map.propTypes = {
 	columns: PropTypes.number,
 	rows: PropTypes.number
 };
-
-export default Map;

@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Tile.css";
 
-class Tile extends React.Component {
+export default class Tile extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -30,5 +30,3 @@ class Tile extends React.Component {
 		});
 	}
 }
-
-export default Tile;
