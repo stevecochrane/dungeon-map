@@ -23,17 +23,24 @@ export default class Map extends React.Component {
 		//	TODO: Don't use indexes as key values
 		return(
 			<div className={`Map ${this.props.className}`}>
-				{this.state.data.map(function(row, rowIndex) {
+				{this.state.data.map((row, rowIndex) => {
 					return(
 						<div key={rowIndex} className="Map-row flex justify-center">
-							{row.map(function(column, columnIndex) {
+							{row.map((column, columnIndex) => {
+								let tileProps = {};
+								if (rowIndex === this.props.rows - 1) {
+									tileProps.hasBottomWall = true;
+								}
+								if (columnIndex === this.props.columns - 1) {
+									tileProps.hasRightWall = true;
+								}
 								return(
-									<Tile key={columnIndex}  />
+									<Tile key={columnIndex} {...tileProps} />
 								);
-							}, this)}
+							})}
 						</div>
 					);
-				}, this)}
+				})}
 			</div>
 		);
 	}
