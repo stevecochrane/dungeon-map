@@ -1,8 +1,10 @@
 .Tile {
+	--tileDepth: 30px;
+	--wallDepth: 4px;
 	background: #ddd;
-	height: 34px;
+	height: calc(var(--tileDepth) + var(--wallDepth));
 	position: relative;
-	width: 34px;
+	width: calc(var(--tileDepth) + var(--wallDepth));
 }
 
 .Tile.is-active {
@@ -10,11 +12,11 @@
 }
 
 .Tile.is-hasRightWall {
-	width: 38px;
+	width: calc(var(--tileDepth) + (var(--wallDepth) * 2));
 }
 
 .Tile.is-hasBottomWall {
-	height: 38px;
+	height: calc(var(--tileDepth) + (var(--wallDepth) * 2));
 }
 
 .Tile-wall {
@@ -25,7 +27,7 @@
 
 .Tile-wall--top,
 .Tile-wall--bottom {
-	height: 4px;
+	height: var(--wallDepth);
 	left: 0;
 	right: 0;
 }
@@ -42,7 +44,7 @@
 .Tile-wall--right {
 	bottom: 0;
 	top: 0;
-	width: 4px;
+	width: var(--wallDepth);
 }
 
 .Tile-wall--left {
