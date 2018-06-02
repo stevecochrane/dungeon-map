@@ -1,10 +1,54 @@
 .Tile {
 	background: #ddd;
-	border: 2px solid #fff;
-	height: 30px;
-	width: 30px;
+	height: 34px;
+	position: relative;
+	width: 34px;
 }
 
 .Tile.is-active {
 	background: #96ccff;
+}
+
+.Tile.is-hasRightWall {
+	width: 38px;
+}
+
+.Tile.is-hasBottomWall {
+	height: 38px;
+}
+
+.Tile-wall {
+	background: #fff;
+	cursor: pointer;
+	position: absolute;
+}
+
+.Tile-wall--top,
+.Tile-wall--bottom {
+	height: 4px;
+	left: 0;
+	right: 0;
+}
+
+.Tile-wall--top {
+	top: 0;
+}
+
+.Tile-wall--bottom {
+	bottom: 0;
+}
+
+.Tile-wall--left,
+.Tile-wall--right {
+	bottom: 0;
+	top: 0;
+	width: 4px;
+}
+
+.Tile-wall--left {
+	left: 0;
+}
+
+.Tile-wall--right {
+	right: 0;
 }
