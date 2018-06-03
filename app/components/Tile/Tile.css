@@ -1,14 +1,14 @@
 .Tile {
 	--tileDepth: 30px;
 	--wallDepth: 4px;
-	background: #ddd;
+	background: #f1f5f8; /* "grey-lighter" color in Tailwind */
 	height: calc(var(--tileDepth) + var(--wallDepth));
 	position: relative;
 	width: calc(var(--tileDepth) + var(--wallDepth));
 }
 
 .Tile.is-active {
-	background: #96ccff;
+	background-color: #3490dc; /* "blue-lighter" color in Tailwind */
 }
 
 .Tile.is-hasRightWall {
@@ -20,9 +20,13 @@
 }
 
 .Tile-wall {
-	background: #fff;
+	background: #fff; /* "white" color in Tailwind */
 	cursor: pointer;
 	position: absolute;
+}
+
+.Tile-wall.is-active {
+	background: #1c3d5a; /* "blue-darker" color in Tailwind */
 }
 
 .Tile-wall--top,
