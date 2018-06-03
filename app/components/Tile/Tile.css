@@ -1,14 +1,17 @@
+/*	TODO: Find a way to get Tailwind @apply for utilities to work.
+	This will probably require going away from importing CSS as a module. */
+
 .Tile {
 	--tileDepth: 30px;
 	--wallDepth: 4px;
-	background: #f1f5f8; /* "grey-lighter" color in Tailwind */
+	background: #f1f5f8; /* "bg-grey-lighter" utility in Tailwind */
 	height: calc(var(--tileDepth) + var(--wallDepth));
 	position: relative;
 	width: calc(var(--tileDepth) + var(--wallDepth));
 }
 
 .Tile.is-active {
-	background-color: #3490dc; /* "blue-lighter" color in Tailwind */
+	background-color: #3490dc; /* "bg-blue-lighter" utility in Tailwind */
 }
 
 .Tile.is-hasRightWall {
@@ -20,20 +23,21 @@
 }
 
 .Tile-wall {
-	background: #fff; /* "white" color in Tailwind */
+	background: #fff; /* "bg-white" utility in Tailwind */
 	cursor: pointer;
 	position: absolute;
 }
 
 .Tile-wall.is-active {
-	background: #1c3d5a; /* "blue-darker" color in Tailwind */
+	background: #1c3d5a; /* "bg-blue-darker" utility in Tailwind */
+	z-index: 10; /* "z-10" utility in Tailwind */
 }
 
 .Tile-wall--top,
 .Tile-wall--bottom {
 	height: var(--wallDepth);
 	left: 0;
-	right: 0;
+	right: calc(var(--wallDepth) * -1);
 }
 
 .Tile-wall--top {
@@ -46,7 +50,7 @@
 
 .Tile-wall--left,
 .Tile-wall--right {
-	bottom: 0;
+	bottom: calc(var(--wallDepth) * -1);
 	top: 0;
 	width: var(--wallDepth);
 }
