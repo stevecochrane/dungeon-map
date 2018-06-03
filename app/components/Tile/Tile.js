@@ -23,38 +23,46 @@ export default class Tile extends React.Component {
 	}
 
 	render() {
-		let className = "Tile";
+		let tileClassName = "Tile";
 		if (this.props.hasRightWall) {
-			className += " is-hasRightWall";
+			tileClassName += " is-hasRightWall";
 		}
 		if (this.props.hasBottomWall) {
-			className += " is-hasBottomWall";
+			tileClassName += " is-hasBottomWall";
 		}
 		if (this.state.isActive) {
-			className += " is-active";
+			tileClassName += " is-active";
 		}
+
+		let topWallClassName = "Tile-wall Tile-wall--top";
 		if (this.state.isTopWallActive) {
-			className += " is-topWallActive";
+			topWallClassName += " is-active";
 		}
+
+		let leftWallClassName = "Tile-wall Tile-wall--left";
 		if (this.state.isLeftWallActive) {
-			className += " is-leftWallActive";
+			leftWallClassName += " is-active";
 		}
+
+		let rightWallClassName = "Tile-wall Tile-wall--right";
 		if (this.state.isRightWallActive) {
-			className += " is-rightWallActive";
+			rightWallClassName += " is-active";
 		}
+
+		let bottomWallClassName = "Tile-wall Tile-wall--bottom";
 		if (this.state.isBottomWallActive) {
-			className += " is-bottomWallActive";
+			bottomWallClassName += " is-active";
 		}
 
 		return(
-			<div className={className} onClick={() => { this._toggleTile(); }}>
-				<div className="Tile-wall Tile-wall--top" onClick={() => { this._toggleTopWall(); }}></div>
-				<div className="Tile-wall Tile-wall--left" onClick={() => { this._toggleLeftWall(); }}></div>
+			<div className={tileClassName} onClick={() => { this._toggleTile(); }}>
+				<div className={topWallClassName} onClick={() => { this._toggleTopWall(); }}></div>
+				<div className={leftWallClassName} onClick={() => { this._toggleLeftWall(); }}></div>
 				{this.props.hasRightWall &&
-					<div className="Tile-wall Tile-wall--right" onClick={() => { this._toggleRightWall(); }}></div>
+					<div className={rightWallClassName} onClick={() => { this._toggleRightWall(); }}></div>
 				}
 				{this.props.hasBottomWall &&
-					<div className="Tile-wall Tile-wall--bottom" onClick={() => { this._toggleBottomWall(); }}></div>
+					<div className={bottomWallClassName} onClick={() => { this._toggleBottomWall(); }}></div>
 				}
 			</div>
 		);
