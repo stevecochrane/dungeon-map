@@ -4,10 +4,17 @@
 .Tile {
 	--tileDepth: 30px;
 	--wallDepth: 4px;
-	background: #f1f5f8; /* "bg-grey-lighter" utility in Tailwind */
+	background-color: #f1f5f8; /* "bg-grey-lighter" utility in Tailwind */
+	cursor: pointer;
 	height: calc(var(--tileDepth) + var(--wallDepth));
 	position: relative;
+	transition: background-color 0.3s;
 	width: calc(var(--tileDepth) + var(--wallDepth));
+}
+
+.Tile:hover {
+	background-color: #dae1e7; /* "bg-grey-light" utility in Tailwind */
+	transition: none;
 }
 
 .Tile.is-active {
@@ -23,14 +30,21 @@
 }
 
 .Tile-wall {
-	background: #fff; /* "bg-white" utility in Tailwind */
+	background-color: #fff; /* "bg-white" utility in Tailwind */
 	cursor: pointer;
 	position: absolute;
+	transition: background-color 0.3s;
+}
+
+.Tile-wall:hover {
+	background-color: #b8c2cc; /* "bg-blue-lighter" in Tailwind */
+	transition: none;
+	z-index: 10; /* "z-10" in Tailwind */
 }
 
 .Tile-wall.is-active {
 	background: #1c3d5a; /* "bg-blue-darker" utility in Tailwind */
-	z-index: 10; /* "z-10" utility in Tailwind */
+	z-index: 20; /* "z-20" utility in Tailwind */
 }
 
 .Tile-wall--top,
