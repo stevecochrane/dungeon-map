@@ -1,9 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-
 import Tile from "../Tile/Tile";
 
-export default class Map extends React.Component {
+class Map extends Component {
 	constructor(props) {
 		super(props);
 
@@ -51,3 +50,5 @@ Map.propTypes = {
 	columns: PropTypes.number,
 	rows: PropTypes.number
 };
+
+export default Map;

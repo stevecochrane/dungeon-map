@@ -1,9 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-
 import "./Tile.css";
 
-export default class Tile extends React.Component {
+class Tile extends Component {
 
 	constructor(props) {
 		super(props);
@@ -114,3 +113,5 @@ Tile.defaultProps = {
 	hasRightWall: false,
 	hasBottomWall: false
 };
+
+export default Tile;
