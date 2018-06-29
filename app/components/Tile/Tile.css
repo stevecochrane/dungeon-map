@@ -72,6 +72,11 @@
 	bottom: 0;
 }
 
+.Tile--withRightWall .Tile-wall--top,
+.Tile--withRightWall .Tile-wall--bottom {
+	right: 0;
+}
+
 .Tile-wall--left,
 .Tile-wall--right {
 	bottom: calc(var(--wallDepth) * -1);
@@ -85,4 +90,9 @@
 
 .Tile-wall--right {
 	right: 0;
+}
+
+.Tile--withBottomWall .Tile-wall--left,
+.Tile--withBottomWall .Tile-wall--right {
+	bottom: 0;
 }
