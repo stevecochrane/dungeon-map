@@ -24,10 +24,10 @@ class Tile extends Component {
 	render() {
 		let tileClassName = "Tile";
 		if (this.props.hasRightWall) {
-			tileClassName += " is-hasRightWall";
+			tileClassName += " Tile--withRightWall";
 		}
 		if (this.props.hasBottomWall) {
-			tileClassName += " is-hasBottomWall";
+			tileClassName += " Tile--withBottomWall";
 		}
 		if (this.state.isActive) {
 			tileClassName += " is-active";
@@ -54,7 +54,7 @@ class Tile extends Component {
 		}
 
 		return(
-			<div className={tileClassName} onClick={() => { this._toggleTile(); }}>
+			<div className={tileClassName}>
 				<div className={topWallClassName} onClick={() => { this._toggleTopWall(); }}></div>
 				<div className={leftWallClassName} onClick={() => { this._toggleLeftWall(); }}></div>
 				{this.props.hasRightWall &&
@@ -63,6 +63,7 @@ class Tile extends Component {
 				{this.props.hasBottomWall &&
 					<div className={bottomWallClassName} onClick={() => { this._toggleBottomWall(); }}></div>
 				}
+				<div className="Tile-surface" onClick={() => { this._toggleTile(); }}></div>
 			</div>
 		);
 	}

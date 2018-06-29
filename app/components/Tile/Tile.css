@@ -4,47 +4,57 @@
 .Tile {
 	--tileDepth: 30px;
 	--wallDepth: 4px;
-	background-color: #f1f5f8; /* "bg-grey-lighter" utility in Tailwind */
-	cursor: pointer;
+	--transitionDuration: 0.3s;
 	height: calc(var(--tileDepth) + var(--wallDepth));
 	position: relative;
-	transition: background-color 0.3s;
 	width: calc(var(--tileDepth) + var(--wallDepth));
 }
 
-.Tile:hover {
+.Tile--withRightWall {
+	width: calc(var(--tileDepth) + (var(--wallDepth) * 2));
+}
+
+.Tile--withBottomWall {
+	height: calc(var(--tileDepth) + (var(--wallDepth) * 2));
+}
+
+.Tile-surface {
+	background-color: #f1f5f8; /* "bg-grey-lighter" utility in Tailwind */
+	bottom: 0;
+	cursor: pointer;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transition: background-color var(--transitionDuration);
+}
+
+.Tile-surface:hover {
 	background-color: #dae1e7; /* "bg-grey-light" utility in Tailwind */
 	transition: none;
 }
 
-.Tile.is-active {
+.Tile.is-active .Tile-surface {
 	background-color: #3490dc; /* "bg-blue-lighter" utility in Tailwind */
-}
-
-.Tile.is-hasRightWall {
-	width: calc(var(--tileDepth) + (var(--wallDepth) * 2));
-}
-
-.Tile.is-hasBottomWall {
-	height: calc(var(--tileDepth) + (var(--wallDepth) * 2));
 }
 
 .Tile-wall {
 	background-color: #fff; /* "bg-white" utility in Tailwind */
 	cursor: pointer;
 	position: absolute;
-	transition: background-color 0.3s;
+	transition: background-color var(--transitionDuration);
+	z-index: 10; /* "z-10" in Tailwind */
 }
 
 .Tile-wall:hover {
 	background-color: #b8c2cc; /* "bg-blue-lighter" in Tailwind */
 	transition: none;
-	z-index: 10; /* "z-10" in Tailwind */
+	z-index: 20; /* "z-20" utility in Tailwind */
 }
 
 .Tile-wall.is-active {
 	background: #1c3d5a; /* "bg-blue-darker" utility in Tailwind */
-	z-index: 20; /* "z-20" utility in Tailwind */
+	z-index: 30; /* "z-30" utility in Tailwind */
 }
 
 .Tile-wall--top,
