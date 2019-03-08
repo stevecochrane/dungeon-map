@@ -4,7 +4,9 @@ module.exports = {
 		"at-rule-no-unknown": [
 			true,
 			{
-				ignoreAtRules: ["import-normalize"]
+				ignoreAtRules: [
+					"tailwind"
+				]
 			}
 		]
 	}
