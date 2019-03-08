@@ -1,0 +1,14 @@
+.Tool {
+	--toolPanelDepth: 60px;
+	--transitionDuration: 0.3s;
+	background-color: #fcfbeb; /* "bg-yellow-lightest" utility in Tailwind */
+	cursor: pointer;
+	height: var(--toolPanelDepth);
+	margin: 10px;
+	transition: background-color var(--transitionDuration);
+	width: var(--toolPanelDepth);
+}
+
+.Tool:hover {
+	background-color: #fff382; /* "bg-yellow-light" utility in Tailwind */
+}
