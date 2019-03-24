@@ -1,14 +1,16 @@
 import React from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import "./Tool.css";
 
-const Tool = () => {
+const Tool = ({id, name}) => {
 	return(
-		<div className="Tool"></div>
+		<div className="Tool" data-id={id} data-name={name}></div>
 	);
 };
 
-// Tool.propTypes = {};
-// Tool.defaultProps = {};
+Tool.propTypes = {
+	id: PropTypes.string,
+	name: PropTypes.string
+};
 
 export default Tool;
