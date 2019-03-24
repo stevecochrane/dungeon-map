@@ -20,7 +20,10 @@ class DungeonMap extends React.Component {
 	render() {
 		return(
 			<React.Fragment>
-				<App onToolClick={this.onToolClick} />
+				<App
+					activeTool={this.props.tools.activeTool}
+					onToolClick={this.onToolClick}
+				/>
 			</React.Fragment>
 		);
 	}
@@ -28,7 +31,8 @@ class DungeonMap extends React.Component {
 }
 
 DungeonMap.propTypes = {
-	changeTool: PropTypes.func
+	changeTool: PropTypes.func,
+	tools: PropTypes.objectOf(PropTypes.string)
 };
 
 function mapStateToProps(state) {

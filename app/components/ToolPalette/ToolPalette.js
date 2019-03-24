@@ -4,12 +4,13 @@ import Tool from "../Tool/Tool";
 import { getTools } from "../../config";
 import "./ToolPalette.css";
 
-const ToolPalette = ({onToolClick}) => {
+const ToolPalette = ({activeTool, onToolClick}) => {
 	const tools = getTools().map(tool => (
 		<Tool
 			key={tool.id}
 			id={tool.id}
 			name={tool.name}
+			activeTool={activeTool}
 			onToolClick={onToolClick}
 		/>
 	));
@@ -21,6 +22,7 @@ const ToolPalette = ({onToolClick}) => {
 };
 
 ToolPalette.propTypes = {
+	activeTool: PropTypes.string,
 	onToolClick: PropTypes.func
 };
 
