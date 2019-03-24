@@ -8,8 +8,8 @@ export function getTools() {
 			id: "wall",
 			name: "Wall"
 		}
-	]
-};
+	];
+}
 
 export default {
 	getTools
