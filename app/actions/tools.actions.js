@@ -6,5 +6,5 @@ export const changeTool = (toolId) => {
 		payload: {
 			tool: toolId
 		}
-	}
+	};
 };
