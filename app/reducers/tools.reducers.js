@@ -6,7 +6,7 @@ export default (state=tools, action) => {
 
 		case CHANGE_TOOL:
 			return Object.assign({}, state, {
-				tool: action.payload.tool
+				activeTool: action.payload.tool
 			});
 
 		default:

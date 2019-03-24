@@ -1,5 +1,5 @@
 export const tools = {
-	tool: "room"
+	activeTool: "room"
 };
 
 export default {
