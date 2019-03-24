@@ -4,7 +4,7 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import reducers from "./reducers";
-import App from "./components/App/App";
+import DungeonMap from "./containers/DungeonMap";
 
 import "./styles/main.css";
 
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	ReactDOM.render(
 		<Provider store={store}>
-			<App store={store} />
+			<DungeonMap />
 		</Provider>,
 		rootElem
 	);

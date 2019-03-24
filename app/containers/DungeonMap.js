@@ -1,6 +1,8 @@
-import React, { Component, Fragment } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import PropTypes from "prop-types";
+import App from "../components/App/App";
 import { changeTool } from "../actions/tools.actions";
 
 class DungeonMap extends React.Component {
@@ -11,19 +13,23 @@ class DungeonMap extends React.Component {
 		this.onToolClick = this.onToolClick.bind(this);
 	}
 
-	onToolClick() {
-
+	onToolClick(id="", name="") {
+		this.props.changeTool(id, name);
 	}
 
 	render() {
 		return(
 			<React.Fragment>
-				<App onToolClick={onToolClick} />
+				<App onToolClick={this.onToolClick} />
 			</React.Fragment>
 		);
 	}
 
 }
+
+DungeonMap.propTypes = {
+	changeTool: PropTypes.func
+};
 
 function mapStateToProps(state) {
 	return {

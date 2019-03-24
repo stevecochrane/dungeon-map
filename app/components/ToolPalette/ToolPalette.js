@@ -1,12 +1,17 @@
 import React from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import Tool from "../Tool/Tool";
 import { getTools } from "../../config";
 import "./ToolPalette.css";
 
-const ToolPalette = () => {
+const ToolPalette = ({onToolClick}) => {
 	const tools = getTools().map(tool => (
-		<Tool key={tool.id} id={tool.id} name={tool.name} />
+		<Tool
+			key={tool.id}
+			id={tool.id}
+			name={tool.name}
+			onToolClick={onToolClick}
+		/>
 	));
 	return(
 		<div className="ToolPalette absolute pin-r pin-b">
@@ -15,7 +20,8 @@ const ToolPalette = () => {
 	);
 };
 
-// ToolPalette.propTypes = {};
-// ToolPalette.defaultProps = {};
+ToolPalette.propTypes = {
+	onToolClick: PropTypes.func
+};
 
 export default ToolPalette;
