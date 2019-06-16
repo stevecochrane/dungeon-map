@@ -15,7 +15,7 @@ const ToolPalette = ({activeTool, onToolClick}) => {
 		/>
 	));
 	return(
-		<div className="ToolPalette absolute pin-r pin-b">
+		<div className="ToolPalette absolute bottom-0 right-0">
 			{tools}
 		</div>
 	);
