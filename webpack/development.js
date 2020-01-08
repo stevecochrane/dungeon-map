@@ -13,7 +13,7 @@ const developmentConfig = merge([
 		}
 	},
 	generateSourceMaps({
-		type: "cheap-module-eval-source-map"
+		type: "inline-source-map"
 	}),
 	devServer({
 		//	Customize host/port here if needed
