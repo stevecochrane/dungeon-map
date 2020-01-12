@@ -1,109 +1,80 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./Tile.css";
 
-class Tile extends Component {
+const Tile = ({ hasRightWall, hasBottomWall }) => {
 
-	constructor(props) {
-		super(props);
+	const [active, setActive] = useState(false);
+	const [topWallActive, setTopWallActive] = useState(false);
+	const [rightWallActive, setRightWallActive] = useState(false);
+	const [bottomWallActive, setBottomWallActive] = useState(false);
+	const [leftWallActive, setLeftWallActive] = useState(false);
 
-		this.state = {
-			isActive: false,
-			isTopWallActive: false,
-			isLeftWallActive: false
-		};
+	const toggleTile = () => {
+		setActive(!active);
+	};
 
-		if (this.props.hasRightWall) {
-			this.state.isRightWallActive = false;
-		}
-		if (this.props.hasBottomWall) {
-			this.state.isBottomWallActive = false;
-		}
+	const toggleTopWall = () => {
+		setTopWallActive(!topWallActive);
+	};
+
+	const toggleLeftWall = () => {
+		setLeftWallActive(!leftWallActive);
+	};
+
+	const toggleRightWall = () => {
+		setRightWallActive(!rightWallActive);
+	};
+
+	const toggleBottomWall = () => {
+		setBottomWallActive(!bottomWallActive);
+	};
+
+	let tileClassName = "Tile";
+	if (hasRightWall) {
+		tileClassName += " Tile--withRightWall";
+	}
+	if (hasBottomWall) {
+		tileClassName += " Tile--withBottomWall";
+	}
+	if (active) {
+		tileClassName += " is-active";
 	}
 
-	render() {
-		let tileClassName = "Tile";
-		if (this.props.hasRightWall) {
-			tileClassName += " Tile--withRightWall";
-		}
-		if (this.props.hasBottomWall) {
-			tileClassName += " Tile--withBottomWall";
-		}
-		if (this.state.isActive) {
-			tileClassName += " is-active";
-		}
-
-		let topWallClassName = "Tile-wall Tile-wall--top";
-		if (this.state.isTopWallActive) {
-			topWallClassName += " is-active";
-		}
-
-		let leftWallClassName = "Tile-wall Tile-wall--left";
-		if (this.state.isLeftWallActive) {
-			leftWallClassName += " is-active";
-		}
-
-		let rightWallClassName = "Tile-wall Tile-wall--right";
-		if (this.state.isRightWallActive) {
-			rightWallClassName += " is-active";
-		}
-
-		let bottomWallClassName = "Tile-wall Tile-wall--bottom";
-		if (this.state.isBottomWallActive) {
-			bottomWallClassName += " is-active";
-		}
-
-		return(
-			<div className={tileClassName}>
-				<div className={topWallClassName} onClick={() => { this._toggleTopWall(); }}></div>
-				<div className={leftWallClassName} onClick={() => { this._toggleLeftWall(); }}></div>
-				{this.props.hasRightWall &&
-					<div className={rightWallClassName} onClick={() => { this._toggleRightWall(); }}></div>
-				}
-				{this.props.hasBottomWall &&
-					<div className={bottomWallClassName} onClick={() => { this._toggleBottomWall(); }}></div>
-				}
-				<div className="Tile-surface" onClick={() => { this._toggleTile(); }}></div>
-			</div>
-		);
+	let topWallClassName = "Tile-wall Tile-wall--top";
+	if (topWallActive) {
+		topWallClassName += " is-active";
 	}
 
-	_toggleTile() {
-		let toggled = !this.state.isActive;
-		this.setState({
-			isActive: toggled
-		});
+	let leftWallClassName = "Tile-wall Tile-wall--left";
+	if (leftWallActive) {
+		leftWallClassName += " is-active";
 	}
 
-	_toggleTopWall() {
-		let toggled = !this.state.isTopWallActive;
-		this.setState({
-			isTopWallActive: toggled
-		});
+	let rightWallClassName = "Tile-wall Tile-wall--right";
+	if (rightWallActive) {
+		rightWallClassName += " is-active";
 	}
 
-	_toggleLeftWall() {
-		let toggled = !this.state.isLeftWallActive;
-		this.setState({
-			isLeftWallActive: toggled
-		});
+	let bottomWallClassName = "Tile-wall Tile-wall--bottom";
+	if (bottomWallActive) {
+		bottomWallClassName += " is-active";
 	}
 
-	_toggleRightWall() {
-		let toggled = !this.state.isRightWallActive;
-		this.setState({
-			isRightWallActive: toggled
-		});
-	}
-
-	_toggleBottomWall() {
-		let toggled = !this.state.isBottomWallActive;
-		this.setState({
-			isBottomWallActive: toggled
-		});
-	}
-
-}
+	return (
+		<div className={tileClassName}>
+			<div className={topWallClassName} onClick={() => { toggleTopWall(); }}></div>
+			<div className={leftWallClassName} onClick={() => { toggleLeftWall(); }}></div>
+			{hasRightWall &&
+				<div className={rightWallClassName} onClick={() => { toggleRightWall(); }}></div>
+			}
+			{hasBottomWall &&
+				<div className={bottomWallClassName} onClick={() => { toggleBottomWall(); }}></div>
+			}
+			<div className="Tile-surface" onClick={() => { toggleTile(); }}></div>
+		</div>
+	);
+};
 
 Tile.propTypes = {
 	hasRightWall: PropTypes.bool,
