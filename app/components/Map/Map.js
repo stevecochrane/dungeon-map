@@ -1,49 +1,42 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Tile from "../Tile/Tile";
 
-class Map extends Component {
-	constructor(props) {
-		super(props);
+const Map = ({ className, columns, rows }) => {
 
-		let initialData = [];
-		for (let row = 0; row < this.props.rows; row++) {
-			initialData[row] = [];
-			for (let column = 0; column < this.props.columns; column++) {
-				initialData[row][column] = 0;
-			}
+	let initialMapData = [];
+	for (let row = 0; row < rows; row++) {
+		initialMapData[row] = [];
+		for (let column = 0; column < columns; column++) {
+			initialMapData[row][column] = 0;
 		}
+	}
 
-		this.state = {
-			data: initialData
-		};
-	}
-	render() {
-		//	TODO: Don't use indexes as key values
-		return(
-			<div className={`Map ${this.props.className}`}>
-				{this.state.data.map((row, rowIndex) => {
-					return(
-						<div key={rowIndex} className="Map-row flex justify-center">
-							{row.map((column, columnIndex) => {
-								let tileProps = {};
-								if (rowIndex === this.props.rows - 1) {
-									tileProps.hasBottomWall = true;
-								}
-								if (columnIndex === this.props.columns - 1) {
-									tileProps.hasRightWall = true;
-								}
-								return(
-									<Tile key={columnIndex} {...tileProps} />
-								);
-							})}
-						</div>
-					);
-				})}
-			</div>
-		);
-	}
-}
+	const [mapData] = useState(initialMapData);
+
+	return (
+		<div className={`Map ${className}`}>
+			{mapData.map((row, rowIndex) => {
+				return (
+					<div key={rowIndex} className="Map-row flex justify-center">
+						{row.map((column, columnIndex) => {
+							let tileProps = {};
+							if (rowIndex === rows - 1) {
+								tileProps.hasBottomWall = true;
+							}
+							if (columnIndex === columns - 1) {
+								tileProps.hasRightWall = true;
+							}
+							return (
+								<Tile key={columnIndex} {...tileProps} />
+							);
+						})}
+					</div>
+				);
+			})}
+		</div>
+	);
+};
 
 Map.propTypes = {
 	className: PropTypes.string,
