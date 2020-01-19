@@ -30,35 +30,51 @@ const Tile = ({ hasRightWall, hasBottomWall }) => {
 		setBottomWallActive(!bottomWallActive);
 	};
 
-	let tileClassName = "Tile";
+	let tileClassName = "Tile relative";
 	if (hasRightWall) {
 		tileClassName += " Tile--withRightWall";
 	}
 	if (hasBottomWall) {
 		tileClassName += " Tile--withBottomWall";
 	}
-	if (active) {
-		tileClassName += " is-active";
-	}
 
-	let topWallClassName = "Tile-wall Tile-wall--top";
+	const commonWallClasses = "Tile-wall absolute cursor-pointer";
+	const commonActiveClasses = "bg-blue-600 z-30";
+	const commonInactiveClasses = "bg-white hover:bg-gray-400 z-10 hover:z-20";
+
+	let topWallClassName = `${commonWallClasses} Tile-wall--top h-1 top-0 left-0`;
 	if (topWallActive) {
-		topWallClassName += " is-active";
+		topWallClassName = `${topWallClassName} ${commonActiveClasses}`;
+	} else {
+		topWallClassName = `${topWallClassName} ${commonInactiveClasses}`;
 	}
 
-	let leftWallClassName = "Tile-wall Tile-wall--left";
+	let leftWallClassName = `${commonWallClasses} Tile-wall--left w-1 top-0 left-0`;
 	if (leftWallActive) {
-		leftWallClassName += " is-active";
+		leftWallClassName = `${leftWallClassName} ${commonActiveClasses}`;
+	} else {
+		leftWallClassName = `${leftWallClassName} ${commonInactiveClasses}`;
 	}
 
-	let rightWallClassName = "Tile-wall Tile-wall--right";
+	let rightWallClassName = `${commonWallClasses} Tile-wall--right w-1 top-0 right-0`;
 	if (rightWallActive) {
-		rightWallClassName += " is-active";
+		rightWallClassName = `${rightWallClassName} ${commonActiveClasses}`;
+	} else {
+		rightWallClassName = `${rightWallClassName} ${commonInactiveClasses}`;
 	}
 
-	let bottomWallClassName = "Tile-wall Tile-wall--bottom";
+	let bottomWallClassName = `${commonWallClasses} Tile-wall--bottom h-1 bottom-0 left-0`;
 	if (bottomWallActive) {
-		bottomWallClassName += " is-active";
+		bottomWallClassName = `${bottomWallClassName} ${commonActiveClasses}`;
+	} else {
+		bottomWallClassName = `${bottomWallClassName} ${commonInactiveClasses}`;
+	}
+
+	let tileSurfaceClassName = "Tile-surface absolute inset-0 cursor-pointer";
+	if (active) {
+		tileSurfaceClassName = `${tileSurfaceClassName} bg-blue-400`;
+	} else {
+		tileSurfaceClassName = `${tileSurfaceClassName} bg-gray-200 hover:bg-gray-400`;
 	}
 
 	return (
@@ -71,7 +87,7 @@ const Tile = ({ hasRightWall, hasBottomWall }) => {
 			{hasBottomWall &&
 				<div className={bottomWallClassName} onClick={() => { toggleBottomWall(); }}></div>
 			}
-			<div className="Tile-surface" onClick={() => { toggleTile(); }}></div>
+			<div className={tileSurfaceClassName} onClick={() => { toggleTile(); }}></div>
 		</div>
 	);
 };

@@ -6,7 +6,6 @@
 	--wallDepth: 4px;
 	--transitionDuration: 0.3s;
 	height: calc(var(--tileDepth) + var(--wallDepth));
-	position: relative;
 	width: calc(var(--tileDepth) + var(--wallDepth));
 }
 
@@ -19,57 +18,24 @@
 }
 
 .Tile-surface {
-	background-color: #f1f5f8; /* "bg-grey-lighter" utility in Tailwind */
-	bottom: 0;
-	cursor: pointer;
-	left: 0;
-	position: absolute;
-	right: 0;
-	top: 0;
 	transition: background-color var(--transitionDuration);
 }
 
 .Tile-surface:hover {
-	background-color: #dae1e7; /* "bg-grey-light" utility in Tailwind */
 	transition: none;
-}
-
-.Tile.is-active .Tile-surface {
-	background-color: #3490dc; /* "bg-blue-lighter" utility in Tailwind */
 }
 
 .Tile-wall {
-	background-color: #fff; /* "bg-white" utility in Tailwind */
-	cursor: pointer;
-	position: absolute;
 	transition: background-color var(--transitionDuration);
-	z-index: 10; /* "z-10" in Tailwind */
 }
 
 .Tile-wall:hover {
-	background-color: #b8c2cc; /* "bg-blue-lighter" in Tailwind */
 	transition: none;
-	z-index: 20; /* "z-20" utility in Tailwind */
-}
-
-.Tile-wall.is-active {
-	background: #1c3d5a; /* "bg-blue-darker" utility in Tailwind */
-	z-index: 30; /* "z-30" utility in Tailwind */
 }
 
 .Tile-wall--top,
 .Tile-wall--bottom {
-	height: var(--wallDepth);
-	left: 0;
 	right: calc(var(--wallDepth) * -1);
-}
-
-.Tile-wall--top {
-	top: 0;
-}
-
-.Tile-wall--bottom {
-	bottom: 0;
 }
 
 .Tile--withRightWall .Tile-wall--top,
@@ -80,16 +46,6 @@
 .Tile-wall--left,
 .Tile-wall--right {
 	bottom: calc(var(--wallDepth) * -1);
-	top: 0;
-	width: var(--wallDepth);
-}
-
-.Tile-wall--left {
-	left: 0;
-}
-
-.Tile-wall--right {
-	right: 0;
 }
 
 .Tile--withBottomWall .Tile-wall--left,
