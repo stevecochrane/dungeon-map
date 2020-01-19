@@ -38,7 +38,7 @@ const Tile = ({ hasRightWall, hasBottomWall }) => {
 		tileClassName += " Tile--withBottomWall";
 	}
 
-	const commonWallClasses = "Tile-wall absolute cursor-pointer";
+	const commonWallClasses = "Tile-wall absolute cursor-pointer transition-bg hover:transition-none";
 	const commonActiveClasses = "bg-blue-600 z-30";
 	const commonInactiveClasses = "bg-white hover:bg-gray-400 z-10 hover:z-20";
 
@@ -70,7 +70,7 @@ const Tile = ({ hasRightWall, hasBottomWall }) => {
 		bottomWallClassName = `${bottomWallClassName} ${commonInactiveClasses}`;
 	}
 
-	let tileSurfaceClassName = "Tile-surface absolute inset-0 cursor-pointer";
+	let tileSurfaceClassName = "Tile-surface absolute inset-0 cursor-pointer transition-bg hover:transition-none";
 	if (active) {
 		tileSurfaceClassName = `${tileSurfaceClassName} bg-blue-400`;
 	} else {

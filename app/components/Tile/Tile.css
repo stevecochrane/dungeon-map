@@ -17,22 +17,6 @@
 	height: calc(var(--tileDepth) + (var(--wallDepth) * 2));
 }
 
-.Tile-surface {
-	transition: background-color var(--transitionDuration);
-}
-
-.Tile-surface:hover {
-	transition: none;
-}
-
-.Tile-wall {
-	transition: background-color var(--transitionDuration);
-}
-
-.Tile-wall:hover {
-	transition: none;
-}
-
 .Tile-wall--top,
 .Tile-wall--bottom {
 	right: calc(var(--wallDepth) * -1);
