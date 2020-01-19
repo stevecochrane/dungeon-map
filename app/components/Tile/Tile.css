@@ -1,6 +1,3 @@
-/*	TODO: Find a way to get Tailwind @apply for utilities to work.
-	This will probably require going away from importing CSS as a module. */
-
 .Tile {
 	--tileDepth: 30px;
 	--wallDepth: 4px;
