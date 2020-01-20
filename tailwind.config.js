@@ -1,8 +1,14 @@
 module.exports = {
 	theme: {
-		extend: {}
+		extend: {
+			inset: {
+				"-1": "-0.25rem"
+			}
+		}
 	},
-	variants: {},
+	variants: {
+		zIndex: ["responsive", "hover"]
+	},
 	plugins: [
 		require("tailwindcss-transitions")()
 	]

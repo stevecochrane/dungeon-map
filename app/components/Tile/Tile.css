@@ -1,7 +1,6 @@
 .Tile {
 	--tileDepth: 30px;
 	--wallDepth: 4px;
-	--transitionDuration: 0.3s;
 	height: calc(var(--tileDepth) + var(--wallDepth));
 	width: calc(var(--tileDepth) + var(--wallDepth));
 }
@@ -12,24 +11,4 @@
 
 .Tile--withBottomWall {
 	height: calc(var(--tileDepth) + (var(--wallDepth) * 2));
-}
-
-.Tile-wall--top,
-.Tile-wall--bottom {
-	right: calc(var(--wallDepth) * -1);
-}
-
-.Tile--withRightWall .Tile-wall--top,
-.Tile--withRightWall .Tile-wall--bottom {
-	right: 0;
-}
-
-.Tile-wall--left,
-.Tile-wall--right {
-	bottom: calc(var(--wallDepth) * -1);
-}
-
-.Tile--withBottomWall .Tile-wall--left,
-.Tile--withBottomWall .Tile-wall--right {
-	bottom: 0;
 }

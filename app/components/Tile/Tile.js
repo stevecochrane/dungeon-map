@@ -31,50 +31,61 @@ const Tile = ({ hasRightWall, hasBottomWall }) => {
 	};
 
 	let tileClassName = "Tile relative";
-	if (hasRightWall) {
-		tileClassName += " Tile--withRightWall";
-	}
-	if (hasBottomWall) {
-		tileClassName += " Tile--withBottomWall";
-	}
-
-	const commonWallClasses = "Tile-wall absolute cursor-pointer transition-bg hover:transition-none";
+	const commonWallClasses = "absolute cursor-pointer transition-bg hover:transition-none";
 	const commonActiveClasses = "bg-blue-600 z-30";
 	const commonInactiveClasses = "bg-white hover:bg-gray-400 z-10 hover:z-20";
 
-	let topWallClassName = `${commonWallClasses} Tile-wall--top h-1 top-0 left-0`;
+	let topWallClassName = `${commonWallClasses} h-1 top-0 left-0`;
 	if (topWallActive) {
 		topWallClassName = `${topWallClassName} ${commonActiveClasses}`;
 	} else {
 		topWallClassName = `${topWallClassName} ${commonInactiveClasses}`;
 	}
 
-	let leftWallClassName = `${commonWallClasses} Tile-wall--left w-1 top-0 left-0`;
+	let leftWallClassName = `${commonWallClasses} w-1 top-0 left-0`;
 	if (leftWallActive) {
 		leftWallClassName = `${leftWallClassName} ${commonActiveClasses}`;
 	} else {
 		leftWallClassName = `${leftWallClassName} ${commonInactiveClasses}`;
 	}
 
-	let rightWallClassName = `${commonWallClasses} Tile-wall--right w-1 top-0 right-0`;
+	let rightWallClassName = `${commonWallClasses} w-1 top-0 right-0`;
 	if (rightWallActive) {
 		rightWallClassName = `${rightWallClassName} ${commonActiveClasses}`;
 	} else {
 		rightWallClassName = `${rightWallClassName} ${commonInactiveClasses}`;
 	}
 
-	let bottomWallClassName = `${commonWallClasses} Tile-wall--bottom h-1 bottom-0 left-0`;
+	let bottomWallClassName = `${commonWallClasses} h-1 bottom-0 left-0`;
 	if (bottomWallActive) {
 		bottomWallClassName = `${bottomWallClassName} ${commonActiveClasses}`;
 	} else {
 		bottomWallClassName = `${bottomWallClassName} ${commonInactiveClasses}`;
 	}
 
-	let tileSurfaceClassName = "Tile-surface absolute inset-0 cursor-pointer transition-bg hover:transition-none";
+	let tileSurfaceClassName = "absolute inset-0 cursor-pointer transition-bg hover:transition-none";
 	if (active) {
 		tileSurfaceClassName = `${tileSurfaceClassName} bg-blue-400`;
 	} else {
 		tileSurfaceClassName = `${tileSurfaceClassName} bg-gray-200 hover:bg-gray-400`;
+	}
+
+	if (hasRightWall) {
+		tileClassName += " Tile--withRightWall";
+		topWallClassName = `${topWallClassName} right-0`;
+		bottomWallClassName = `${bottomWallClassName} right-0`;
+	} else {
+		topWallClassName = `${topWallClassName} -right-1`;
+		bottomWallClassName = `${bottomWallClassName} -right-1`;
+	}
+
+	if (hasBottomWall) {
+		tileClassName += " Tile--withBottomWall";
+		leftWallClassName = `${leftWallClassName} bottom-0`;
+		rightWallClassName = `${rightWallClassName} bottom-0`;
+	} else {
+		leftWallClassName = `${leftWallClassName} -bottom-1`;
+		rightWallClassName = `${rightWallClassName} -bottom-1`;
 	}
 
 	return (
