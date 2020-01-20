@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import Tool from "../Tool/Tool";
 import { getTools } from "../../config";
-import "./ToolPalette.css";
 
 const ToolPalette = ({activeTool, onToolClick}) => {
 	const tools = getTools().map(tool => (
@@ -15,7 +14,7 @@ const ToolPalette = ({activeTool, onToolClick}) => {
 		/>
 	));
 	return(
-		<div className="ToolPalette absolute bottom-0 right-0">
+		<div className="absolute bottom-0 right-0 m-5">
 			{tools}
 		</div>
 	);
