@@ -1,13 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./Tool.css";
 
 const Tool = ({id, name, activeTool, onToolClick}) => {
-	let className = `Tool Tool--${id}`;
+	let className = "w-12 h-12 m-2 cursor-pointer bg-yellow-200 transition-bg hover:bg-yellow-400";
 	if (id === activeTool) {
-		className += " is-active";
+		// TODO: active styles
 	}
-	return(
+	return (
 		<div
 				className={className}
 				data-id={id}
