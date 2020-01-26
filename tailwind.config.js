@@ -3,6 +3,9 @@ module.exports = {
 		extend: {
 			inset: {
 				"-1": "-0.25rem"
+			},
+			spacing: {
+				"11": "2.75rem"
 			}
 		}
 	},

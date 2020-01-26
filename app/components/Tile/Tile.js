@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import "./Tile.css";
 
 const Tile = ({ hasRightWall, hasBottomWall }) => {
 
@@ -30,7 +29,6 @@ const Tile = ({ hasRightWall, hasBottomWall }) => {
 		setBottomWallActive(!bottomWallActive);
 	};
 
-	let tileClassName = "Tile relative";
 	const commonWallClasses = "absolute cursor-pointer transition-bg hover:transition-none";
 	const commonActiveClasses = "bg-blue-600 z-30";
 	const commonInactiveClasses = "bg-white hover:bg-gray-400 z-10 hover:z-20";
@@ -70,20 +68,23 @@ const Tile = ({ hasRightWall, hasBottomWall }) => {
 		tileSurfaceClassName = `${tileSurfaceClassName} bg-gray-200 hover:bg-gray-400`;
 	}
 
+	let tileClassName = "Tile relative";
 	if (hasRightWall) {
-		tileClassName += " Tile--withRightWall";
+		tileClassName += " w-12";
 		topWallClassName = `${topWallClassName} right-0`;
 		bottomWallClassName = `${bottomWallClassName} right-0`;
 	} else {
+		tileClassName += " w-11";
 		topWallClassName = `${topWallClassName} -right-1`;
 		bottomWallClassName = `${bottomWallClassName} -right-1`;
 	}
 
 	if (hasBottomWall) {
-		tileClassName += " Tile--withBottomWall";
+		tileClassName += " h-12";
 		leftWallClassName = `${leftWallClassName} bottom-0`;
 		rightWallClassName = `${rightWallClassName} bottom-0`;
 	} else {
+		tileClassName += " h-11";
 		leftWallClassName = `${leftWallClassName} -bottom-1`;
 		rightWallClassName = `${rightWallClassName} -bottom-1`;
 	}
