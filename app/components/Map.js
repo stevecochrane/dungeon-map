@@ -15,7 +15,7 @@ const Map = ({ className, columns, rows }) => {
   const [mapData] = useState(initialMapData);
 
   return (
-    <div className={`Map ${className}`}>
+    <div className={`Map ${className}`} data-testid="Map">
       {mapData.map((row, rowIndex) => {
         return (
           <div key={rowIndex} className="Map-row flex justify-center">

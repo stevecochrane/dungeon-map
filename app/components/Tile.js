@@ -90,7 +90,7 @@ const Tile = ({ hasRightWall, hasBottomWall }) => {
   }
 
   return (
-    <div className={tileClassName}>
+    <div className={tileClassName} data-testid="Tile">
       <div className={topWallClassName} onClick={() => { toggleTopWall(); }}></div>
       <div className={leftWallClassName} onClick={() => { toggleLeftWall(); }}></div>
       {hasRightWall &&

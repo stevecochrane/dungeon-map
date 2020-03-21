@@ -14,7 +14,7 @@ const ToolPalette = ({activeTool, onToolClick}) => {
     />
   ));
   return(
-    <div className="absolute bottom-0 right-0 m-5">
+    <div className="absolute bottom-0 right-0 m-5" data-testid="ToolPalette">
       {tools}
     </div>
   );
