@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import Tile from "../Tile/Tile";
+import Tile from "./Tile";
 
 const Map = ({ className, columns, rows }) => {
 

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Tool from "../Tool/Tool";
-import { getTools } from "../../config";
+import Tool from "./Tool";
+import { getTools } from "../config";
 
 const ToolPalette = ({activeTool, onToolClick}) => {
   const tools = getTools().map(tool => (

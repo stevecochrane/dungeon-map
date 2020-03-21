@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
-import App from "../components/App/App";
+import App from "../components/App";
 import { changeTool } from "../actions/tools.actions";
 
 class DungeonMap extends React.Component {
