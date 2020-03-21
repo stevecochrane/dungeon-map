@@ -15,12 +15,14 @@
     "lint:js": "eslint --ignore-path .eslintignore --cache .",
     "server": "node dungeon-map.js",
     "start": "webpack-dev-server --config webpack/development.js",
+    "test": "jest --coverage",
     "watch": "webpack --config webpack/development.js --progress --watch"
   },
   "devDependencies": {
     "@babel/core": "7.8.0",
     "@babel/preset-env": "7.8.0",
     "@babel/preset-react": "7.8.0",
+    "@testing-library/jest-dom": "5.1.1",
     "@testing-library/react": "10.0.1",
     "autoprefixer": "9.4.7",
     "babel-loader": "8.0.5",
