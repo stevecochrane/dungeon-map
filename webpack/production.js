@@ -11,40 +11,40 @@ const minifyJS           = require("./parts/minifyJS");
 const paths              = require("./parts/paths");
 
 const productionConfig = merge([
-	{
-		mode: "production",
-		output: {
-			chunkFilename: "[name].[chunkhash].js",
-			filename: "[name].[chunkhash].js"
-		},
-		performance: {
-			hints: "warning",
-			maxEntrypointSize: 100000,
-			maxAssetSize: 450000
-		},
-		plugins: [
-			new webpack.HashedModuleIdsPlugin()
-		]
-	},
-	clean(paths.build),
-	minifyJS(),
-	minifyCSS({
-		options: {
-			discardComments: {
-				removeAll: true
-			},
-			safe: true
-		}
-	}),
-	generateSourceMaps({
-		type: "source-map"
-	}),
-	extractCSS({
-		use: [
-			"css-loader",
-			postCSS()
-		]
-	})
+  {
+    mode: "production",
+    output: {
+      chunkFilename: "[name].[chunkhash].js",
+      filename: "[name].[chunkhash].js"
+    },
+    performance: {
+      hints: "warning",
+      maxEntrypointSize: 100000,
+      maxAssetSize: 450000
+    },
+    plugins: [
+      new webpack.HashedModuleIdsPlugin()
+    ]
+  },
+  clean(paths.build),
+  minifyJS(),
+  minifyCSS({
+    options: {
+      discardComments: {
+        removeAll: true
+      },
+      safe: true
+    }
+  }),
+  generateSourceMaps({
+    type: "source-map"
+  }),
+  extractCSS({
+    use: [
+      "css-loader",
+      postCSS()
+    ]
+  })
 ]);
 
 module.exports = merge(commonConfig, productionConfig);

@@ -6,21 +6,21 @@ const generateSourceMaps = require("./parts/generateSourceMaps");
 const loadCSS            = require("./parts/loadCSS");
 
 const developmentConfig = merge([
-	{
-		mode: "development",
-		output: {
-			devtoolModuleFilenameTemplate: "webpack:///[absolute-resource-path]"
-		}
-	},
-	generateSourceMaps({
-		type: "inline-source-map"
-	}),
-	devServer({
-		//	Customize host/port here if needed
-		host: process.env.HOST,
-		port: process.env.PORT
-	}),
-	loadCSS()
+  {
+    mode: "development",
+    output: {
+      devtoolModuleFilenameTemplate: "webpack:///[absolute-resource-path]"
+    }
+  },
+  generateSourceMaps({
+    type: "inline-source-map"
+  }),
+  devServer({
+    //  Customize host/port here if needed
+    host: process.env.HOST,
+    port: process.env.PORT
+  }),
+  loadCSS()
 ]);
 
 module.exports = merge(commonConfig, developmentConfig);

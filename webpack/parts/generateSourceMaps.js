@@ -1,3 +1,3 @@
 module.exports = ({ type }) => ({
-	devtool: type
+  devtool: type
 });

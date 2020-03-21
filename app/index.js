@@ -11,12 +11,12 @@ import "./styles/main.css";
 const store = createStore(reducers, composeWithDevTools());
 
 document.addEventListener("DOMContentLoaded", () => {
-	const rootElem = document.getElementById("app");
+  const rootElem = document.getElementById("app");
 
-	ReactDOM.render(
-		<Provider store={store}>
-			<DungeonMap />
-		</Provider>,
-		rootElem
-	);
+  ReactDOM.render(
+    <Provider store={store}>
+      <DungeonMap />
+    </Provider>,
+    rootElem
+  );
 });
