@@ -11,6 +11,7 @@ const Tool = ({id, name, activeTool, onToolClick}) => {
         className={className}
         data-id={id}
         data-name={name}
+        data-testid="Tool"
         onClick={() => onToolClick(id, name)}>
     </div>
   );
