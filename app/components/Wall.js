@@ -43,6 +43,7 @@ const Wall = ({ extendedHorizontally, extendedVertically, side }) => {
   return (
     <div
       className={classes}
+      data-active={active}
       data-testid="Wall"
       onClick={() => {
         toggleWall();
