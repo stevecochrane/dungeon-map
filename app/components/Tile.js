@@ -37,6 +37,8 @@ const Tile = ({ hasRightWall, hasBottomWall }) => {
       {hasBottomWall && <Wall side="bottom" extendedHorizontally={hasRightWall} />}
       <div
         className={tileSurfaceClassName}
+        data-active={active}
+        data-testid="Tile-surface"
         onClick={() => {
           toggleTile();
         }}
