@@ -24,7 +24,10 @@
     }
   },
   "lint-staged": {
-    "*.js": "eslint",
+    "*.js": [
+      "eslint",
+      "jest --bail --coverage --findRelatedTests"
+    ],
     "*.css": "stylelint",
     "*.{js,css,html}": "prettier --write"
   },
