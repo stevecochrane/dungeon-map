@@ -41,14 +41,7 @@ const Wall = ({ extendedHorizontally, extendedVertically, side }) => {
   }
 
   return (
-    <div
-      className={classes}
-      data-active={active}
-      data-testid="Wall"
-      onMouseDown={() => {
-        toggleWall();
-      }}
-    ></div>
+    <div className={classes} data-active={active} data-testid="Wall" onMouseDown={toggleWall}></div>
   );
 };
 
