@@ -12,9 +12,9 @@ describe("Wall", () => {
     const { getByTestId } = render(<Wall />);
     const wall = getByTestId("Wall");
     expect(wall.getAttribute("data-active")).toBe("false");
-    fireEvent.click(wall);
+    fireEvent.mouseDown(wall);
     expect(wall.getAttribute("data-active")).toBe("true");
-    fireEvent.click(wall);
+    fireEvent.mouseDown(wall);
     expect(wall.getAttribute("data-active")).toBe("false");
   });
 });

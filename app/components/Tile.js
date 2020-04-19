@@ -39,7 +39,7 @@ const Tile = ({ hasRightWall, hasBottomWall }) => {
         className={tileSurfaceClassName}
         data-active={active}
         data-testid="Tile-surface"
-        onClick={() => {
+        onMouseDown={() => {
           toggleTile();
         }}
       ></div>

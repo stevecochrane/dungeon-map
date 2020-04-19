@@ -12,9 +12,9 @@ describe("Tile", () => {
     const { getByTestId } = render(<Tile />);
     const tileSurface = getByTestId("Tile-surface");
     expect(tileSurface.getAttribute("data-active")).toBe("false");
-    fireEvent.click(tileSurface);
+    fireEvent.mouseDown(tileSurface);
     expect(tileSurface.getAttribute("data-active")).toBe("true");
-    fireEvent.click(tileSurface);
+    fireEvent.mouseDown(tileSurface);
     expect(tileSurface.getAttribute("data-active")).toBe("false");
   });
 });

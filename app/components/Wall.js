@@ -45,7 +45,7 @@ const Wall = ({ extendedHorizontally, extendedVertically, side }) => {
       className={classes}
       data-active={active}
       data-testid="Wall"
-      onClick={() => {
+      onMouseDown={() => {
         toggleWall();
       }}
     ></div>
