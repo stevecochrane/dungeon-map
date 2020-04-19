@@ -18,7 +18,7 @@ const Tool = ({ id, name, activeTool, onToolClick }) => {
       data-id={id}
       data-name={name}
       data-testid="Tool"
-      onClick={() => onToolClick(id, name)}
+      onMouseDown={() => onToolClick(id, name)}
     ></div>
   );
 };
