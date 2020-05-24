@@ -1,6 +1,6 @@
 # Dungeon Map
 
-![build](https://github.com/stevecochrane/dungeon-map/workflows/Node.js%20CI/badge.svg)
+![Build](https://github.com/stevecochrane/dungeon-map/workflows/Build/badge.svg)
 
 This will hopefully, eventually be a web application for mapping out old
 videogames, as you would back in the day with Metroid, Phantasy Star, etc. but
