@@ -1,0 +1,18 @@
+name: coverage
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  coverage:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: codecov/codecov-action@v1.0.7
+      with:
+        # Specify whether or not CI build should fail if Codecov runs into an error during upload
+        fail_ci_if_error: false
