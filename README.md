@@ -1,7 +1,7 @@
 # Dungeon Map
 
 ![build](https://github.com/stevecochrane/dungeon-map/workflows/build/badge.svg)
-[![Codecov Coverage](https://img.shields.io/codecov/c/github/stevecochrane/dungeon-map/master.svg?style=flat-square)](https://codecov.io/gh/stevecochrane/dungeon-map/)
+[![Codecov Coverage](https://img.shields.io/codecov/c/github/stevecochrane/dungeon-map/master.svg)](https://codecov.io/gh/stevecochrane/dungeon-map/)
 
 This will hopefully, eventually be a web application for mapping out old
 videogames, as you would back in the day with Metroid, Phantasy Star, etc. but
