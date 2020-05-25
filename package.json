@@ -11,6 +11,7 @@
   "main": "dungeon-map.js",
   "scripts": {
     "build": "webpack --config webpack/production.js",
+    "coverage": "codecov",
     "lint:css": "stylelint css/*.css",
     "lint:js": "eslint --ignore-path .eslintignore --cache .",
     "server": "node dungeon-map.js",
