@@ -12,7 +12,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: codecov/codecov-action@v1.0.7
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
       with:
-        # Specify whether or not CI build should fail if Codecov runs into an error during upload
-        fail_ci_if_error: false
+        node-version: '12.x'
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
+      env:
+        CI: true
+    - uses: codecov/codecov-action@v1.0.7
