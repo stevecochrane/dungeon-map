@@ -40,10 +40,14 @@ const Tile = ({ activeTool, hasBottomWall, hasRightWall }) => {
 
   return (
     <div className={tileClassName} data-testid="Tile">
-      <Wall side="top" extendedHorizontally={hasRightWall} />
-      <Wall side="left" extendedVertically={hasBottomWall} />
-      {hasRightWall && <Wall side="right" extendedVertically={hasBottomWall} />}
-      {hasBottomWall && <Wall side="bottom" extendedHorizontally={hasRightWall} />}
+      <Wall side="top" extendedHorizontally={hasRightWall} activeTool={activeTool} />
+      <Wall side="left" extendedVertically={hasBottomWall} activeTool={activeTool} />
+      {hasRightWall && (
+        <Wall side="right" extendedVertically={hasBottomWall} activeTool={activeTool} />
+      )}
+      {hasBottomWall && (
+        <Wall side="bottom" extendedHorizontally={hasRightWall} activeTool={activeTool} />
+      )}
       <div
         className={tileSurfaceClassName}
         data-active={active}

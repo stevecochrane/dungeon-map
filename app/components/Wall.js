@@ -1,16 +1,23 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-const Wall = ({ extendedHorizontally, extendedVertically, side }) => {
+const Wall = ({ activeTool, extendedHorizontally, extendedVertically, side }) => {
   const [active, setActive] = useState(false);
 
   const toggleWall = () => {
-    setActive(!active);
+    if (activeTool === "wall") {
+      setActive(!active);
+    }
   };
 
-  const baseClasses = "Wall absolute cursor-pointer transition-bg hover:transition-none";
-  const activeClasses = "bg-blue-600 z-30";
-  const inactiveClasses = "bg-white hover:bg-gray-400 z-10 hover:z-20";
+  let baseClasses = "Wall absolute";
+  let activeClasses = "bg-blue-600 z-30";
+  let inactiveClasses = "bg-white z-10";
+
+  if (activeTool === "wall") {
+    baseClasses += " cursor-pointer transition-bg hover:transition-none";
+    inactiveClasses += " hover:bg-gray-400 hover:z-20";
+  }
 
   const sideClasses = {
     top: "h-1 top-0 left-0",
@@ -46,12 +53,14 @@ const Wall = ({ extendedHorizontally, extendedVertically, side }) => {
 };
 
 Wall.propTypes = {
+  activeTool: PropTypes.string,
   extendedHorizontally: PropTypes.bool,
   extendedVertically: PropTypes.bool,
   side: PropTypes.string
 };
 
 Wall.defaultProps = {
+  activeTool: null,
   extendedHorizontally: false,
   extendedVertically: false,
   side: "top"
