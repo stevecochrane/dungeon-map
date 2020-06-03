@@ -11,11 +11,18 @@ const Tile = ({ activeTool, hasBottomWall, hasRightWall }) => {
     }
   };
 
-  let tileSurfaceClassName = "absolute inset-0 cursor-pointer transition-bg hover:transition-none";
+  let tileSurfaceClassName = "absolute inset-0";
+  if (activeTool === "room") {
+    tileSurfaceClassName += " cursor-pointer transition-bg hover:transition-none";
+  }
   if (active) {
     tileSurfaceClassName += " bg-blue-400";
   } else {
-    tileSurfaceClassName += " bg-gray-200 hover:bg-gray-400";
+    tileSurfaceClassName += " bg-gray-200";
+
+    if (activeTool === "room") {
+      tileSurfaceClassName += " hover:bg-gray-400";
+    }
   }
 
   let tileClassName = "Tile relative";
