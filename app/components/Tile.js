@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Wall from "./Wall";
 
-const Tile = ({ hasRightWall, hasBottomWall }) => {
+const Tile = ({ activeTool, hasBottomWall, hasRightWall }) => {
   const [active, setActive] = useState(false);
 
   const toggleTile = () => {
-    setActive(!active);
+    if (activeTool === "room") {
+      setActive(!active);
+    }
   };
 
   let tileSurfaceClassName = "absolute inset-0 cursor-pointer transition-bg hover:transition-none";
@@ -46,11 +48,13 @@ const Tile = ({ hasRightWall, hasBottomWall }) => {
 };
 
 Tile.propTypes = {
+  activeTool: PropTypes.string,
   hasRightWall: PropTypes.bool,
   hasBottomWall: PropTypes.bool
 };
 
 Tile.defaultProps = {
+  activeTool: null,
   hasRightWall: false,
   hasBottomWall: false
 };

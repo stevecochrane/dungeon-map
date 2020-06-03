@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Tile from "./Tile";
 
-const Map = ({ className, columns, rows }) => {
-
+const Map = ({ activeTool, className, columns, rows }) => {
   let initialMapData = [];
   for (let row = 0; row < rows; row++) {
     initialMapData[row] = [];
@@ -27,9 +26,7 @@ const Map = ({ className, columns, rows }) => {
               if (columnIndex === columns - 1) {
                 tileProps.hasRightWall = true;
               }
-              return (
-                <Tile key={columnIndex} {...tileProps} />
-              );
+              return <Tile key={columnIndex} activeTool={activeTool} {...tileProps} />;
             })}
           </div>
         );
@@ -39,6 +36,7 @@ const Map = ({ className, columns, rows }) => {
 };
 
 Map.propTypes = {
+  activeTool: PropTypes.string,
   className: PropTypes.string,
   columns: PropTypes.number,
   rows: PropTypes.number
