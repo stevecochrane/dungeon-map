@@ -6,28 +6,47 @@ import App from "../components/App";
 import { changeTool } from "../actions/tools.actions";
 
 class DungeonMap extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {};
     this.onToolClick = this.onToolClick.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
-  onToolClick(id="", name="") {
+  onToolClick(id = "", name = "") {
     this.props.changeTool(id, name);
   }
 
+  handleKeyPress(event) {
+    let selectedTool = null;
+    switch (event.code) {
+      case "KeyW":
+        selectedTool = "wall";
+        break;
+      case "KeyR":
+        selectedTool = "room";
+        break;
+    }
+    if (selectedTool) {
+      this.props.changeTool(selectedTool);
+    }
+  }
+
+  componentDidMount() {
+    document.addEventListener("keypress", this.handleKeyPress);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keypress", this.handleKeyPress);
+  }
+
   render() {
-    return(
+    return (
       <React.Fragment>
-        <App
-          activeTool={this.props.tools.activeTool}
-          onToolClick={this.onToolClick}
-        />
+        <App activeTool={this.props.tools.activeTool} onToolClick={this.onToolClick} />
       </React.Fragment>
     );
   }
-
 }
 
 DungeonMap.propTypes = {
@@ -42,9 +61,12 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    changeTool
-  }, dispatch);
+  return bindActionCreators(
+    {
+      changeTool
+    },
+    dispatch
+  );
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DungeonMap);
