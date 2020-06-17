@@ -26,6 +26,9 @@ class DungeonMap extends React.Component {
       case "KeyR":
         selectedTool = "room";
         break;
+      case "KeyD":
+        selectedTool = "door";
+        break;
     }
     if (selectedTool) {
       this.props.changeTool(selectedTool);
