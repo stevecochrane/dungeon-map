@@ -7,6 +7,10 @@ export function getTools() {
     {
       id: "wall",
       name: "Wall"
+    },
+    {
+      id: "door",
+      name: "Door"
     }
   ];
 }
