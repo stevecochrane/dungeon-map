@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
 import App from "../components/App";
 import { changeTool } from "../actions/tools.actions";
+import toolTypes from "../constants/toolTypes";
 
 class DungeonMap extends React.Component {
   constructor(props) {
@@ -21,13 +22,13 @@ class DungeonMap extends React.Component {
     let selectedTool = null;
     switch (event.code) {
       case "KeyW":
-        selectedTool = "wall";
+        selectedTool = toolTypes.WALL;
         break;
       case "KeyR":
-        selectedTool = "room";
+        selectedTool = toolTypes.ROOM;
         break;
       case "KeyD":
-        selectedTool = "door";
+        selectedTool = toolTypes.DOOR;
         break;
     }
     if (selectedTool) {

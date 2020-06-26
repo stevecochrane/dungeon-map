@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Wall from "./Wall";
 import tileTypes from "../constants/tileTypes";
+import toolTypes from "../constants/toolTypes";
 
 const Tile = ({ activeTool, hasBottomWall, hasRightWall, tileType }) => {
   const [type, setType] = useState(tileType);
 
   const toggleTile = () => {
-    if (activeTool === "room") {
+    if (activeTool === toolTypes.ROOM) {
       if (type === tileTypes.EMPTY) {
         setType(tileTypes.ROOM);
       } else {
@@ -17,7 +18,7 @@ const Tile = ({ activeTool, hasBottomWall, hasRightWall, tileType }) => {
   };
 
   let tileSurfaceClassName = "absolute inset-0";
-  if (activeTool === "room") {
+  if (activeTool === toolTypes.ROOM) {
     tileSurfaceClassName += " cursor-pointer transition-bg hover:transition-none";
   }
   if (type === tileTypes.ROOM) {
@@ -25,7 +26,7 @@ const Tile = ({ activeTool, hasBottomWall, hasRightWall, tileType }) => {
   } else {
     tileSurfaceClassName += " bg-gray-200";
 
-    if (activeTool === "room") {
+    if (activeTool === toolTypes.ROOM) {
       tileSurfaceClassName += " hover:bg-gray-400";
     }
   }

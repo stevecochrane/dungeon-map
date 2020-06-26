@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import toolTypes from "../constants/toolTypes";
 
 const Wall = ({ activeTool, extendedHorizontally, extendedVertically, side }) => {
   const [active, setActive] = useState(false);
 
   const toggleWall = () => {
-    if (activeTool === "wall") {
+    if (activeTool === toolTypes.WALL) {
       setActive(!active);
     }
   };

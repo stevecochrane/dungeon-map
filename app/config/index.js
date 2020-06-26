@@ -1,3 +1,4 @@
+// TODO: Eliminate in favor of toolTypes
 export function getTools() {
   return [
     {
