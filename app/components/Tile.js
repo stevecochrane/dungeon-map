@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Wall from "./Wall";
+import tileTypes from "../constants/tileTypes";
 
-const Tile = ({ activeTool, hasBottomWall, hasRightWall }) => {
-  const [active, setActive] = useState(false);
+const Tile = ({ activeTool, hasBottomWall, hasRightWall, tileType }) => {
+  const [type, setType] = useState(tileType);
 
   const toggleTile = () => {
     if (activeTool === "room") {
-      setActive(!active);
+      if (type === tileTypes.EMPTY) {
+        setType(tileTypes.ROOM);
+      } else {
+        setType(tileTypes.EMPTY);
+      }
     }
   };
 
@@ -15,7 +20,7 @@ const Tile = ({ activeTool, hasBottomWall, hasRightWall }) => {
   if (activeTool === "room") {
     tileSurfaceClassName += " cursor-pointer transition-bg hover:transition-none";
   }
-  if (active) {
+  if (type === tileTypes.ROOM) {
     tileSurfaceClassName += " bg-blue-400";
   } else {
     tileSurfaceClassName += " bg-gray-200";
@@ -50,7 +55,7 @@ const Tile = ({ activeTool, hasBottomWall, hasRightWall }) => {
       )}
       <div
         className={tileSurfaceClassName}
-        data-active={active}
+        data-type={type}
         data-testid="Tile-surface"
         onMouseDown={toggleTile}
       ></div>
@@ -61,13 +66,15 @@ const Tile = ({ activeTool, hasBottomWall, hasRightWall }) => {
 Tile.propTypes = {
   activeTool: PropTypes.string,
   hasRightWall: PropTypes.bool,
-  hasBottomWall: PropTypes.bool
+  hasBottomWall: PropTypes.bool,
+  tileType: PropTypes.string
 };
 
 Tile.defaultProps = {
   activeTool: null,
   hasRightWall: false,
-  hasBottomWall: false
+  hasBottomWall: false,
+  tileType: tileTypes.EMPTY
 };
 
 export default Tile;

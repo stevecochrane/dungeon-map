@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Tile from "./Tile";
+import tileTypes from "../constants/tileTypes";
 
 const Map = ({ activeTool, className, columns, rows }) => {
   let initialMapData = [];
   for (let row = 0; row < rows; row++) {
     initialMapData[row] = [];
     for (let column = 0; column < columns; column++) {
-      initialMapData[row][column] = 0;
+      initialMapData[row][column] = tileTypes.EMPTY;
     }
   }
 
@@ -20,6 +21,7 @@ const Map = ({ activeTool, className, columns, rows }) => {
           <div key={rowIndex} className="Map-row flex justify-center">
             {row.map((column, columnIndex) => {
               let tileProps = {};
+              tileProps.tileType = column;
               if (rowIndex === rows - 1) {
                 tileProps.hasBottomWall = true;
               }
