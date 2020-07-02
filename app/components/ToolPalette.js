@@ -1,19 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Tool from "./Tool";
-import { getTools } from "../config";
+import toolTypes from "../constants/toolTypes";
 
-const ToolPalette = ({activeTool, onToolClick}) => {
-  const tools = getTools().map(tool => (
-    <Tool
-      key={tool.id}
-      id={tool.id}
-      name={tool.name}
-      activeTool={activeTool}
-      onToolClick={onToolClick}
-    />
-  ));
-  return(
+const ToolPalette = ({ activeTool, onToolClick }) => {
+  let tools = [];
+  for (const [id, name] of Object.entries(toolTypes)) {
+    tools.push(
+      <Tool key={id} id={id} name={name} activeTool={activeTool} onToolClick={onToolClick} />
+    );
+  }
+  return (
     <div className="absolute bottom-0 right-0 m-5" data-testid="ToolPalette">
       {tools}
     </div>
