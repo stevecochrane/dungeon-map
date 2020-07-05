@@ -1,5 +1,7 @@
+import toolTypes from "../constants/toolTypes";
+
 export const tools = {
-  activeTool: "room"
+  activeTool: toolTypes.ROOM
 };
 
 export default {
