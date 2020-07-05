@@ -14,8 +14,8 @@ class DungeonMap extends React.Component {
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
-  onToolClick(id = "", name = "") {
-    this.props.changeTool(id, name);
+  onToolClick(toolId = "") {
+    this.props.changeTool(toolId);
   }
 
   handleKeyPress(event) {
