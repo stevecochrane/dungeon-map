@@ -30,6 +30,9 @@ class DungeonMap extends React.Component {
       case "KeyD":
         selectedTool = toolTypes.DOOR;
         break;
+      case "KeyN":
+        selectedTool = toolTypes.NOTE;
+        break;
     }
     if (selectedTool) {
       this.props.changeTool(selectedTool);
