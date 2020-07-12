@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import gapTypes from "../constants/gapTypes";
 import toolTypes from "../constants/toolTypes";
 
-const Wall = ({ activeTool, extendedHorizontally, extendedVertically, side }) => {
-  const [active, setActive] = useState(false);
+const Wall = ({ activeTool, extendedHorizontally, extendedVertically, gapType, side }) => {
+  const [type, setType] = useState(gapType);
 
   const toggleWall = () => {
     if (activeTool === toolTypes.WALL) {
-      setActive(!active);
+      if (type === gapTypes.EMPTY) {
+        setType(gapTypes.WALL);
+      } else {
+        setType(gapTypes.EMPTY);
+      }
     }
   };
 
@@ -28,7 +33,7 @@ const Wall = ({ activeTool, extendedHorizontally, extendedVertically, side }) =>
   };
 
   let classes = `${baseClasses} ${sideClasses[side]}`;
-  if (active) {
+  if (type === gapTypes.WALL) {
     classes = `${classes} ${activeClasses}`;
   } else {
     classes += `${classes} ${inactiveClasses}`;
@@ -49,7 +54,7 @@ const Wall = ({ activeTool, extendedHorizontally, extendedVertically, side }) =>
   }
 
   return (
-    <div className={classes} data-active={active} data-testid="Wall" onMouseDown={toggleWall}></div>
+    <div className={classes} data-type={type} data-testid="Wall" onMouseDown={toggleWall}></div>
   );
 };
 
@@ -57,6 +62,7 @@ Wall.propTypes = {
   activeTool: PropTypes.string,
   extendedHorizontally: PropTypes.bool,
   extendedVertically: PropTypes.bool,
+  gapType: PropTypes.string,
   side: PropTypes.string
 };
 
@@ -64,6 +70,7 @@ Wall.defaultProps = {
   activeTool: null,
   extendedHorizontally: false,
   extendedVertically: false,
+  gapType: gapTypes.EMPTY,
   side: "top"
 };
 
