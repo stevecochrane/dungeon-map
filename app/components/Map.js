@@ -23,10 +23,10 @@ const Map = ({ activeTool, className, columns, rows }) => {
               let tileProps = {};
               tileProps.tileType = column;
               if (rowIndex === rows - 1) {
-                tileProps.hasBottomWall = true;
+                tileProps.hasBottomGap = true;
               }
               if (columnIndex === columns - 1) {
-                tileProps.hasRightWall = true;
+                tileProps.hasRightGap = true;
               }
               return <Tile key={columnIndex} activeTool={activeTool} {...tileProps} />;
             })}

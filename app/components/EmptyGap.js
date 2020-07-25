@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Wall = ({ activeTool, extendedHorizontally, extendedVertically, side }) => {
-  let baseClasses = "Wall absolute bg-blue-600 z-30";
+const EmptyGap = ({ activeTool, extendedHorizontally, extendedVertically, side }) => {
+  let baseClasses = "EmptyGap absolute bg-white z-10";
   if (activeTool === "wall") {
-    baseClasses += " cursor-pointer transition-bg hover:transition-none";
+    baseClasses +=
+      " cursor-pointer transition-bg hover:transition-none hover:bg-gray-400 hover:z-20";
   }
 
   const sideClasses = {
@@ -30,21 +31,21 @@ const Wall = ({ activeTool, extendedHorizontally, extendedVertically, side }) =>
     }
   }
 
-  return <div className={classes} data-testid="Wall"></div>;
+  return <div className={classes} data-testid="EmptyGap"></div>;
 };
 
-Wall.propTypes = {
+EmptyGap.propTypes = {
   activeTool: PropTypes.string,
   extendedHorizontally: PropTypes.bool,
   extendedVertically: PropTypes.bool,
   side: PropTypes.string
 };
 
-Wall.defaultProps = {
+EmptyGap.defaultProps = {
   activeTool: null,
   extendedHorizontally: false,
   extendedVertically: false,
   side: "top"
 };
 
-export default Wall;
+export default EmptyGap;

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import Wall from "./Wall";
+import Gap from "./Gap";
 import tileTypes from "../constants/tileTypes";
 import toolTypes from "../constants/toolTypes";
 
-const Tile = ({ activeTool, hasBottomWall, hasRightWall, tileType }) => {
+const Tile = ({ activeTool, hasBottomGap, hasRightGap, tileType }) => {
   const [type, setType] = useState(tileType);
 
   const toggleTile = () => {
@@ -32,13 +32,13 @@ const Tile = ({ activeTool, hasBottomWall, hasRightWall, tileType }) => {
   }
 
   let tileClassName = "Tile relative";
-  if (hasRightWall) {
+  if (hasRightGap) {
     tileClassName += " w-12";
   } else {
     tileClassName += " w-11";
   }
 
-  if (hasBottomWall) {
+  if (hasBottomGap) {
     tileClassName += " h-12";
   } else {
     tileClassName += " h-11";
@@ -46,13 +46,13 @@ const Tile = ({ activeTool, hasBottomWall, hasRightWall, tileType }) => {
 
   return (
     <div className={tileClassName} data-testid="Tile">
-      <Wall side="top" extendedHorizontally={hasRightWall} activeTool={activeTool} />
-      <Wall side="left" extendedVertically={hasBottomWall} activeTool={activeTool} />
-      {hasRightWall && (
-        <Wall side="right" extendedVertically={hasBottomWall} activeTool={activeTool} />
+      <Gap side="top" extendedHorizontally={hasRightGap} activeTool={activeTool} />
+      <Gap side="left" extendedVertically={hasBottomGap} activeTool={activeTool} />
+      {hasRightGap && (
+        <Gap side="right" extendedVertically={hasBottomGap} activeTool={activeTool} />
       )}
-      {hasBottomWall && (
-        <Wall side="bottom" extendedHorizontally={hasRightWall} activeTool={activeTool} />
+      {hasBottomGap && (
+        <Gap side="bottom" extendedHorizontally={hasRightGap} activeTool={activeTool} />
       )}
       <div
         className={tileSurfaceClassName}
@@ -66,15 +66,15 @@ const Tile = ({ activeTool, hasBottomWall, hasRightWall, tileType }) => {
 
 Tile.propTypes = {
   activeTool: PropTypes.string,
-  hasRightWall: PropTypes.bool,
-  hasBottomWall: PropTypes.bool,
+  hasRightGap: PropTypes.bool,
+  hasBottomGap: PropTypes.bool,
   tileType: PropTypes.string
 };
 
 Tile.defaultProps = {
   activeTool: null,
-  hasRightWall: false,
-  hasBottomWall: false,
+  hasRightGap: false,
+  hasBottomGap: false,
   tileType: tileTypes.EMPTY
 };
 
