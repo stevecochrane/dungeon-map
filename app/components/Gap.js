@@ -20,37 +20,41 @@ const Gap = ({ activeTool, extendedHorizontally, extendedVertically, gapType, si
     }
   };
 
+  let baseClasses = "absolute";
+
+  const sideClasses = {
+    top: "h-1 top-0 left-0",
+    left: "w-1 top-0 left-0",
+    right: "w-1 top-0 right-0",
+    bottom: "h-1 bottom-0 left-0"
+  };
+
+  let classes = `${baseClasses} ${sideClasses[side]}`;
+
+  if (side === "top" || side === "bottom") {
+    if (extendedHorizontally) {
+      classes += " right-0";
+    } else {
+      classes += " -right-1";
+    }
+  } else if (side === "left" || side === "right") {
+    if (extendedVertically) {
+      classes += " bottom-0";
+    } else {
+      classes += " -bottom-1";
+    }
+  }
+
   return (
-    <div data-testid="Gap" data-type={type} onMouseDown={changeGap}>
+    <div className={classes} data-testid="Gap" data-type={type} onMouseDown={changeGap}>
       {(() => {
         switch (type) {
           case gapTypes.DOOR:
-            return (
-              <Door
-                activeTool={activeTool}
-                extendedHorizontally={extendedHorizontally}
-                extendedVertically={extendedVertically}
-                side={side}
-              ></Door>
-            );
+            return <Door activeTool={activeTool}></Door>;
           case gapTypes.EMPTY:
-            return (
-              <EmptyGap
-                activeTool={activeTool}
-                extendedHorizontally={extendedHorizontally}
-                extendedVertically={extendedVertically}
-                side={side}
-              ></EmptyGap>
-            );
+            return <EmptyGap activeTool={activeTool}></EmptyGap>;
           case gapTypes.WALL:
-            return (
-              <Wall
-                activeTool={activeTool}
-                extendedHorizontally={extendedHorizontally}
-                extendedVertically={extendedVertically}
-                side={side}
-              ></Wall>
-            );
+            return <Wall activeTool={activeTool}></Wall>;
           default:
             return null;
         }
