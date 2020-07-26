@@ -10,7 +10,17 @@ describe("Gap", () => {
     expect(getByTestId("Gap")).toBeInTheDocument();
   });
 
-  test("Clicking Gap with wall tool active toggles active state", () => {
+  test("Clicking Gap with Door tool active toggles Gap to Door and back", () => {
+    const { getByTestId } = render(<Gap activeTool={toolTypes.DOOR} gapType={gapTypes.EMPTY} />);
+    const gap = getByTestId("Gap");
+    expect(gap.getAttribute("data-type")).toBe(gapTypes.EMPTY);
+    fireEvent.mouseDown(gap);
+    expect(gap.getAttribute("data-type")).toBe(gapTypes.DOOR);
+    fireEvent.mouseDown(gap);
+    expect(gap.getAttribute("data-type")).toBe(gapTypes.EMPTY);
+  });
+
+  test("Clicking Gap with Wall tool active toggles Gap to Wall and back", () => {
     const { getByTestId } = render(<Gap activeTool={toolTypes.WALL} gapType={gapTypes.EMPTY} />);
     const gap = getByTestId("Gap");
     expect(gap.getAttribute("data-type")).toBe(gapTypes.EMPTY);
@@ -20,7 +30,7 @@ describe("Gap", () => {
     expect(gap.getAttribute("data-type")).toBe(gapTypes.EMPTY);
   });
 
-  test("Clicking Gap with wall tool inactive does not change active state", () => {
+  test("Clicking Gap with Room tool active does not change Gap", () => {
     const { getByTestId } = render(<Gap activeTool={toolTypes.ROOM} gapType={gapTypes.EMPTY} />);
     const gap = getByTestId("Gap");
     expect(gap.getAttribute("data-type")).toBe(gapTypes.EMPTY);
