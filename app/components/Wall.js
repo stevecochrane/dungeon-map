@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import toolTypes from "../constants/toolTypes";
 
 const Wall = ({ activeTool, extendedHorizontally, extendedVertically, side }) => {
-  let baseClasses = "Wall absolute bg-blue-600 z-30";
+  let baseClasses = "absolute bg-blue-600 z-30";
   if (activeTool === toolTypes.DOOR || activeTool === toolTypes.WALL) {
     baseClasses += " cursor-pointer transition-bg hover:transition-none";
   }

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import toolTypes from "../constants/toolTypes";
 
 const EmptyGap = ({ activeTool, extendedHorizontally, extendedVertically, side }) => {
-  let baseClasses = "EmptyGap absolute bg-white z-10";
+  let baseClasses = "absolute bg-white z-10";
   if (activeTool === toolTypes.DOOR || activeTool === toolTypes.WALL) {
     baseClasses +=
       " cursor-pointer transition-bg hover:transition-none hover:bg-gray-400 hover:z-20";

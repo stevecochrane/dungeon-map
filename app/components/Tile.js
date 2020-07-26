@@ -31,7 +31,7 @@ const Tile = ({ activeTool, hasBottomGap, hasRightGap, tileType }) => {
     }
   }
 
-  let tileClassName = "Tile relative";
+  let tileClassName = "relative";
   if (hasRightGap) {
     tileClassName += " w-12";
   } else {
