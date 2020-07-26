@@ -2,34 +2,36 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import gapTypes from "../constants/gapTypes";
 import toolTypes from "../constants/toolTypes";
+import Door from "./Door";
 import EmptyGap from "./EmptyGap";
 import Wall from "./Wall";
 
 const Gap = ({ activeTool, extendedHorizontally, extendedVertically, gapType, side }) => {
   const [type, setType] = useState(gapType);
 
-  const toggleWall = () => {
-    if (activeTool === toolTypes.WALL) {
-      if (type === gapTypes.EMPTY) {
-        setType(gapTypes.WALL);
-      } else {
-        setType(gapTypes.EMPTY);
-      }
+  const changeGap = () => {
+    switch (activeTool) {
+      case toolTypes.DOOR:
+        setType(type === gapTypes.DOOR ? gapTypes.EMPTY : gapTypes.DOOR);
+        break;
+      case toolTypes.WALL:
+        setType(type === gapTypes.WALL ? gapTypes.EMPTY : gapTypes.WALL);
+        break;
     }
   };
 
   return (
-    <div data-testid="Gap" data-type={type} onMouseDown={toggleWall}>
+    <div data-testid="Gap" data-type={type} onMouseDown={changeGap}>
       {(() => {
         switch (type) {
-          case gapTypes.WALL:
+          case gapTypes.DOOR:
             return (
-              <Wall
+              <Door
                 activeTool={activeTool}
                 extendedHorizontally={extendedHorizontally}
                 extendedVertically={extendedVertically}
                 side={side}
-              ></Wall>
+              ></Door>
             );
           case gapTypes.EMPTY:
             return (
@@ -39,6 +41,15 @@ const Gap = ({ activeTool, extendedHorizontally, extendedVertically, gapType, si
                 extendedVertically={extendedVertically}
                 side={side}
               ></EmptyGap>
+            );
+          case gapTypes.WALL:
+            return (
+              <Wall
+                activeTool={activeTool}
+                extendedHorizontally={extendedHorizontally}
+                extendedVertically={extendedVertically}
+                side={side}
+              ></Wall>
             );
           default:
             return null;
