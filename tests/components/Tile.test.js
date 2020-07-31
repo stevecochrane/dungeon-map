@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import Tile from "../../app/components/Tile";
-import tileTypes from "../../app/constants/tileTypes";
+import cellTypes from "../../app/constants/cellTypes";
 import toolTypes from "../../app/constants/toolTypes";
 
 describe("Tile", () => {
@@ -11,20 +11,20 @@ describe("Tile", () => {
   });
 
   test("Clicking empty Tile surface with Room tool active displays a room", () => {
-    const { getByTestId } = render(<Tile activeTool={toolTypes.ROOM} tileType={tileTypes.EMPTY} />);
+    const { getByTestId } = render(<Tile activeTool={toolTypes.ROOM} tileType={cellTypes.EMPTY} />);
     const tileSurface = getByTestId("Tile-surface");
-    expect(tileSurface.getAttribute("data-type")).toBe(tileTypes.EMPTY);
+    expect(tileSurface.getAttribute("data-type")).toBe(cellTypes.EMPTY);
     fireEvent.mouseDown(tileSurface);
-    expect(tileSurface.getAttribute("data-type")).toBe(tileTypes.ROOM);
+    expect(tileSurface.getAttribute("data-type")).toBe(cellTypes.ROOM);
     fireEvent.mouseDown(tileSurface);
-    expect(tileSurface.getAttribute("data-type")).toBe(tileTypes.EMPTY);
+    expect(tileSurface.getAttribute("data-type")).toBe(cellTypes.EMPTY);
   });
 
   test("Clicking Tile surface with Room tool inactive does not change displayed state", () => {
-    const { getByTestId } = render(<Tile activeTool={toolTypes.WALL} tileType={tileTypes.EMPTY} />);
+    const { getByTestId } = render(<Tile activeTool={toolTypes.WALL} tileType={cellTypes.EMPTY} />);
     const tileSurface = getByTestId("Tile-surface");
-    expect(tileSurface.getAttribute("data-type")).toBe(tileTypes.EMPTY);
+    expect(tileSurface.getAttribute("data-type")).toBe(cellTypes.EMPTY);
     fireEvent.mouseDown(tileSurface);
-    expect(tileSurface.getAttribute("data-type")).toBe(tileTypes.EMPTY);
+    expect(tileSurface.getAttribute("data-type")).toBe(cellTypes.EMPTY);
   });
 });

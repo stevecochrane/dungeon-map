@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Line from "./Line";
-import tileTypes from "../constants/tileTypes";
+import cellTypes from "../constants/cellTypes";
 import toolTypes from "../constants/toolTypes";
 
 const Tile = ({ activeTool, hasBottomLine, hasRightLine, tileType }) => {
@@ -9,10 +9,10 @@ const Tile = ({ activeTool, hasBottomLine, hasRightLine, tileType }) => {
 
   const toggleTile = () => {
     if (activeTool === toolTypes.ROOM) {
-      if (type === tileTypes.EMPTY) {
-        setType(tileTypes.ROOM);
+      if (type === cellTypes.EMPTY) {
+        setType(cellTypes.ROOM);
       } else {
-        setType(tileTypes.EMPTY);
+        setType(cellTypes.EMPTY);
       }
     }
   };
@@ -21,7 +21,7 @@ const Tile = ({ activeTool, hasBottomLine, hasRightLine, tileType }) => {
   if (activeTool === toolTypes.ROOM) {
     tileSurfaceClassName += " cursor-pointer transition-bg hover:transition-none";
   }
-  if (type === tileTypes.ROOM) {
+  if (type === cellTypes.ROOM) {
     tileSurfaceClassName += " bg-blue-400";
   } else {
     tileSurfaceClassName += " bg-gray-200";
@@ -75,7 +75,7 @@ Tile.defaultProps = {
   activeTool: null,
   hasRightLine: false,
   hasBottomLine: false,
-  tileType: tileTypes.EMPTY
+  tileType: cellTypes.EMPTY
 };
 
 export default Tile;

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Tile from "./Tile";
-import tileTypes from "../constants/tileTypes";
+import cellTypes from "../constants/cellTypes";
 
 const Map = ({ activeTool, className, columns, rows }) => {
   let initialMapData = [];
   for (let row = 0; row < rows; row++) {
     initialMapData[row] = [];
     for (let column = 0; column < columns; column++) {
-      initialMapData[row][column] = tileTypes.EMPTY;
+      initialMapData[row][column] = cellTypes.EMPTY;
     }
   }
 
