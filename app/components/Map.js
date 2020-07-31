@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import Tile from "./Tile";
 import cellTypes from "../constants/cellTypes";
+import Cell from "./Cell";
 
 const Map = ({ activeTool, className, columns, rows }) => {
   let initialMapData = [];
@@ -20,15 +20,15 @@ const Map = ({ activeTool, className, columns, rows }) => {
         return (
           <div key={rowIndex} className="Map-row flex justify-center">
             {row.map((column, columnIndex) => {
-              let tileProps = {};
-              tileProps.tileType = column;
+              let cellProps = {};
+              cellProps.cellType = column;
               if (rowIndex === rows - 1) {
-                tileProps.hasBottomGap = true;
+                cellProps.hasBottomGap = true;
               }
               if (columnIndex === columns - 1) {
-                tileProps.hasRightGap = true;
+                cellProps.hasRightGap = true;
               }
-              return <Tile key={columnIndex} activeTool={activeTool} {...tileProps} />;
+              return <Cell key={columnIndex} activeTool={activeTool} {...cellProps}></Cell>;
             })}
           </div>
         );

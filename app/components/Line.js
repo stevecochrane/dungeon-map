@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import lineTypes from "../constants/lineTypes";
 import toolTypes from "../constants/toolTypes";
-import Door from "./Door";
 import BlankLine from "./BlankLine";
+import Door from "./Door";
 import Wall from "./Wall";
 
 const Line = ({ activeTool, extendedHorizontally, extendedVertically, lineType, side }) => {

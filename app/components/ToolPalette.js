@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Tool from "./Tool";
 import toolTypes from "../constants/toolTypes";
+import Tool from "./Tool";
 
 const ToolPalette = ({ activeTool, onToolClick }) => {
   let tools = [];
