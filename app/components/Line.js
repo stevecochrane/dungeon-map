@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import gapTypes from "../constants/gapTypes";
+import lineTypes from "../constants/lineTypes";
 import toolTypes from "../constants/toolTypes";
 import Door from "./Door";
-import EmptyGap from "./EmptyGap";
+import BlankLine from "./BlankLine";
 import Wall from "./Wall";
 
-const Gap = ({ activeTool, extendedHorizontally, extendedVertically, gapType, side }) => {
-  const [type, setType] = useState(gapType);
+const Line = ({ activeTool, extendedHorizontally, extendedVertically, lineType, side }) => {
+  const [type, setType] = useState(lineType);
 
-  const changeGap = () => {
+  const changeLine = () => {
     switch (activeTool) {
       case toolTypes.DOOR:
-        setType(type === gapTypes.DOOR ? gapTypes.EMPTY : gapTypes.DOOR);
+        setType(type === lineTypes.DOOR ? lineTypes.EMPTY : lineTypes.DOOR);
         break;
       case toolTypes.WALL:
-        setType(type === gapTypes.WALL ? gapTypes.EMPTY : gapTypes.WALL);
+        setType(type === lineTypes.WALL ? lineTypes.EMPTY : lineTypes.WALL);
         break;
     }
   };
@@ -46,14 +46,14 @@ const Gap = ({ activeTool, extendedHorizontally, extendedVertically, gapType, si
   }
 
   return (
-    <div className={classes} data-testid="Gap" data-type={type} onMouseDown={changeGap}>
+    <div className={classes} data-testid="Line" data-type={type} onMouseDown={changeLine}>
       {(() => {
         switch (type) {
-          case gapTypes.DOOR:
+          case lineTypes.DOOR:
             return <Door activeTool={activeTool}></Door>;
-          case gapTypes.EMPTY:
-            return <EmptyGap activeTool={activeTool}></EmptyGap>;
-          case gapTypes.WALL:
+          case lineTypes.EMPTY:
+            return <BlankLine activeTool={activeTool}></BlankLine>;
+          case lineTypes.WALL:
             return <Wall activeTool={activeTool}></Wall>;
           default:
             return null;
@@ -63,20 +63,20 @@ const Gap = ({ activeTool, extendedHorizontally, extendedVertically, gapType, si
   );
 };
 
-Gap.propTypes = {
+Line.propTypes = {
   activeTool: PropTypes.string,
   extendedHorizontally: PropTypes.bool,
   extendedVertically: PropTypes.bool,
-  gapType: PropTypes.string,
+  lineType: PropTypes.string,
   side: PropTypes.string
 };
 
-Gap.defaultProps = {
+Line.defaultProps = {
   activeTool: null,
   extendedHorizontally: false,
   extendedVertically: false,
-  gapType: gapTypes.EMPTY,
+  lineType: lineTypes.EMPTY,
   side: "top"
 };
 
-export default Gap;
+export default Line;

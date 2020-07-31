@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import Gap from "./Gap";
+import Line from "./Line";
 import tileTypes from "../constants/tileTypes";
 import toolTypes from "../constants/toolTypes";
 
-const Tile = ({ activeTool, hasBottomGap, hasRightGap, tileType }) => {
+const Tile = ({ activeTool, hasBottomLine, hasRightLine, tileType }) => {
   const [type, setType] = useState(tileType);
 
   const toggleTile = () => {
@@ -32,13 +32,13 @@ const Tile = ({ activeTool, hasBottomGap, hasRightGap, tileType }) => {
   }
 
   let tileClassName = "relative";
-  if (hasRightGap) {
+  if (hasRightLine) {
     tileClassName += " w-12";
   } else {
     tileClassName += " w-11";
   }
 
-  if (hasBottomGap) {
+  if (hasBottomLine) {
     tileClassName += " h-12";
   } else {
     tileClassName += " h-11";
@@ -46,13 +46,13 @@ const Tile = ({ activeTool, hasBottomGap, hasRightGap, tileType }) => {
 
   return (
     <div className={tileClassName} data-testid="Tile">
-      <Gap side="top" extendedHorizontally={hasRightGap} activeTool={activeTool} />
-      <Gap side="left" extendedVertically={hasBottomGap} activeTool={activeTool} />
-      {hasRightGap && (
-        <Gap side="right" extendedVertically={hasBottomGap} activeTool={activeTool} />
+      <Line side="top" extendedHorizontally={hasRightLine} activeTool={activeTool} />
+      <Line side="left" extendedVertically={hasBottomLine} activeTool={activeTool} />
+      {hasRightLine && (
+        <Line side="right" extendedVertically={hasBottomLine} activeTool={activeTool} />
       )}
-      {hasBottomGap && (
-        <Gap side="bottom" extendedHorizontally={hasRightGap} activeTool={activeTool} />
+      {hasBottomLine && (
+        <Line side="bottom" extendedHorizontally={hasRightLine} activeTool={activeTool} />
       )}
       <div
         className={tileSurfaceClassName}
@@ -66,15 +66,15 @@ const Tile = ({ activeTool, hasBottomGap, hasRightGap, tileType }) => {
 
 Tile.propTypes = {
   activeTool: PropTypes.string,
-  hasRightGap: PropTypes.bool,
-  hasBottomGap: PropTypes.bool,
+  hasRightLine: PropTypes.bool,
+  hasBottomLine: PropTypes.bool,
   tileType: PropTypes.string
 };
 
 Tile.defaultProps = {
   activeTool: null,
-  hasRightGap: false,
-  hasBottomGap: false,
+  hasRightLine: false,
+  hasBottomLine: false,
   tileType: tileTypes.EMPTY
 };
 
