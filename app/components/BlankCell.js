@@ -5,7 +5,8 @@ import toolTypes from "../constants/toolTypes";
 const BlankCell = ({ activeTool }) => {
   let classes = "absolute bg-gray-200 inset-0";
   if (activeTool === toolTypes.NOTE || activeTool === toolTypes.ROOM) {
-    classes += " cursor-pointer transition-bg hover:bg-gray-400 hover:transition-none";
+    classes +=
+      " cursor-pointer duration-200 transition-colors hover:bg-gray-400 hover:transition-none";
   }
   return <div className={classes} data-testid="BlankCell"></div>;
 };

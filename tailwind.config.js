@@ -11,7 +11,8 @@ module.exports = {
     }
   },
   variants: {
+    transitionDuration: ["responsive", "hover"],
+    transitionProperty: ["responsive", "hover"],
     zIndex: ["responsive", "hover"]
-  },
-  plugins: [require("tailwindcss-transitions")()]
+  }
 };
