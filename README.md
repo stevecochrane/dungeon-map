@@ -20,9 +20,6 @@ Here's how to get it running:
 # Install dependencies
 npm install
 
-# Lint test CSS
-npm run lint:css
-
 # Lint test JavaScript
 npm run lint:js
 

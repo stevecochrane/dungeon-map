@@ -1,11 +1,9 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const merge             = require("webpack-merge");
+const merge = require("webpack-merge");
 
-const lintCSS = require("./parts/lintCSS");
-const lintJS  = require("./parts/lintJS");
-const loadCSS = require("./parts/loadCSS");
-const loadJS  = require("./parts/loadJS");
-const paths   = require("./parts/paths");
+const lintJS = require("./parts/lintJS");
+const loadJS = require("./parts/loadJS");
+const paths = require("./parts/paths");
 
 module.exports = merge([
   {
@@ -13,7 +11,7 @@ module.exports = merge([
       app: paths.app
     },
     output: {
-      path:     paths.build,
+      path: paths.build,
       filename: "[name].js"
     },
     plugins: [
@@ -24,9 +22,6 @@ module.exports = merge([
     ]
   },
   lintJS({
-    include: paths.app
-  }),
-  lintCSS({
     include: paths.app
   }),
   loadJS({

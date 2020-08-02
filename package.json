@@ -11,7 +11,6 @@
   "main": "dungeon-map.js",
   "scripts": {
     "build": "env NODE_ENV=production webpack --config webpack/production.js",
-    "lint:css": "stylelint css/*.css",
     "lint:js": "eslint --ignore-path .eslintignore --cache .",
     "server": "node dungeon-map.js",
     "start": "webpack-dev-server --config webpack/development.js",
@@ -28,7 +27,6 @@
       "eslint",
       "jest --bail --coverage --findRelatedTests"
     ],
-    "*.css": "stylelint",
     "*.{js,css,html}": "prettier --write"
   },
   "devDependencies": {
@@ -62,8 +60,6 @@
     "redux": "4.0.1",
     "redux-devtools-extension": "2.13.8",
     "style-loader": "0.23.1",
-    "stylelint": "13.5.0",
-    "stylelint-config-recommended": "3.0.0",
     "tailwindcss": "1.6.0",
     "terser-webpack-plugin": "2.3.1",
     "webpack": "4.43.0",
