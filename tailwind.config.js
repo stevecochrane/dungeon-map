@@ -1,4 +1,5 @@
 module.exports = {
+  purge: ["./app/templates/**/*.html", "./app/components/**/*.js"],
   theme: {
     extend: {
       inset: {
