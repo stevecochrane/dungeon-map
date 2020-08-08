@@ -8,8 +8,7 @@ const Note = ({ activeTool }) => {
     roomClasses += " cursor-pointer duration-200 transition-colors hover:transition-none";
   }
   const noteWrapperClasses = "absolute bottom-0 left-1 right-0 top-1";
-  const noteClasses =
-    "absolute bg-yellow-600 h-4 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4";
+  const noteClasses = "bg-yellow-600 h-4 vertical-center w-4";
 
   return (
     <div className={roomClasses} data-testid="Note">

@@ -7,8 +7,7 @@ const Door = ({ activeTool }) => {
   if (activeTool === toolTypes.DOOR || activeTool === toolTypes.WALL) {
     wallClasses += " cursor-pointer duration-200 transition-colors hover:transition-none";
   }
-  const doorClasses =
-    "absolute bg-yellow-600 h-4 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2";
+  const doorClasses = "bg-yellow-600 h-4 vertical-center w-2";
 
   return (
     <div className={wallClasses} data-testid="Door">
