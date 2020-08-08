@@ -4,6 +4,7 @@ import cellTypes from "../constants/cellTypes";
 import toolTypes from "../constants/toolTypes";
 import BlankCell from "./BlankCell";
 import Line from "./Line";
+import Note from "./Note";
 import Room from "./Room";
 
 const Cell = ({ activeTool, hasBottomLine, hasRightLine, cellType }) => {
@@ -11,6 +12,9 @@ const Cell = ({ activeTool, hasBottomLine, hasRightLine, cellType }) => {
 
   const changeCell = () => {
     switch (activeTool) {
+      case toolTypes.NOTE:
+        setType(type === cellTypes.NOTE ? cellTypes.EMPTY : cellTypes.NOTE);
+        break;
       case toolTypes.ROOM:
         setType(type === cellTypes.ROOM ? cellTypes.EMPTY : cellTypes.ROOM);
         break;
@@ -44,6 +48,8 @@ const Cell = ({ activeTool, hasBottomLine, hasRightLine, cellType }) => {
         switch (type) {
           case cellTypes.EMPTY:
             return <BlankCell activeTool={activeTool}></BlankCell>;
+          case cellTypes.NOTE:
+            return <Note activeTool={activeTool}></Note>;
           case cellTypes.ROOM:
             return <Room activeTool={activeTool}></Room>;
           default:
