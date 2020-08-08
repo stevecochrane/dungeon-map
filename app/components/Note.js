@@ -7,13 +7,11 @@ const Note = ({ activeTool }) => {
   if (activeTool === toolTypes.NOTE || activeTool === toolTypes.ROOM) {
     roomClasses += " cursor-pointer duration-200 transition-colors hover:transition-none";
   }
-  const noteWrapperClasses = "absolute bottom-0 left-1 right-0 top-1";
-  const noteClasses = "bg-yellow-600 h-4 vertical-center w-4";
 
   return (
     <div className={roomClasses} data-testid="Note">
-      <div className={noteWrapperClasses}>
-        <div className={noteClasses}></div>
+      <div className="absolute bottom-0 left-1 right-0 top-1">
+        <div className="bg-yellow-600 h-4 vertical-center w-4"></div>
       </div>
     </div>
   );
