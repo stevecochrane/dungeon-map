@@ -37,14 +37,14 @@ npm run server
 
 ### Must-haves for 1.0
 
-- Add ability to click and drag to quickly select multiple rooms/walls
-- Add Door tool
+- [ ] Add ability to click and drag to quickly select multiple rooms/walls
+- [x] Add Door tool
   - Just one color to start should be enough for most cases
-- Adjacent active rooms should have connected backgrounds
+- [ ] Adjacent active rooms should have connected backgrounds
   - This might be as simple as extending the background halfway into the gaps
     when active
-- Add Note tool
+- [ ] Add Note tool
   - This allows you to put a marker on any square with a custom note
   - When hovering over a marker, the note appears in a tooltip
-- Add ability to save to and load from local storage
-- Add ability to customize the width and height of the map grid
+- [ ] Add ability to save to and load from local storage
+- [ ] Add ability to customize the width and height of the map grid
