@@ -5,7 +5,7 @@ import toolTypes from "../constants/toolTypes";
 const Door = ({ activeTool }) => {
   let wallClasses = "absolute bg-blue-600 inset-0 z-30";
   if (activeTool === toolTypes.DOOR || activeTool === toolTypes.WALL) {
-    wallClasses += " cursor-pointer duration-200 transition-colors hover:transition-none";
+    wallClasses += " cursor-pointer duration-300 transition-colors hover:transition-none";
   }
 
   return (

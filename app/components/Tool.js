@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const Tool = ({ id, activeTool, onToolClick }) => {
   const active = id === activeTool;
-  let className = "cursor-pointer duration-200 h-12 m-2 transition-colors w-12";
+  let className = "cursor-pointer duration-300 h-12 m-2 transition-colors w-12";
 
   if (active) {
     className += " bg-yellow-400";

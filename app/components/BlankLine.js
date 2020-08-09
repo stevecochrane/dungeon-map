@@ -6,7 +6,7 @@ const BlankLine = ({ activeTool }) => {
   let classes = "absolute bg-white inset-0 z-10";
   if (activeTool === toolTypes.DOOR || activeTool === toolTypes.WALL) {
     classes +=
-      " cursor-pointer duration-200 transition-colors hover:bg-gray-400 hover:transition-none hover:z-20";
+      " cursor-pointer duration-300 transition-colors hover:bg-gray-400 hover:transition-none hover:z-20";
   }
   return <div className={classes} data-testid="BlankLine"></div>;
 };
