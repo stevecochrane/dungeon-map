@@ -13,6 +13,7 @@ module.exports = {
     }
   },
   variants: {
+    opacity: ["responsive", "hover", "group-hover"],
     transitionDuration: ["responsive", "hover"],
     transitionProperty: ["responsive", "hover"],
     zIndex: ["responsive", "hover"]
