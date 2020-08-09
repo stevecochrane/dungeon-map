@@ -6,7 +6,7 @@ import ToolPalette from "./ToolPalette";
 const App = ({ activeTool, onToolClick }) => {
   return (
     <div className="flex flex-col flex-grow" data-testid="App">
-      <h1 className="font-bold py-8 text-3xl text-center">Dungeon Map</h1>
+      {/* <h1 className="font-bold py-8 text-3xl text-center">Dungeon Map</h1> */}
       <Map
         activeTool={activeTool}
         rows={10}
