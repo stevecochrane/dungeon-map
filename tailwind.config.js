@@ -15,7 +15,7 @@ module.exports = {
   variants: {
     opacity: ["responsive", "hover", "group-hover"],
     transitionDuration: ["responsive", "hover"],
-    transitionProperty: ["responsive", "hover"],
+    transitionProperty: ["responsive", "hover", "group-hover"],
     zIndex: ["responsive", "hover"]
   }
 };
