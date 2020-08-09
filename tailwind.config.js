@@ -8,6 +8,7 @@ module.exports = {
         "1": "0.25rem"
       },
       spacing: {
+        "-3/2": "-150%",
         "11": "2.75rem"
       }
     }
@@ -16,6 +17,7 @@ module.exports = {
     opacity: ["responsive", "hover", "group-hover"],
     transitionDuration: ["responsive", "hover"],
     transitionProperty: ["responsive", "hover", "group-hover"],
+    translate: ["responsive", "hover", "group-hover"],
     zIndex: ["responsive", "hover"]
   }
 };
