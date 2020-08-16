@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
 import App from "../components/App";
 import { changeTool } from "../actions/tools.actions";
+import { changeMouseDown } from "../actions/mouse.actions";
 import toolTypes from "../constants/toolTypes";
 
 class DungeonMap extends React.Component {
@@ -12,6 +13,8 @@ class DungeonMap extends React.Component {
     this.state = {};
     this.onToolClick = this.onToolClick.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.handleMouseDown = this.handleMouseDown.bind(this);
+    this.handleMouseUp = this.handleMouseUp.bind(this);
   }
 
   onToolClick(toolId = "") {
@@ -39,12 +42,24 @@ class DungeonMap extends React.Component {
     }
   }
 
+  handleMouseDown() {
+    this.props.changeMouseDown(true);
+  }
+
+  handleMouseUp() {
+    this.props.changeMouseDown(false);
+  }
+
   componentDidMount() {
     document.addEventListener("keypress", this.handleKeyPress);
+    document.addEventListener("mousedown", this.handleMouseDown);
+    document.addEventListener("mouseup", this.handleMouseUp);
   }
 
   componentWillUnmount() {
     document.removeEventListener("keypress", this.handleKeyPress);
+    document.removeEventListener("mousedown", this.handleMouseDown);
+    document.removeEventListener("mouseup", this.handleMouseUp);
   }
 
   render() {
@@ -57,6 +72,7 @@ class DungeonMap extends React.Component {
 }
 
 DungeonMap.propTypes = {
+  changeMouseDown: PropTypes.func,
   changeTool: PropTypes.func,
   tools: PropTypes.objectOf(PropTypes.string)
 };
@@ -70,7 +86,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      changeTool
+      changeTool,
+      changeMouseDown
     },
     dispatch
   );
