@@ -5,7 +5,7 @@ export const tools = {
 };
 
 export const mouse = {
-  mouseDown: false
+  isMouseDown: false
 };
 
 export default {

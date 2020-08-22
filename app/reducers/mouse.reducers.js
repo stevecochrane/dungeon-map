@@ -5,7 +5,7 @@ export default (state = mouse, action) => {
   switch (action.type) {
     case CHANGE_MOUSE_DOWN:
       return Object.assign({}, state, {
-        mouseDown: action.payload.mouseDown
+        isMouseDown: action.payload.isMouseDown
       });
 
     default:

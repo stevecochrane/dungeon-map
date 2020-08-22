@@ -1,10 +1,10 @@
 import { CHANGE_MOUSE_DOWN } from "../constants/actionTypes";
 
-export const changeMouseDown = mouseDown => {
+export const changeMouseDown = isMouseDown => {
   return {
     type: CHANGE_MOUSE_DOWN,
     payload: {
-      mouseDown: mouseDown
+      isMouseDown: isMouseDown
     }
   };
 };
