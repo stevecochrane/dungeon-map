@@ -65,7 +65,11 @@ class DungeonMap extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <App activeTool={this.props.tools.activeTool} onToolClick={this.onToolClick} />
+        <App
+          activeTool={this.props.tools.activeTool}
+          isMouseDown={this.props.mouse.isMouseDown}
+          onToolClick={this.onToolClick}
+        />
       </React.Fragment>
     );
   }
@@ -74,11 +78,13 @@ class DungeonMap extends React.Component {
 DungeonMap.propTypes = {
   changeMouseDown: PropTypes.func,
   changeTool: PropTypes.func,
+  mouse: PropTypes.objectOf(PropTypes.bool),
   tools: PropTypes.objectOf(PropTypes.string)
 };
 
 function mapStateToProps(state) {
   return {
+    mouse: state.mouse,
     tools: state.tools
   };
 }

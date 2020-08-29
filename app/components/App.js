@@ -3,15 +3,16 @@ import PropTypes from "prop-types";
 import Map from "./Map";
 import ToolPalette from "./ToolPalette";
 
-const App = ({ activeTool, onToolClick }) => {
+const App = ({ activeTool, isMouseDown, onToolClick }) => {
   return (
     <div className="flex flex-col flex-grow" data-testid="App">
       {/* <h1 className="font-bold py-8 text-3xl text-center">Dungeon Map</h1> */}
       <Map
         activeTool={activeTool}
-        rows={10}
-        columns={10}
         className="flex flex-grow flex-col justify-center"
+        columns={10}
+        isMouseDown={isMouseDown}
+        rows={10}
       />
       <ToolPalette activeTool={activeTool} onToolClick={onToolClick} />
     </div>
@@ -20,6 +21,7 @@ const App = ({ activeTool, onToolClick }) => {
 
 App.propTypes = {
   activeTool: PropTypes.string,
+  isMouseDown: PropTypes.bool,
   onToolClick: PropTypes.func
 };
 

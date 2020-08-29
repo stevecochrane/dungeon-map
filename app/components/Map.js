@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import cellTypes from "../constants/cellTypes";
 import Cell from "./Cell";
 
-const Map = ({ activeTool, className, columns, rows }) => {
+const Map = ({ activeTool, className, columns, isMouseDown, rows }) => {
   let initialMapData = [];
   for (let row = 0; row < rows; row++) {
     initialMapData[row] = [];
@@ -28,7 +28,14 @@ const Map = ({ activeTool, className, columns, rows }) => {
               if (columnIndex === columns - 1) {
                 cellProps.hasRightGap = true;
               }
-              return <Cell key={columnIndex} activeTool={activeTool} {...cellProps}></Cell>;
+              return (
+                <Cell
+                  activeTool={activeTool}
+                  isMouseDown={isMouseDown}
+                  key={columnIndex}
+                  {...cellProps}
+                ></Cell>
+              );
             })}
           </div>
         );
@@ -41,6 +48,7 @@ Map.propTypes = {
   activeTool: PropTypes.string,
   className: PropTypes.string,
   columns: PropTypes.number,
+  isMouseDown: PropTypes.bool,
   rows: PropTypes.number
 };
 

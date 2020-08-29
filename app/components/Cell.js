@@ -7,8 +7,9 @@ import Line from "./Line";
 import Note from "./Note";
 import Room from "./Room";
 
-const Cell = ({ activeTool, hasBottomLine, hasRightLine, cellType }) => {
+const Cell = ({ activeTool, cellType, hasBottomLine, hasRightLine, isMouseDown }) => {
   const [type, setType] = useState(cellType);
+  const [localMouseDown, setLocalMouseDown] = useState(false);
 
   const changeCell = () => {
     switch (activeTool) {
@@ -18,6 +19,21 @@ const Cell = ({ activeTool, hasBottomLine, hasRightLine, cellType }) => {
       case toolTypes.ROOM:
         setType(type === cellTypes.ROOM ? cellTypes.EMPTY : cellTypes.ROOM);
         break;
+    }
+  };
+
+  const handleMouseDown = () => {
+    setLocalMouseDown(true);
+    changeCell();
+  };
+
+  const handleMouseUp = () => {
+    setLocalMouseDown(false);
+  };
+
+  const checkIfDragging = () => {
+    if (isMouseDown && !localMouseDown) {
+      changeCell();
     }
   };
 
@@ -35,7 +51,14 @@ const Cell = ({ activeTool, hasBottomLine, hasRightLine, cellType }) => {
   }
 
   return (
-    <div className={classes} data-testid="Cell" data-type={type} onMouseDown={changeCell}>
+    <div
+      className={classes}
+      data-testid="Cell"
+      data-type={type}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onMouseEnter={checkIfDragging}
+    >
       <Line side="top" extendedHorizontally={hasRightLine} activeTool={activeTool} />
       <Line side="left" extendedVertically={hasBottomLine} activeTool={activeTool} />
       {hasRightLine && (
@@ -64,14 +87,16 @@ Cell.propTypes = {
   activeTool: PropTypes.string,
   cellType: PropTypes.string,
   hasRightLine: PropTypes.bool,
-  hasBottomLine: PropTypes.bool
+  hasBottomLine: PropTypes.bool,
+  isMouseDown: PropTypes.bool
 };
 
 Cell.defaultProps = {
   activeTool: null,
   cellType: cellTypes.EMPTY,
   hasRightLine: false,
-  hasBottomLine: false
+  hasBottomLine: false,
+  isMouseDown: false
 };
 
 export default Cell;
