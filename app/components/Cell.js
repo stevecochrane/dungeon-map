@@ -60,13 +60,13 @@ const Cell = ({ activeTool, cellType, hasBottomLine, hasRightLine, isMouseDown }
       onMouseEnter={handleDraggingOnEntry}
       onMouseLeave={clearLocalMouseDown}
     >
-      <Line side="top" extendedHorizontally={hasRightLine} activeTool={activeTool} />
-      <Line side="left" extendedVertically={hasBottomLine} activeTool={activeTool} />
+      <Line activeTool={activeTool} extendedHorizontally={hasRightLine} side="top" />
+      <Line activeTool={activeTool} extendedVertically={hasBottomLine} side="left" />
       {hasRightLine && (
-        <Line side="right" extendedVertically={hasBottomLine} activeTool={activeTool} />
+        <Line activeTool={activeTool} extendedVertically={hasBottomLine} side="right" />
       )}
       {hasBottomLine && (
-        <Line side="bottom" extendedHorizontally={hasRightLine} activeTool={activeTool} />
+        <Line activeTool={activeTool} extendedHorizontally={hasRightLine} side="bottom" />
       )}
       {(() => {
         switch (type) {
