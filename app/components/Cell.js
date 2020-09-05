@@ -37,6 +37,10 @@ const Cell = ({ activeTool, cellType, hasBottomLine, hasRightLine, isMouseDown }
     }
   };
 
+  const handleMouseLeave = () => {
+    setLocalMouseDown(false);
+  };
+
   let classes = "relative";
   if (hasRightLine) {
     classes += " w-12";
@@ -58,6 +62,7 @@ const Cell = ({ activeTool, cellType, hasBottomLine, hasRightLine, isMouseDown }
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseEnter={checkIfDragging}
+      onMouseLeave={handleMouseLeave}
     >
       <Line side="top" extendedHorizontally={hasRightLine} activeTool={activeTool} />
       <Line side="left" extendedVertically={hasBottomLine} activeTool={activeTool} />
