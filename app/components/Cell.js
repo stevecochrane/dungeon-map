@@ -27,18 +27,14 @@ const Cell = ({ activeTool, cellType, hasBottomLine, hasRightLine, isMouseDown }
     changeCell();
   };
 
-  const handleMouseUp = () => {
+  const clearLocalMouseDown = () => {
     setLocalMouseDown(false);
   };
 
-  const checkIfDragging = () => {
+  const handleDraggingOnEntry = () => {
     if (isMouseDown && !localMouseDown) {
       changeCell();
     }
-  };
-
-  const handleMouseLeave = () => {
-    setLocalMouseDown(false);
   };
 
   let classes = "relative";
@@ -60,9 +56,9 @@ const Cell = ({ activeTool, cellType, hasBottomLine, hasRightLine, isMouseDown }
       data-testid="Cell"
       data-type={type}
       onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
-      onMouseEnter={checkIfDragging}
-      onMouseLeave={handleMouseLeave}
+      onMouseUp={clearLocalMouseDown}
+      onMouseEnter={handleDraggingOnEntry}
+      onMouseLeave={clearLocalMouseDown}
     >
       <Line side="top" extendedHorizontally={hasRightLine} activeTool={activeTool} />
       <Line side="left" extendedVertically={hasBottomLine} activeTool={activeTool} />
