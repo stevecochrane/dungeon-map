@@ -80,14 +80,19 @@ const Line = ({
     >
       {(() => {
         switch (type) {
-          case lineTypes.DOOR:
-            return <Door activeTool={activeTool}></Door>;
-          case lineTypes.EMPTY:
+          case lineTypes.DOOR: {
+            const orientation = side === "top" || side === "bottom" ? "horizontal" : "vertical";
+            return <Door activeTool={activeTool} orientation={orientation}></Door>;
+          }
+          case lineTypes.EMPTY: {
             return <BlankLine activeTool={activeTool}></BlankLine>;
-          case lineTypes.WALL:
+          }
+          case lineTypes.WALL: {
             return <Wall activeTool={activeTool}></Wall>;
-          default:
+          }
+          default: {
             return null;
+          }
         }
       })()}
     </div>

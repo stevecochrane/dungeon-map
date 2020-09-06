@@ -2,25 +2,34 @@ import React from "react";
 import PropTypes from "prop-types";
 import toolTypes from "../constants/toolTypes";
 
-const Door = ({ activeTool }) => {
+const Door = ({ activeTool, orientation }) => {
   let wallClasses = "absolute bg-blue-600 inset-0 z-30";
   if (activeTool === toolTypes.DOOR || activeTool === toolTypes.WALL) {
     wallClasses += " cursor-pointer duration-300 transition-colors hover:transition-none";
   }
 
+  let doorClasses = "bg-yellow-600 pointer-events-none vertical-center";
+  if (orientation === "vertical") {
+    doorClasses += " h-4 w-2";
+  } else {
+    doorClasses += " h-2 w-4";
+  }
+
   return (
     <div className={wallClasses} data-testid="Door">
-      <div className="bg-yellow-600 h-4 pointer-events-none vertical-center w-2"></div>
+      <div className={doorClasses}></div>
     </div>
   );
 };
 
 Door.propTypes = {
-  activeTool: PropTypes.string
+  activeTool: PropTypes.string,
+  orientation: PropTypes.string
 };
 
 Door.defaultProps = {
-  activeTool: null
+  activeTool: null,
+  orientation: "vertical"
 };
 
 export default Door;
