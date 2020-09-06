@@ -12,7 +12,7 @@ const Note = ({ activeTool }) => {
   return (
     <div className={roomClasses} data-testid="Note">
       <div className="absolute bottom-0 left-1 right-0 top-1">
-        <div className="bg-yellow-600 h-4 vertical-center w-4 z-20">
+        <div className="bg-yellow-600 h-4 vertical-center w-4 z-40">
           <Tooltip />
         </div>
       </div>
