@@ -10,7 +10,7 @@ const Door = ({ activeTool }) => {
 
   return (
     <div className={wallClasses} data-testid="Door">
-      <div className="bg-yellow-600 h-4 vertical-center w-2"></div>
+      <div className="bg-yellow-600 h-4 pointer-events-none vertical-center w-2"></div>
     </div>
   );
 };
