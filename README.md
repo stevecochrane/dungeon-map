@@ -37,7 +37,7 @@ npm run server
 
 ### Must-haves for 1.0
 
-- [ ] Add ability to click and drag to quickly select multiple rooms/walls
+- [x] Add ability to click and drag to quickly select multiple rooms/walls
 - [x] Add Door tool
   - Just one color to start should be enough for most cases
 - [ ] Adjacent active rooms should have connected backgrounds
