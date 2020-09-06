@@ -6,8 +6,16 @@ import BlankLine from "./BlankLine";
 import Door from "./Door";
 import Wall from "./Wall";
 
-const Line = ({ activeTool, extendedHorizontally, extendedVertically, lineType, side }) => {
+const Line = ({
+  activeTool,
+  extendedHorizontally,
+  extendedVertically,
+  isMouseDown,
+  lineType,
+  side
+}) => {
   const [type, setType] = useState(lineType);
+  const [localMouseDown, setLocalMouseDown] = useState(false);
 
   const changeLine = () => {
     switch (activeTool) {
@@ -17,6 +25,21 @@ const Line = ({ activeTool, extendedHorizontally, extendedVertically, lineType, 
       case toolTypes.WALL:
         setType(type === lineTypes.WALL ? lineTypes.EMPTY : lineTypes.WALL);
         break;
+    }
+  };
+
+  const handleMouseDown = () => {
+    setLocalMouseDown(true);
+    changeLine();
+  };
+
+  const clearLocalMouseDown = () => {
+    setLocalMouseDown(false);
+  };
+
+  const handleDraggingOnEntry = () => {
+    if (isMouseDown && !localMouseDown) {
+      changeLine();
     }
   };
 
@@ -46,7 +69,15 @@ const Line = ({ activeTool, extendedHorizontally, extendedVertically, lineType, 
   }
 
   return (
-    <div className={classes} data-testid="Line" data-type={type} onMouseDown={changeLine}>
+    <div
+      className={classes}
+      data-testid="Line"
+      data-type={type}
+      onMouseDown={handleMouseDown}
+      onMouseEnter={handleDraggingOnEntry}
+      onMouseLeave={clearLocalMouseDown}
+      onMouseUp={clearLocalMouseDown}
+    >
       {(() => {
         switch (type) {
           case lineTypes.DOOR:
@@ -67,6 +98,7 @@ Line.propTypes = {
   activeTool: PropTypes.string,
   extendedHorizontally: PropTypes.bool,
   extendedVertically: PropTypes.bool,
+  isMouseDown: PropTypes.bool,
   lineType: PropTypes.string,
   side: PropTypes.string
 };
@@ -75,6 +107,7 @@ Line.defaultProps = {
   activeTool: null,
   extendedHorizontally: false,
   extendedVertically: false,
+  isMouseDown: false,
   lineType: lineTypes.EMPTY,
   side: "top"
 };

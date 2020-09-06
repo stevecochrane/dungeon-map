@@ -56,17 +56,37 @@ const Cell = ({ activeTool, cellType, hasBottomLine, hasRightLine, isMouseDown }
       data-testid="Cell"
       data-type={type}
       onMouseDown={handleMouseDown}
-      onMouseUp={clearLocalMouseDown}
       onMouseEnter={handleDraggingOnEntry}
       onMouseLeave={clearLocalMouseDown}
+      onMouseUp={clearLocalMouseDown}
     >
-      <Line activeTool={activeTool} extendedHorizontally={hasRightLine} side="top" />
-      <Line activeTool={activeTool} extendedVertically={hasBottomLine} side="left" />
+      <Line
+        activeTool={activeTool}
+        extendedHorizontally={hasRightLine}
+        isMouseDown={isMouseDown}
+        side="top"
+      />
+      <Line
+        activeTool={activeTool}
+        extendedVertically={hasBottomLine}
+        isMouseDown={isMouseDown}
+        side="left"
+      />
       {hasRightLine && (
-        <Line activeTool={activeTool} extendedVertically={hasBottomLine} side="right" />
+        <Line
+          activeTool={activeTool}
+          extendedVertically={hasBottomLine}
+          isMouseDown={isMouseDown}
+          side="right"
+        />
       )}
       {hasBottomLine && (
-        <Line activeTool={activeTool} extendedHorizontally={hasRightLine} side="bottom" />
+        <Line
+          activeTool={activeTool}
+          extendedHorizontally={hasRightLine}
+          isMouseDown={isMouseDown}
+          side="bottom"
+        />
       )}
       {(() => {
         switch (type) {
