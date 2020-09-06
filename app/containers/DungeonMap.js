@@ -24,18 +24,22 @@ class DungeonMap extends React.Component {
   handleKeyPress(event) {
     let selectedTool = null;
     switch (event.code) {
-      case "KeyW":
+      case "KeyW": {
         selectedTool = toolTypes.WALL;
         break;
-      case "KeyR":
+      }
+      case "KeyR": {
         selectedTool = toolTypes.ROOM;
         break;
-      case "KeyD":
+      }
+      case "KeyD": {
         selectedTool = toolTypes.DOOR;
         break;
-      case "KeyN":
+      }
+      case "KeyN": {
         selectedTool = toolTypes.NOTE;
         break;
+      }
     }
     if (selectedTool) {
       this.props.changeTool(selectedTool);

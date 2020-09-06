@@ -3,12 +3,13 @@ import { mouse } from "./initialState";
 
 export default (state = mouse, action) => {
   switch (action.type) {
-    case CHANGE_MOUSE_DOWN:
+    case CHANGE_MOUSE_DOWN: {
       return Object.assign({}, state, {
         isMouseDown: action.payload.isMouseDown
       });
-
-    default:
+    }
+    default: {
       return state;
+    }
   }
 };

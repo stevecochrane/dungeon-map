@@ -13,12 +13,14 @@ const Cell = ({ activeTool, cellType, hasBottomLine, hasRightLine, isMouseDown }
 
   const changeCell = () => {
     switch (activeTool) {
-      case toolTypes.NOTE:
+      case toolTypes.NOTE: {
         setType(type === cellTypes.NOTE ? cellTypes.EMPTY : cellTypes.NOTE);
         break;
-      case toolTypes.ROOM:
+      }
+      case toolTypes.ROOM: {
         setType(type === cellTypes.ROOM ? cellTypes.EMPTY : cellTypes.ROOM);
         break;
+      }
     }
   };
 
@@ -90,14 +92,18 @@ const Cell = ({ activeTool, cellType, hasBottomLine, hasRightLine, isMouseDown }
       )}
       {(() => {
         switch (type) {
-          case cellTypes.EMPTY:
+          case cellTypes.EMPTY: {
             return <BlankCell activeTool={activeTool}></BlankCell>;
-          case cellTypes.NOTE:
+          }
+          case cellTypes.NOTE: {
             return <Note activeTool={activeTool}></Note>;
-          case cellTypes.ROOM:
+          }
+          case cellTypes.ROOM: {
             return <Room activeTool={activeTool}></Room>;
-          default:
+          }
+          default: {
             return null;
+          }
         }
       })()}
     </div>
