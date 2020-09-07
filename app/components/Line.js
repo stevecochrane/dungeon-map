@@ -45,6 +45,8 @@ const Line = ({
     }
   };
 
+  const orientation = side === "top" || side === "bottom" ? "horizontal" : "vertical";
+
   let baseClasses = "absolute";
 
   const sideClasses = {
@@ -83,7 +85,6 @@ const Line = ({
       {(() => {
         switch (type) {
           case lineTypes.DOOR: {
-            const orientation = side === "top" || side === "bottom" ? "horizontal" : "vertical";
             return <Door activeTool={activeTool} orientation={orientation}></Door>;
           }
           case lineTypes.EMPTY: {
