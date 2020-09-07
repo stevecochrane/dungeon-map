@@ -58,13 +58,13 @@ const Line = ({
 
   let classes = `${baseClasses} ${sideClasses[side]}`;
 
-  if (side === "top" || side === "bottom") {
+  if (orientation === "horizontal") {
     if (extendedHorizontally) {
       classes += " right-0";
     } else {
       classes += " -right-1";
     }
-  } else if (side === "left" || side === "right") {
+  } else {
     if (extendedVertically) {
       classes += " bottom-0";
     } else {
