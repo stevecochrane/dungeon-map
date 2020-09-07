@@ -80,7 +80,7 @@ const Line = ({
     extendedAreaStyles = { transform: "translateY(-50%)" };
   } else {
     extendedAreaClasses += " bg-red-600 top-0 bottom-0 w-6";
-    extendedAreaStyles = { transform: "translateY(-50%)" };
+    extendedAreaStyles = { transform: "translateX(-50%)" };
   }
 
   return (
