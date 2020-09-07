@@ -20,11 +20,14 @@ Here's how to get it running:
 # Install dependencies
 npm install
 
+# Run JavaScript unit tests
+npm test
+
 # Lint test JavaScript
 npm run lint:js
 
 # Run in development mode
-npm run start
+npm start
 
 # Build for production
 npm run build
