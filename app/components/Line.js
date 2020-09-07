@@ -72,6 +72,17 @@ const Line = ({
     }
   }
 
+  let extendedAreaClasses = "absolute z-30";
+  let extendedAreaStyles = {};
+
+  if (orientation === "horizontal") {
+    extendedAreaClasses += " bg-green-600 left-0 right-0";
+    extendedAreaStyles = { paddingTop: "50%", transform: "translateY(-50%)" };
+  } else {
+    extendedAreaClasses += " bg-red-600 top-0 bottom-0";
+    extendedAreaStyles = { width: "50%", transform: "translateY(-50%)" };
+  }
+
   return (
     <div
       className={classes}
@@ -98,6 +109,7 @@ const Line = ({
           }
         }
       })()}
+      <div className={extendedAreaClasses} style={extendedAreaStyles}></div>
     </div>
   );
 };
