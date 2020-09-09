@@ -79,9 +79,9 @@ const Line = ({
   }
 
   if (orientation === "horizontal") {
-    extendedAreaClasses += " h-6 inset-x-0 -translate-y-1/2";
+    extendedAreaClasses += " h-6 left-1 right-1 -translate-y-1/2";
   } else {
-    extendedAreaClasses += " inset-y-0 -translate-x-1/2 w-6";
+    extendedAreaClasses += " bottom-1 top-1 -translate-x-1/2 w-6";
   }
 
   return (
