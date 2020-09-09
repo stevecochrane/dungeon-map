@@ -31,9 +31,6 @@ npm start
 
 # Build for production
 npm run build
-
-# Run in production mode
-npm run server
 ```
 
 ## Roadmap

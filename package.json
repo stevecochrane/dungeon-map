@@ -8,11 +8,9 @@
     "type": "git",
     "url": "https://github.com/stevecochrane/dungeon-map.git"
   },
-  "main": "dungeon-map.js",
   "scripts": {
     "build": "env NODE_ENV=production webpack --config webpack/production.js",
     "lint:js": "eslint --ignore-path .eslintignore --cache .",
-    "server": "node dungeon-map.js",
     "start": "webpack-dev-server --config webpack/development.js",
     "test": "jest --coverage",
     "watch": "webpack --config webpack/development.js --progress --watch"
@@ -67,9 +65,5 @@
     "webpack-cli": "3.3.11",
     "webpack-dev-server": "3.11.0",
     "webpack-merge": "4.2.1"
-  },
-  "dependencies": {
-    "compression": "1.7.3",
-    "express": "4.16.4"
   }
 }
