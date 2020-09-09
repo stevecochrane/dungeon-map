@@ -78,6 +78,10 @@ const Line = ({
 
   let extendedAreaClasses = "absolute transform z-30";
 
+  if (activeTool === toolTypes.NOTE || activeTool === toolTypes.ROOM) {
+    extendedAreaClasses += " pointer-events-none";
+  }
+
   if (orientation === "horizontal") {
     extendedAreaClasses += " h-6 inset-x-0 -translate-y-1/2";
   } else {
