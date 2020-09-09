@@ -14,10 +14,6 @@ const Line = ({
   lineType,
   side
 }) => {
-  //  TODO:
-  //  1) Get hover styles for lines to appear again (maybe try group hover)
-  //  2) Get z-index of Line to go down when Cell tools are selected and vice versa
-
   const [type, setType] = useState(lineType);
   const [localMouseDown, setLocalMouseDown] = useState(false);
 
@@ -51,7 +47,7 @@ const Line = ({
 
   const orientation = side === "top" || side === "bottom" ? "horizontal" : "vertical";
 
-  let baseClasses = "absolute";
+  let baseClasses = "absolute group";
 
   const sideClasses = {
     top: "h-1 top-0 left-0",
