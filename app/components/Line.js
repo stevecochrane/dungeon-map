@@ -47,7 +47,7 @@ const Line = ({
 
   const orientation = side === "top" || side === "bottom" ? "horizontal" : "vertical";
 
-  let baseClasses = "absolute";
+  let baseClasses = "absolute group";
 
   const sideClasses = {
     top: "h-1 top-0 left-0",
@@ -70,6 +70,18 @@ const Line = ({
     } else {
       classes += " -bottom-1";
     }
+  }
+
+  let extendedAreaClasses = "absolute transform z-30";
+
+  if (activeTool === toolTypes.NOTE || activeTool === toolTypes.ROOM) {
+    extendedAreaClasses += " pointer-events-none";
+  }
+
+  if (orientation === "horizontal") {
+    extendedAreaClasses += " h-6 left-1 right-1 -translate-y-1/2";
+  } else {
+    extendedAreaClasses += " bottom-1 top-1 -translate-x-1/2 w-6";
   }
 
   return (
@@ -98,6 +110,7 @@ const Line = ({
           }
         }
       })()}
+      <div className={extendedAreaClasses}></div>
     </div>
   );
 };

@@ -23,10 +23,10 @@ const Map = ({ activeTool, className, columns, isMouseDown, rows }) => {
               let cellProps = {};
               cellProps.cellType = column;
               if (rowIndex === rows - 1) {
-                cellProps.hasBottomGap = true;
+                cellProps.hasBottomLine = true;
               }
               if (columnIndex === columns - 1) {
-                cellProps.hasRightGap = true;
+                cellProps.hasRightLine = true;
               }
               return (
                 <Cell
