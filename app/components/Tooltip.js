@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 
 const Tooltip = () => {
+  //  https://blog.danieljohnson.io/react-ref-autofocus/
+
   const [tooltipText, setTooltipText] = useState(null);
+
+  const callbackRef = useCallback(inputElement => {
+    if (inputElement) {
+      inputElement.focus();
+    }
+  }, []);
 
   const checkEnter = event => {
     if (event.key === "Enter") {
@@ -22,7 +30,13 @@ const Tooltip = () => {
         {tooltipText ? (
           <span>{tooltipText}</span>
         ) : (
-          <input type="text" autoFocus={true} onBlur={finishEdit} onKeyPress={checkEnter} />
+          <input
+            type="text"
+            autoFocus
+            onBlur={finishEdit}
+            onKeyPress={checkEnter}
+            ref={callbackRef}
+          />
         )}
         <div
           className="absolute border-gray-800 bottom-0 h-0 left-1/2 transform -translate-x-1/2 translate-y-full w-0"
