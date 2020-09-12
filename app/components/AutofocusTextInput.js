@@ -4,11 +4,11 @@ const AutofocusTextInput = () => {
   const inputElement = useRef(null);
 
   useEffect(() => {
-    setTimeout(() => {
+    window.requestAnimationFrame(() => {
       if (inputElement.current) {
         inputElement.current.focus();
       }
-    }, 1);
+    });
   }, []);
 
   return <input type="text" ref={inputElement} />;
