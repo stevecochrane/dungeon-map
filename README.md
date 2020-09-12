@@ -43,7 +43,7 @@ npm run build
 - [ ] Adjacent active rooms should have connected backgrounds
   - This might be as simple as extending the background halfway into the gaps
     when active
-- [ ] Add Note tool
+- [x] Add Note tool
   - This allows you to put a marker on any square with a custom note
   - When hovering over a marker, the note appears in a tooltip
 - [ ] Add ability to save to and load from local storage
