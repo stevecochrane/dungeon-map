@@ -11,7 +11,7 @@ const AutofocusTextInput = props => {
     });
   }, []);
 
-  return <input type="text" ref={inputElement} {...props} />;
+  return <input type="text" data-testid="AutofocusTextInput" ref={inputElement} {...props} />;
 };
 
 export default AutofocusTextInput;
