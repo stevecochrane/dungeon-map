@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-const AutofocusTextInput = () => {
+const AutofocusTextInput = props => {
   const inputElement = useRef(null);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ const AutofocusTextInput = () => {
     });
   }, []);
 
-  return <input type="text" ref={inputElement} />;
+  return <input type="text" ref={inputElement} {...props} />;
 };
 
 export default AutofocusTextInput;
