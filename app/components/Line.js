@@ -47,7 +47,7 @@ const Line = ({
 
   const orientation = side === "top" || side === "bottom" ? "horizontal" : "vertical";
 
-  let baseClasses = "absolute group";
+  let baseClasses = "absolute cursor-pointer group";
 
   const sideClasses = {
     top: "h-1 top-0 left-0",
