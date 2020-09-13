@@ -20,6 +20,16 @@ describe("Cell", () => {
     expect(cell.getAttribute("data-type")).toBe(cellTypes.EMPTY);
   });
 
+  test("Clicking Cell with Note tool active toggles Cell to Note and back", () => {
+    const { getByTestId } = render(<Cell activeTool={toolTypes.NOTE} cellType={cellTypes.EMPTY} />);
+    const cell = getByTestId("Cell");
+    expect(cell.getAttribute("data-type")).toBe(cellTypes.EMPTY);
+    fireEvent.mouseDown(cell);
+    expect(cell.getAttribute("data-type")).toBe(cellTypes.NOTE);
+    fireEvent.mouseDown(cell);
+    expect(cell.getAttribute("data-type")).toBe(cellTypes.EMPTY);
+  });
+
   test("Clicking Cell with Wall tool active does not change Cell", () => {
     const { getByTestId } = render(<Cell activeTool={toolTypes.WALL} cellType={cellTypes.EMPTY} />);
     const cell = getByTestId("Cell");
