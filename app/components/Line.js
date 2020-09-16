@@ -50,10 +50,10 @@ const Line = ({
   let baseClasses = "absolute cursor-pointer group";
 
   const sideClasses = {
-    top: "h-line top-0 left-0",
-    left: "w-line top-0 left-0",
-    right: "w-line top-0 right-0",
-    bottom: "h-line bottom-0 left-0"
+    top: "h-1 top-0 -left-line",
+    left: "w-1 -top-line left-0",
+    right: "w-1 -top-line right-0",
+    bottom: "h-1 bottom-0 -left-line"
   };
 
   let classes = `${baseClasses} ${sideClasses[side]}`;
@@ -62,13 +62,13 @@ const Line = ({
     if (extendedHorizontally) {
       classes += " right-0";
     } else {
-      classes += " -right-line";
+      classes += " -right-tripleLine";
     }
   } else {
     if (extendedVertically) {
       classes += " bottom-0";
     } else {
-      classes += " -bottom-line";
+      classes += " -bottom-tripleLine";
     }
   }
 
@@ -79,9 +79,9 @@ const Line = ({
   }
 
   if (orientation === "horizontal") {
-    extendedAreaClasses += " h-6 left-line right-line -translate-y-1/2";
+    extendedAreaClasses += " h-6 left-1 right-1 -translate-y-1/2";
   } else {
-    extendedAreaClasses += " bottom-line top-line -translate-x-1/2 w-6";
+    extendedAreaClasses += " bottom-1 top-1 -translate-x-1/2 w-6";
   }
 
   return (
@@ -100,10 +100,10 @@ const Line = ({
             return <Door activeTool={activeTool} orientation={orientation}></Door>;
           }
           case lineTypes.EMPTY: {
-            return <BlankLine activeTool={activeTool}></BlankLine>;
+            return <BlankLine activeTool={activeTool} orientation={orientation}></BlankLine>;
           }
           case lineTypes.WALL: {
-            return <Wall activeTool={activeTool}></Wall>;
+            return <Wall activeTool={activeTool} orientation={orientation}></Wall>;
           }
           default: {
             return null;

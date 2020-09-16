@@ -7,7 +7,9 @@ module.exports = {
         "1/2": "50%",
         "1": "0.25rem",
         line: "0.125rem",
-        "-line": "-0.125rem"
+        "-line": "-0.125rem",
+        tripleLine: "0.375rem",
+        "-tripleLine": "-0.375rem"
       },
       spacing: {
         "-3/2": "-150%",
