@@ -2,14 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import toolTypes from "../constants/toolTypes";
 
-const Wall = ({ activeTool, orientation }) => {
-  let classes = "absolute bg-blue-600 inset-0 z-30";
-
-  if (orientation === "vertical") {
-    classes += " transform -translate-x-1/2 w-1";
-  } else {
-    classes += " transform -translate-y-1/2 h-1";
-  }
+const Wall = ({ activeTool }) => {
+  let classes = "absolute bg-blue-600 -inset-halfLine z-30";
 
   if (activeTool === toolTypes.DOOR || activeTool === toolTypes.WALL) {
     classes += " duration-300 transition-colors group-hover:transition-none";
@@ -19,13 +13,11 @@ const Wall = ({ activeTool, orientation }) => {
 };
 
 Wall.propTypes = {
-  activeTool: PropTypes.string,
-  orientation: PropTypes.string
+  activeTool: PropTypes.string
 };
 
 Wall.defaultProps = {
-  activeTool: null,
-  orientation: "vertical"
+  activeTool: null
 };
 
 export default Wall;

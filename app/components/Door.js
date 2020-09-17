@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import toolTypes from "../constants/toolTypes";
 
 const Door = ({ activeTool, orientation }) => {
-  let wallClasses = "absolute bg-blue-600 inset-0 z-30";
+  let wallClasses = "absolute bg-blue-600 -inset-halfLine z-30";
   if (activeTool === toolTypes.DOOR || activeTool === toolTypes.WALL) {
     wallClasses += " duration-300 transition-colors group-hover:transition-none";
   }

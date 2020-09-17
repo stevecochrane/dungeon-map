@@ -100,10 +100,10 @@ const Line = ({
             return <Door activeTool={activeTool} orientation={orientation}></Door>;
           }
           case lineTypes.EMPTY: {
-            return <BlankLine activeTool={activeTool} orientation={orientation}></BlankLine>;
+            return <BlankLine activeTool={activeTool}></BlankLine>;
           }
           case lineTypes.WALL: {
-            return <Wall activeTool={activeTool} orientation={orientation}></Wall>;
+            return <Wall activeTool={activeTool}></Wall>;
           }
           default: {
             return null;
