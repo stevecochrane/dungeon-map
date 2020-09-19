@@ -3,12 +3,21 @@ import PropTypes from "prop-types";
 import toolTypes from "../constants/toolTypes";
 
 const BlankLine = ({ activeTool }) => {
-  let classes = "absolute bg-white inset-0 z-10";
+  let wrapperClasses = "absolute inset-0";
+  let inactiveClasses = "absolute bg-gray-400 inset-0 z-10";
+  let activeClasses =
+    "absolute bg-gray-600 duration-300 -inset-halfLine opacity-0 transition-opacity z-20";
+
   if (activeTool === toolTypes.DOOR || activeTool === toolTypes.WALL) {
-    classes +=
-      " duration-300 transition-colors group-hover:bg-gray-400 group-hover:transition-none group-hover:z-20";
+    activeClasses += " group-hover:opacity-100 group-hover:transition-none";
   }
-  return <div className={classes} data-testid="BlankLine"></div>;
+
+  return (
+    <div className={wrapperClasses} data-testid="BlankLine">
+      <div className={inactiveClasses}></div>
+      <div className={activeClasses}></div>
+    </div>
+  );
 };
 
 BlankLine.propTypes = {

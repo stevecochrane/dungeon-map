@@ -50,10 +50,10 @@ const Line = ({
   let baseClasses = "absolute cursor-pointer group";
 
   const sideClasses = {
-    top: "h-1 top-0 left-0",
-    left: "w-1 top-0 left-0",
-    right: "w-1 top-0 right-0",
-    bottom: "h-1 bottom-0 left-0"
+    top: "h-line top-0 left-0",
+    left: "w-line top-0 left-0",
+    right: "w-line top-0 right-0",
+    bottom: "h-line bottom-0 left-0"
   };
 
   let classes = `${baseClasses} ${sideClasses[side]}`;
@@ -62,13 +62,13 @@ const Line = ({
     if (extendedHorizontally) {
       classes += " right-0";
     } else {
-      classes += " -right-1";
+      classes += " -right-line";
     }
   } else {
     if (extendedVertically) {
       classes += " bottom-0";
     } else {
-      classes += " -bottom-1";
+      classes += " -bottom-line";
     }
   }
 
