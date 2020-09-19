@@ -4,13 +4,18 @@ import toolTypes from "../constants/toolTypes";
 
 const BlankLine = ({ activeTool }) => {
   let classes = "absolute bg-gray-400 inset-0 z-10";
+  let activeClasses = "absolute bg-gray-600 -inset-halfLine opacity-0";
 
   if (activeTool === toolTypes.DOOR || activeTool === toolTypes.WALL) {
-    classes +=
-      " duration-300 transition-colors group-hover:bg-gray-600 group-hover:-inset-halfLine group-hover:transition-none group-hover:z-20";
+    classes += " group-hover:z-20";
+    activeClasses += " group-hover:opacity-100";
   }
 
-  return <div className={classes} data-testid="BlankLine"></div>;
+  return (
+    <div className={classes} data-testid="BlankLine">
+      <div className={activeClasses}></div>
+    </div>
+  );
 };
 
 BlankLine.propTypes = {
