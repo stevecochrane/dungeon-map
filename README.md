@@ -40,11 +40,15 @@ npm run build
 - [x] Add ability to click and drag to quickly select multiple rooms/walls
 - [x] Add Door tool
   - Just one color to start should be enough for most cases
-- [ ] Adjacent active rooms should have connected backgrounds
+- [x] Adjacent active rooms should have connected backgrounds
   - This might be as simple as extending the background halfway into the gaps
     when active
+  - Instead, the backgrounds have not been connected but the contrast between
+    the lines and backgrounds are lower, so it looks natural
 - [x] Add Note tool
   - This allows you to put a marker on any square with a custom note
   - When hovering over a marker, the note appears in a tooltip
+- [ ] Find a clean way to allow for editing of Notes
+- [ ] Style the tool palette
 - [ ] Add ability to save to and load from local storage
 - [ ] Add ability to customize the width and height of the map grid
