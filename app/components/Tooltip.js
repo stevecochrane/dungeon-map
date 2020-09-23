@@ -23,7 +23,11 @@ const Tooltip = () => {
         {tooltipText ? (
           <span>{tooltipText}</span>
         ) : (
-          <AutofocusTextInput onBlur={finishEdit} onKeyPress={checkEnter} />
+          <AutofocusTextInput
+            className="text-gray-800"
+            onBlur={finishEdit}
+            onKeyPress={checkEnter}
+          />
         )}
         <div
           className="absolute border-gray-800 bottom-0 h-0 left-1/2 transform -translate-x-1/2 translate-y-full w-0"
