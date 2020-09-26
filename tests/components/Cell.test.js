@@ -30,6 +30,18 @@ describe("Cell", () => {
     expect(cell.getAttribute("data-type")).toBe(cellTypes.NOTE);
   });
 
+  test("Clicking Cell marked as Room with Sponge tool active sets Cell to be Empty", () => {
+    const { getByTestId } = render(
+      <Cell activeTool={toolTypes.SPONGE} cellType={cellTypes.ROOM} />
+    );
+    const cell = getByTestId("Cell");
+    expect(cell.getAttribute("data-type")).toBe(cellTypes.ROOM);
+    fireEvent.mouseDown(cell);
+    expect(cell.getAttribute("data-type")).toBe(cellTypes.EMPTY);
+    fireEvent.mouseDown(cell);
+    expect(cell.getAttribute("data-type")).toBe(cellTypes.EMPTY);
+  });
+
   test("Clicking Cell with Wall tool active does not change Cell", () => {
     const { getByTestId } = render(<Cell activeTool={toolTypes.WALL} cellType={cellTypes.EMPTY} />);
     const cell = getByTestId("Cell");
