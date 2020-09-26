@@ -19,12 +19,16 @@ const Line = ({
 
   const changeLine = () => {
     switch (activeTool) {
-      case toolTypes.DOOR: {
-        setType(type === lineTypes.DOOR ? lineTypes.EMPTY : lineTypes.DOOR);
+      case toolTypes.WALL: {
+        setType(lineTypes.WALL);
         break;
       }
-      case toolTypes.WALL: {
-        setType(type === lineTypes.WALL ? lineTypes.EMPTY : lineTypes.WALL);
+      case toolTypes.DOOR: {
+        setType(lineTypes.DOOR);
+        break;
+      }
+      case toolTypes.ERASER: {
+        setType(lineTypes.EMPTY);
         break;
       }
     }
