@@ -49,6 +49,7 @@ npm run build
   - This allows you to put a marker on any square with a custom note
   - When hovering over a marker, the note appears in a tooltip
 - [ ] Find a clean way to allow for editing of Notes
+  - This likely requires separate eraser tools to maintain consistency
 - [ ] Style the tool palette
 - [ ] Add ability to save to and load from local storage
 - [ ] Add ability to customize the width and height of the map grid
