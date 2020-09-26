@@ -1,6 +1,8 @@
 export default {
   ROOM: "room",
-  WALL: "wall",
   DOOR: "door",
-  NOTE: "note"
+  NOTE: "note",
+  SPONGE: "sponge",
+  WALL: "wall",
+  ERASER: "eraser"
 };
