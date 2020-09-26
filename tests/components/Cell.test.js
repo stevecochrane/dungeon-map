@@ -10,24 +10,24 @@ describe("Cell", () => {
     expect(getByTestId("Cell")).toBeInTheDocument();
   });
 
-  test("Clicking Cell with Room tool active toggles Cell to Room and back", () => {
+  test("Clicking Cell with Room tool active sets Cell to be a Room", () => {
     const { getByTestId } = render(<Cell activeTool={toolTypes.ROOM} cellType={cellTypes.EMPTY} />);
     const cell = getByTestId("Cell");
     expect(cell.getAttribute("data-type")).toBe(cellTypes.EMPTY);
     fireEvent.mouseDown(cell);
     expect(cell.getAttribute("data-type")).toBe(cellTypes.ROOM);
     fireEvent.mouseDown(cell);
-    expect(cell.getAttribute("data-type")).toBe(cellTypes.EMPTY);
+    expect(cell.getAttribute("data-type")).toBe(cellTypes.ROOM);
   });
 
-  test("Clicking Cell with Note tool active toggles Cell to Note and back", () => {
+  test("Clicking Cell with Note tool active sets Cell to be a Note", () => {
     const { getByTestId } = render(<Cell activeTool={toolTypes.NOTE} cellType={cellTypes.EMPTY} />);
     const cell = getByTestId("Cell");
     expect(cell.getAttribute("data-type")).toBe(cellTypes.EMPTY);
     fireEvent.mouseDown(cell);
     expect(cell.getAttribute("data-type")).toBe(cellTypes.NOTE);
     fireEvent.mouseDown(cell);
-    expect(cell.getAttribute("data-type")).toBe(cellTypes.EMPTY);
+    expect(cell.getAttribute("data-type")).toBe(cellTypes.NOTE);
   });
 
   test("Clicking Cell with Wall tool active does not change Cell", () => {

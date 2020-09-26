@@ -14,11 +14,15 @@ const Cell = ({ activeTool, cellType, hasBottomLine, hasRightLine, isMouseDown }
   const changeCell = () => {
     switch (activeTool) {
       case toolTypes.NOTE: {
-        setType(type === cellTypes.NOTE ? cellTypes.EMPTY : cellTypes.NOTE);
+        setType(cellTypes.NOTE);
         break;
       }
       case toolTypes.ROOM: {
-        setType(type === cellTypes.ROOM ? cellTypes.EMPTY : cellTypes.ROOM);
+        setType(cellTypes.ROOM);
+        break;
+      }
+      case toolTypes.SPONGE: {
+        setType(cellTypes.EMPTY);
         break;
       }
     }
