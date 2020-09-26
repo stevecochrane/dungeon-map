@@ -78,7 +78,11 @@ const Line = ({
 
   let extendedAreaClasses = "absolute transform z-30";
 
-  if (activeTool === toolTypes.NOTE || activeTool === toolTypes.ROOM) {
+  if (
+    activeTool === toolTypes.NOTE ||
+    activeTool === toolTypes.ROOM ||
+    activeTool === toolTypes.SPONGE
+  ) {
     extendedAreaClasses += " pointer-events-none";
   }
 
