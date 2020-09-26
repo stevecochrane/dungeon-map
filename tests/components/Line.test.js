@@ -30,6 +30,18 @@ describe("Line", () => {
     expect(line.getAttribute("data-type")).toBe(lineTypes.WALL);
   });
 
+  test("Clicking Line marked as Wall with Eraser tool active sets Line to be Empty", () => {
+    const { getByTestId } = render(
+      <Line activeTool={toolTypes.ERASER} lineType={lineTypes.WALL} />
+    );
+    const line = getByTestId("Line");
+    expect(line.getAttribute("data-type")).toBe(lineTypes.WALL);
+    fireEvent.mouseDown(line);
+    expect(line.getAttribute("data-type")).toBe(lineTypes.EMPTY);
+    fireEvent.mouseDown(line);
+    expect(line.getAttribute("data-type")).toBe(lineTypes.EMPTY);
+  });
+
   test("Clicking Line with Room tool active does not change Line", () => {
     const { getByTestId } = render(<Line activeTool={toolTypes.ROOM} lineType={lineTypes.EMPTY} />);
     const line = getByTestId("Line");
