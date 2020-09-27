@@ -5,7 +5,11 @@ import Tooltip from "./Tooltip";
 
 const Note = ({ activeTool }) => {
   let roomClasses = "absolute bg-blue-400 inset-0";
-  if (activeTool === toolTypes.NOTE || activeTool === toolTypes.ROOM) {
+  if (
+    activeTool === toolTypes.NOTE ||
+    activeTool === toolTypes.ROOM ||
+    activeTool === toolTypes.SPONGE
+  ) {
     roomClasses += " cursor-pointer duration-300 transition-colors hover:transition-none";
   }
 
