@@ -5,7 +5,7 @@ import toolTypes from "../constants/toolTypes";
 const Room = ({ activeTool }) => {
   let classes = "absolute bg-blue-400 inset-0";
   if (activeTool === toolTypes.NOTE || activeTool === toolTypes.ROOM || activeTool === toolTypes.SPONGE) {
-    classes += " cursor-pointer duration-300 transition-colors hover:transition-none";
+    classes += " cursor-pointer";
   }
   return <div className={classes} data-testid="Room"></div>;
 };
