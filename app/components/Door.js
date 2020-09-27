@@ -4,7 +4,7 @@ import toolTypes from "../constants/toolTypes";
 
 const Door = ({ activeTool, orientation }) => {
   let wallClasses = "absolute bg-blue-600 -inset-halfLine z-30";
-  if (activeTool === toolTypes.DOOR || activeTool === toolTypes.WALL) {
+  if (activeTool === toolTypes.ERASER || activeTool === toolTypes.DOOR || activeTool === toolTypes.WALL) {
     wallClasses += " duration-300 transition-colors group-hover:transition-none";
   }
 
