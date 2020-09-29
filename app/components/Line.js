@@ -8,7 +8,6 @@ import Wall from "./Wall";
 
 const Line = ({ activeTool, extendedHorizontally, extendedVertically, isMouseDown, lineType, side }) => {
   const [type, setType] = useState(lineType);
-  const [localMouseDown, setLocalMouseDown] = useState(false);
 
   const changeLine = () => {
     switch (activeTool) {
@@ -27,17 +26,8 @@ const Line = ({ activeTool, extendedHorizontally, extendedVertically, isMouseDow
     }
   };
 
-  const handleMouseDown = () => {
-    setLocalMouseDown(true);
-    changeLine();
-  };
-
-  const clearLocalMouseDown = () => {
-    setLocalMouseDown(false);
-  };
-
-  const handleDraggingOnEntry = () => {
-    if (isMouseDown && !localMouseDown) {
+  const handleMouseEnter = () => {
+    if (isMouseDown) {
       changeLine();
     }
   };
@@ -88,10 +78,8 @@ const Line = ({ activeTool, extendedHorizontally, extendedVertically, isMouseDow
       className={classes}
       data-testid="Line"
       data-type={type}
-      onMouseDown={handleMouseDown}
-      onMouseEnter={handleDraggingOnEntry}
-      onMouseLeave={clearLocalMouseDown}
-      onMouseUp={clearLocalMouseDown}
+      onMouseDown={changeLine}
+      onMouseEnter={handleMouseEnter}
     >
       {(() => {
         switch (type) {
