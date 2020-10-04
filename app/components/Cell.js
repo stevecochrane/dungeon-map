@@ -9,32 +9,26 @@ import Room from "./Room";
 
 const Cell = ({ activeTool, cellType, hasBottomLine, hasRightLine, isMouseDown }) => {
   const [type, setType] = useState(cellType);
-  const [localMouseDown, setLocalMouseDown] = useState(false);
 
   const changeCell = () => {
     switch (activeTool) {
       case toolTypes.NOTE: {
-        setType(type === cellTypes.NOTE ? cellTypes.EMPTY : cellTypes.NOTE);
+        setType(cellTypes.NOTE);
         break;
       }
       case toolTypes.ROOM: {
-        setType(type === cellTypes.ROOM ? cellTypes.EMPTY : cellTypes.ROOM);
+        setType(cellTypes.ROOM);
+        break;
+      }
+      case toolTypes.SPONGE: {
+        setType(cellTypes.EMPTY);
         break;
       }
     }
   };
 
-  const handleMouseDown = () => {
-    setLocalMouseDown(true);
-    changeCell();
-  };
-
-  const clearLocalMouseDown = () => {
-    setLocalMouseDown(false);
-  };
-
-  const handleDraggingOnEntry = () => {
-    if (isMouseDown && !localMouseDown) {
+  const handleMouseEnter = () => {
+    if (isMouseDown) {
       changeCell();
     }
   };
@@ -57,38 +51,16 @@ const Cell = ({ activeTool, cellType, hasBottomLine, hasRightLine, isMouseDown }
       className={classes}
       data-testid="Cell"
       data-type={type}
-      onMouseDown={handleMouseDown}
-      onMouseEnter={handleDraggingOnEntry}
-      onMouseLeave={clearLocalMouseDown}
-      onMouseUp={clearLocalMouseDown}
+      onMouseDown={changeCell}
+      onMouseEnter={handleMouseEnter}
     >
-      <Line
-        activeTool={activeTool}
-        extendedHorizontally={hasRightLine}
-        isMouseDown={isMouseDown}
-        side="top"
-      />
-      <Line
-        activeTool={activeTool}
-        extendedVertically={hasBottomLine}
-        isMouseDown={isMouseDown}
-        side="left"
-      />
+      <Line activeTool={activeTool} extendedHorizontally={hasRightLine} isMouseDown={isMouseDown} side="top" />
+      <Line activeTool={activeTool} extendedVertically={hasBottomLine} isMouseDown={isMouseDown} side="left" />
       {hasRightLine && (
-        <Line
-          activeTool={activeTool}
-          extendedVertically={hasBottomLine}
-          isMouseDown={isMouseDown}
-          side="right"
-        />
+        <Line activeTool={activeTool} extendedVertically={hasBottomLine} isMouseDown={isMouseDown} side="right" />
       )}
       {hasBottomLine && (
-        <Line
-          activeTool={activeTool}
-          extendedHorizontally={hasRightLine}
-          isMouseDown={isMouseDown}
-          side="bottom"
-        />
+        <Line activeTool={activeTool} extendedHorizontally={hasRightLine} isMouseDown={isMouseDown} side="bottom" />
       )}
       {(() => {
         switch (type) {

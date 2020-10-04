@@ -6,48 +6,41 @@ import BlankLine from "./BlankLine";
 import Door from "./Door";
 import Wall from "./Wall";
 
-const Line = ({
-  activeTool,
-  extendedHorizontally,
-  extendedVertically,
-  isMouseDown,
-  lineType,
-  side
-}) => {
+const Line = ({ activeTool, extendedHorizontally, extendedVertically, isMouseDown, lineType, side }) => {
   const [type, setType] = useState(lineType);
-  const [localMouseDown, setLocalMouseDown] = useState(false);
 
   const changeLine = () => {
     switch (activeTool) {
-      case toolTypes.DOOR: {
-        setType(type === lineTypes.DOOR ? lineTypes.EMPTY : lineTypes.DOOR);
+      case toolTypes.WALL: {
+        setType(lineTypes.WALL);
         break;
       }
-      case toolTypes.WALL: {
-        setType(type === lineTypes.WALL ? lineTypes.EMPTY : lineTypes.WALL);
+      case toolTypes.DOOR: {
+        setType(lineTypes.DOOR);
+        break;
+      }
+      case toolTypes.ERASER: {
+        setType(lineTypes.EMPTY);
         break;
       }
     }
   };
 
-  const handleMouseDown = () => {
-    setLocalMouseDown(true);
-    changeLine();
-  };
-
-  const clearLocalMouseDown = () => {
-    setLocalMouseDown(false);
-  };
-
-  const handleDraggingOnEntry = () => {
-    if (isMouseDown && !localMouseDown) {
+  const handleMouseEnter = () => {
+    if (isMouseDown) {
       changeLine();
     }
   };
 
   const orientation = side === "top" || side === "bottom" ? "horizontal" : "vertical";
 
-  let baseClasses = "absolute cursor-pointer group";
+  let baseClasses = "absolute group";
+
+  if (activeTool === toolTypes.DOOR || activeTool === toolTypes.ERASER || activeTool === toolTypes.WALL) {
+    baseClasses += " cursor-pointer";
+  } else {
+    baseClasses += " pointer-events-none";
+  }
 
   const sideClasses = {
     top: "h-line top-0 left-0",
@@ -74,10 +67,6 @@ const Line = ({
 
   let extendedAreaClasses = "absolute transform z-30";
 
-  if (activeTool === toolTypes.NOTE || activeTool === toolTypes.ROOM) {
-    extendedAreaClasses += " pointer-events-none";
-  }
-
   if (orientation === "horizontal") {
     extendedAreaClasses += " h-6 left-1 right-1 -translate-y-1/2";
   } else {
@@ -89,21 +78,19 @@ const Line = ({
       className={classes}
       data-testid="Line"
       data-type={type}
-      onMouseDown={handleMouseDown}
-      onMouseEnter={handleDraggingOnEntry}
-      onMouseLeave={clearLocalMouseDown}
-      onMouseUp={clearLocalMouseDown}
+      onMouseDown={changeLine}
+      onMouseEnter={handleMouseEnter}
     >
       {(() => {
         switch (type) {
           case lineTypes.DOOR: {
-            return <Door activeTool={activeTool} orientation={orientation}></Door>;
+            return <Door orientation={orientation}></Door>;
           }
           case lineTypes.EMPTY: {
             return <BlankLine activeTool={activeTool}></BlankLine>;
           }
           case lineTypes.WALL: {
-            return <Wall activeTool={activeTool}></Wall>;
+            return <Wall />;
           }
           default: {
             return null;
