@@ -9,7 +9,10 @@ const ToolPalette = ({ activeTool, onToolClick }) => {
     tools.push(<Tool key={id} id={id} activeTool={activeTool} onToolClick={onToolClick} />);
   }
   return (
-    <div className="absolute bottom-0 right-0 m-5" data-testid="ToolPalette">
+    <div
+      className="absolute border border-gray-200 bg-white bottom-0 m-5 p-2 right-0 rounded shadow-sm"
+      data-testid="ToolPalette"
+    >
       {tools}
     </div>
   );
