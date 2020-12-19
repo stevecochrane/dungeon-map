@@ -7,7 +7,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 
 module.exports = {
-  entry: "./app/index.js",
+  entry: "./src/index.js",
   module: {
     rules: [
       {
@@ -25,7 +25,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new ESLintWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: "./app/templates/index.html"
+      template: "./src/templates/index.html"
     })
   ],
   optimization: {
@@ -33,6 +33,6 @@ module.exports = {
   },
   output: {
     filename: "main.js",
-    path: path.resolve(__dirname, "public")
+    path: path.resolve(__dirname, "dist")
   }
 };
