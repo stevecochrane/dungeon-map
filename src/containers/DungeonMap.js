@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
+import { GlobalStyles } from "twin.macro";
 import App from "../components/App";
 import { changeTool } from "../actions/tools.actions";
 import { changeMouseDown } from "../actions/mouse.actions";
@@ -77,6 +78,7 @@ class DungeonMap extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <GlobalStyles />
         <App
           activeTool={this.props.tools.activeTool}
           isMouseDown={this.props.mouse.isMouseDown}
