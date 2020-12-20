@@ -1,18 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "twin.macro";
+import tw from "twin.macro";
 import Map from "./Map";
 import ToolPalette from "./ToolPalette";
 
-const App = ({ activeTool, isMouseDown, onToolClick }) => {
-  return (
-    <div data-testid="App" tw="flex flex-col flex-grow">
-      {/* <h1 className="font-bold py-8 text-3xl text-center">Dungeon Map</h1> */}
-      <Map activeTool={activeTool} columns={10} isMouseDown={isMouseDown} rows={10} />
-      <ToolPalette activeTool={activeTool} onToolClick={onToolClick} />
-    </div>
-  );
-};
+const Wrapper = tw.div`flex flex-col flex-grow`;
+
+const App = ({ activeTool, isMouseDown, onToolClick }) => (
+  <Wrapper data-testid="App">
+    <Map activeTool={activeTool} columns={10} isMouseDown={isMouseDown} rows={10} />
+    <ToolPalette activeTool={activeTool} onToolClick={onToolClick} />
+  </Wrapper>
+);
 
 App.propTypes = {
   activeTool: PropTypes.string,
