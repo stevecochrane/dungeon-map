@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import "twin.macro";
 import cellTypes from "../constants/cellTypes";
 import Cell from "./Cell";
 
-const Map = ({ activeTool, className, columns, isMouseDown, rows }) => {
+const Map = ({ activeTool, columns, isMouseDown, rows }) => {
   let initialMapData = [];
   for (let row = 0; row < rows; row++) {
     initialMapData[row] = [];
@@ -15,7 +16,7 @@ const Map = ({ activeTool, className, columns, isMouseDown, rows }) => {
   const [mapData] = useState(initialMapData);
 
   return (
-    <div className={className} data-testid="Map">
+    <div data-testid="Map" tw="flex flex-grow flex-col justify-center">
       {mapData.map((row, rowIndex) => {
         return (
           <div key={rowIndex} className="Map-row flex justify-center">
@@ -39,7 +40,6 @@ const Map = ({ activeTool, className, columns, isMouseDown, rows }) => {
 
 Map.propTypes = {
   activeTool: PropTypes.string,
-  className: PropTypes.string,
   columns: PropTypes.number,
   isMouseDown: PropTypes.bool,
   rows: PropTypes.number
