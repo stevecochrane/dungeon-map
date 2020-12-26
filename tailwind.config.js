@@ -1,4 +1,7 @@
 module.exports = {
+  // Purge is not necessary with twin.macro. It is disabled here to prevent warnings from Tailwind when running
+  // a production build.
+  purge: false,
   theme: {
     extend: {
       inset: {
