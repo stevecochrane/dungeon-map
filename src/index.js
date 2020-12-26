@@ -6,8 +6,6 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import reducers from "./reducers";
 import DungeonMap from "./containers/DungeonMap";
 
-import "./styles/main.css";
-
 const store = createStore(reducers, composeWithDevTools());
 
 document.addEventListener("DOMContentLoaded", () => {

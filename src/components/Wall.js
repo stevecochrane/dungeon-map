@@ -1,8 +1,8 @@
 import React from "react";
-import "twin.macro";
+import tw from "twin.macro";
 
-const Wall = () => {
-  return <div data-testid="Wall" tw="absolute bg-blue-600 -inset-halfLine z-30"></div>;
-};
+const Div = tw.div`absolute bg-blue-600 -inset-halfLine z-30`;
+
+const Wall = () => <Div data-testid="Wall"></Div>;
 
 export default Wall;
