@@ -1,13 +1,33 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import tw, { styled } from "twin.macro";
 import lineTypes from "../constants/lineTypes";
 import toolTypes from "../constants/toolTypes";
 import BlankLine from "./BlankLine";
 import Door from "./Door";
 import Wall from "./Wall";
 
+const DivWrapper = styled.div(({ activeTool, extendedHorizontally, extendedVertically, orientation, side }) => [
+  tw`absolute`,
+  activeTool === toolTypes.DOOR || activeTool === toolTypes.ERASER || activeTool === toolTypes.WALL
+    ? tw`cursor-pointer`
+    : tw`pointer-events-none`,
+  side === "top" && tw`h-line top-0 left-0`,
+  side === "left" && tw`w-line top-0 left-0`,
+  side === "right" && tw`w-line top-0 right-0`,
+  side === "bottom" && tw`h-line bottom-0 left-0`,
+  orientation === "horizontal" && extendedHorizontally ? tw`right-0` : tw`-right-line`,
+  orientation === "vertical" && extendedVertically ? tw`bottom-0` : tw`-bottom-line`
+]);
+
+const DivExtendedArea = styled.div(({ orientation }) => [
+  tw`absolute transform z-30`,
+  orientation === "horizontal" ? tw`h-6 left-1 right-1 -translate-y-1/2` : tw`bottom-1 top-1 -translate-x-1/2 w-6`
+]);
+
 const Line = ({ activeTool, extendedHorizontally, extendedVertically, isMouseDown, lineType, side }) => {
   const [type, setType] = useState(lineType);
+  const orientation = side === "top" || side === "bottom" ? "horizontal" : "vertical";
 
   const changeLine = () => {
     switch (activeTool) {
@@ -32,54 +52,18 @@ const Line = ({ activeTool, extendedHorizontally, extendedVertically, isMouseDow
     }
   };
 
-  const orientation = side === "top" || side === "bottom" ? "horizontal" : "vertical";
-
-  let baseClasses = "absolute group";
-
-  if (activeTool === toolTypes.DOOR || activeTool === toolTypes.ERASER || activeTool === toolTypes.WALL) {
-    baseClasses += " cursor-pointer";
-  } else {
-    baseClasses += " pointer-events-none";
-  }
-
-  const sideClasses = {
-    top: "h-line top-0 left-0",
-    left: "w-line top-0 left-0",
-    right: "w-line top-0 right-0",
-    bottom: "h-line bottom-0 left-0"
-  };
-
-  let classes = `${baseClasses} ${sideClasses[side]}`;
-
-  if (orientation === "horizontal") {
-    if (extendedHorizontally) {
-      classes += " right-0";
-    } else {
-      classes += " -right-line";
-    }
-  } else {
-    if (extendedVertically) {
-      classes += " bottom-0";
-    } else {
-      classes += " -bottom-line";
-    }
-  }
-
-  let extendedAreaClasses = "absolute transform z-30";
-
-  if (orientation === "horizontal") {
-    extendedAreaClasses += " h-6 left-1 right-1 -translate-y-1/2";
-  } else {
-    extendedAreaClasses += " bottom-1 top-1 -translate-x-1/2 w-6";
-  }
-
   return (
-    <div
-      className={classes}
+    <DivWrapper
+      activeTool={activeTool}
+      className="group"
       data-testid="Line"
       data-type={type}
+      extendedHorizontally={extendedHorizontally}
+      extendedVertically={extendedVertically}
       onMouseDown={changeLine}
       onMouseEnter={handleMouseEnter}
+      orientation={orientation}
+      side={side}
     >
       {(() => {
         switch (type) {
@@ -97,8 +81,8 @@ const Line = ({ activeTool, extendedHorizontally, extendedVertically, isMouseDow
           }
         }
       })()}
-      <div className={extendedAreaClasses}></div>
-    </div>
+      <DivExtendedArea orientation={orientation} />
+    </DivWrapper>
   );
 };
 

@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import tw, { styled } from "twin.macro";
 import cellTypes from "../constants/cellTypes";
 import toolTypes from "../constants/toolTypes";
 import BlankCell from "./BlankCell";
 import Line from "./Line";
 import Note from "./Note";
 import Room from "./Room";
+
+const Div = styled.div(({ hasBottomLine, hasRightLine }) => [
+  tw`relative`,
+  hasBottomLine ? tw`h-12` : tw`h-11`,
+  hasRightLine ? tw`w-12` : tw`w-11`
+]);
 
 const Cell = ({ activeTool, cellType, hasBottomLine, hasRightLine, isMouseDown }) => {
   const [type, setType] = useState(cellType);
@@ -33,24 +40,12 @@ const Cell = ({ activeTool, cellType, hasBottomLine, hasRightLine, isMouseDown }
     }
   };
 
-  let classes = "relative";
-  if (hasRightLine) {
-    classes += " w-12";
-  } else {
-    classes += " w-11";
-  }
-
-  if (hasBottomLine) {
-    classes += " h-12";
-  } else {
-    classes += " h-11";
-  }
-
   return (
-    <div
-      className={classes}
+    <Div
       data-testid="Cell"
       data-type={type}
+      hasBottomLine={hasBottomLine}
+      hasRightLine={hasRightLine}
       onMouseDown={changeCell}
       onMouseEnter={handleMouseEnter}
     >
@@ -78,7 +73,7 @@ const Cell = ({ activeTool, cellType, hasBottomLine, hasRightLine, isMouseDown }
           }
         }
       })()}
-    </div>
+    </Div>
   );
 };
 

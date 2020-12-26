@@ -4,13 +4,16 @@ import tw from "twin.macro";
 import Map from "./Map";
 import ToolPalette from "./ToolPalette";
 
-const Wrapper = tw.div`flex flex-col flex-grow`;
+const DivWrapper = tw.div`bg-gray-200 flex flex-col font-sans min-h-screen`;
+const DivMain = tw.div`flex flex-col flex-grow`;
 
 const App = ({ activeTool, isMouseDown, onToolClick }) => (
-  <Wrapper data-testid="App">
-    <Map activeTool={activeTool} columns={10} isMouseDown={isMouseDown} rows={10} />
-    <ToolPalette activeTool={activeTool} onToolClick={onToolClick} />
-  </Wrapper>
+  <DivWrapper>
+    <DivMain data-testid="App">
+      <Map activeTool={activeTool} columns={10} isMouseDown={isMouseDown} rows={10} />
+      <ToolPalette activeTool={activeTool} onToolClick={onToolClick} />
+    </DivMain>
+  </DivWrapper>
 );
 
 App.propTypes = {

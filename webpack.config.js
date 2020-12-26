@@ -3,7 +3,6 @@ const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ESLintWebpackPlugin = require("eslint-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 
 module.exports = {
@@ -29,7 +28,7 @@ module.exports = {
     })
   ],
   optimization: {
-    minimizer: [new OptimizeCSSAssetsPlugin(), new TerserWebpackPlugin()]
+    minimizer: [new TerserWebpackPlugin()]
   },
   output: {
     filename: "main.js",
