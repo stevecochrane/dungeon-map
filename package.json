@@ -51,7 +51,6 @@
     "postcss": "8.2.1",
     "postcss-import": "14.0.0",
     "postcss-loader": "4.1.0",
-    "postcss-preset-env": "6.7.0",
     "prettier": "1.19.1",
     "prop-types": "15.7.1",
     "react": "16.12.0",
