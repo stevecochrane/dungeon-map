@@ -28,14 +28,7 @@ const Map = ({ activeTool, className, columns, isMouseDown, rows }) => {
               if (columnIndex === columns - 1) {
                 cellProps.hasRightLine = true;
               }
-              return (
-                <Cell
-                  activeTool={activeTool}
-                  isMouseDown={isMouseDown}
-                  key={columnIndex}
-                  {...cellProps}
-                ></Cell>
-              );
+              return <Cell activeTool={activeTool} isMouseDown={isMouseDown} key={columnIndex} {...cellProps}></Cell>;
             })}
           </div>
         );
