@@ -1,8 +1,8 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import Cell from "../../app/components/Cell";
-import cellTypes from "../../app/constants/cellTypes";
-import toolTypes from "../../app/constants/toolTypes";
+import Cell from "../../src/components/Cell";
+import cellTypes from "../../src/constants/cellTypes";
+import toolTypes from "../../src/constants/toolTypes";
 
 describe("Cell", () => {
   test("Renders with no props", () => {
@@ -31,9 +31,7 @@ describe("Cell", () => {
   });
 
   test("Clicking Cell marked as Room with Sponge tool active sets Cell to be Empty", () => {
-    const { getByTestId } = render(
-      <Cell activeTool={toolTypes.SPONGE} cellType={cellTypes.ROOM} />
-    );
+    const { getByTestId } = render(<Cell activeTool={toolTypes.SPONGE} cellType={cellTypes.ROOM} />);
     const cell = getByTestId("Cell");
     expect(cell.getAttribute("data-type")).toBe(cellTypes.ROOM);
     fireEvent.mouseDown(cell);

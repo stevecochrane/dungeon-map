@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Wall from "../../app/components/Wall";
+import Wall from "../../src/components/Wall";
 
 describe("Wall", () => {
   test("Renders with no props", () => {

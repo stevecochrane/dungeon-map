@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import AutofocusTextInput from "../../app/components/AutofocusTextInput";
+import AutofocusTextInput from "../../src/components/AutofocusTextInput";
 
 describe("AutofocusTextInput", () => {
   test("Renders with no props", () => {

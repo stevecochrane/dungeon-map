@@ -1,8 +1,8 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import Line from "../../app/components/Line";
-import lineTypes from "../../app/constants/lineTypes";
-import toolTypes from "../../app/constants/toolTypes";
+import Line from "../../src/components/Line";
+import lineTypes from "../../src/constants/lineTypes";
+import toolTypes from "../../src/constants/toolTypes";
 
 describe("Line", () => {
   test("Renders with no props", () => {
@@ -31,9 +31,7 @@ describe("Line", () => {
   });
 
   test("Clicking Line marked as Wall with Eraser tool active sets Line to be Empty", () => {
-    const { getByTestId } = render(
-      <Line activeTool={toolTypes.ERASER} lineType={lineTypes.WALL} />
-    );
+    const { getByTestId } = render(<Line activeTool={toolTypes.ERASER} lineType={lineTypes.WALL} />);
     const line = getByTestId("Line");
     expect(line.getAttribute("data-type")).toBe(lineTypes.WALL);
     fireEvent.mouseDown(line);

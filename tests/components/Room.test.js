@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Room from "../../app/components/Room";
+import Room from "../../src/components/Room";
 
 describe("Room", () => {
   test("Renders with no props", () => {

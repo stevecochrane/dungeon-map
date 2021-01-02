@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Door from "../../app/components/Door";
+import Door from "../../src/components/Door";
 
 describe("Door", () => {
   test("Renders with no props", () => {

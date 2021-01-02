@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import BlankCell from "../../app/components/BlankCell";
+import BlankCell from "../../src/components/BlankCell";
 
 describe("BlankCell", () => {
   test("Renders with no props", () => {
