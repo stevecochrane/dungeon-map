@@ -91,7 +91,7 @@ payload, which would speed up initial rendering times.
 I tried a proof of concept using Next.js, because in my experience server-side
 rendering adds a lot of complexity without it, but it wasn't a good fit for this
 project yet either, because when using its static export the resulting JS bundle
-is significantly larger than what I have now, and it includes a lot of features
-that aren't necessary for a small, single-page app. But like above with
-CSS-in-JS, if this app expands to need multiple pages with routing, then it
-might be a good fit.
+is significantly larger (and split across significantly more HTTP requests) than
+what I have now, and it includes a lot of features that aren't necessary for a
+small, single-page app. But like above with CSS-in-JS, if this app expands to
+need multiple pages with routing, then it might be a good fit.
