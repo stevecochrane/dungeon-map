@@ -53,3 +53,45 @@ npm run build
 - [ ] Style the tool palette
 - [ ] Add ability to save to and load from local storage
 - [ ] Add ability to customize the width and height of the map grid
+
+## Architecture Notes
+
+This is currently a 100% client-side-rendered React single page
+application. The CSS is currently all from [Tailwind](https://tailwindcss.com/),
+and the CSS is injected into the HTML so that there's no blocking HTTP request
+for an external CSS file. For what the application is now, this works well and
+rendering performance is very good.
+
+However, I have considered a couple other approaches, and this is why I've not
+pursued them yet.
+
+### CSS-in-JS
+
+I tried using CSS-in-JS, mainly to try out
+[twin.macro](https://github.com/ben-rogerson/twin.macro) (a Babel plugin that
+converts usage of Tailwind utilities to styled-components/Emotion CSS-in-JS).
+But when compared to what I had before with Lighthouse, First Contentful Paint
+and Time to Interactive both got a little slower on mobile, and they stayed the
+same on desktop.
+
+CSS-in-JS doesn't have much to offer for an app like this compared to Tailwind:
+for example, one big benefit of CSS-in-JS is dead code elimination, but Tailwind
+also achieves this through its "purge" feature. If I was to add more pages to
+the app, or add significantly more styles to the current page, I can then see
+some benefits because I could utilize code splitting to keep the initial styles
+down to just what is needed for the initial view. But this app isn't there yet.
+
+### Server-side Rendering with Next.js
+
+The current app's HTML is a simple container element, and the actual DOM is
+built out once the client-side JS bundle is downloaded and executed. If I had
+server-side rendering in place, the initial view HTML could be in the initial
+payload, which would speed up initial rendering times.
+
+I tried a proof of concept using Next.js, because in my experience server-side
+rendering adds a lot of complexity without it, but it wasn't a good fit for this
+project yet either, because when using its static export the resulting JS bundle
+is significantly larger than what I have now, and it includes a lot of features
+that aren't necessary for a small, single-page app. But like above with
+CSS-in-JS, if this app expands to need multiple pages with routing, then it
+might be a good fit.
