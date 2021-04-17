@@ -5,7 +5,7 @@ import toolTypes from "../constants/toolTypes";
 import BlankCell from "./BlankCell";
 import Line from "./Line";
 import Note from "./Note";
-import Room from "./Room";
+import Room from "./Room.tsx";
 
 const Cell = ({ activeTool, cellType, hasBottomLine, hasRightLine, isMouseDown }) => {
   const [type, setType] = useState(cellType);
