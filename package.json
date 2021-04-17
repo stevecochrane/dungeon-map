@@ -21,8 +21,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint",
-      "jest --bail --coverage --findRelatedTests"
+      "eslint"
     ],
     "*.{js,css,html}": "prettier --write"
   },
