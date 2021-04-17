@@ -9,7 +9,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.ts",
+  entry: "./src/index.js",
   module: {
     rules: [
       {
@@ -17,9 +17,9 @@ module.exports = {
         use: [MiniCSSExtractPlugin.loader, "css-loader", "postcss-loader"]
       },
       {
-        test: /\.ts$/i,
+        test: /\.js$/i,
         exclude: /node_modules/,
-        use: ["ts-loader"]
+        use: ["babel-loader"]
       }
     ]
   },
