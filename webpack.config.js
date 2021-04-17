@@ -17,6 +17,11 @@ module.exports = {
         use: [MiniCSSExtractPlugin.loader, "css-loader", "postcss-loader"]
       },
       {
+        test: /\.(ts|tsx)$/i,
+        exclude: /node_modules/,
+        use: ["ts-loader"]
+      },
+      {
         test: /\.js$/i,
         exclude: /node_modules/,
         use: ["babel-loader"]
@@ -38,5 +43,8 @@ module.exports = {
   output: {
     filename: "main.js",
     path: path.resolve(process.cwd(), "dist")
+  },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".css"]
   }
 };
