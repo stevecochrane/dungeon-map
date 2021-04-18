@@ -1,9 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 import toolTypes from "../constants/toolTypes";
 import Tool from "./Tool";
 
-const ToolPalette = ({ activeTool, onToolClick }) => {
+type Props = {
+  activeTool: PropTypes.string,
+  onToolClick: PropTypes.func
+};
+
+const ToolPalette: React.FC<Props> = ({ activeTool, onToolClick }) => {
   let tools = [];
   for (const id of Object.values(toolTypes)) {
     tools.push(<Tool key={id} id={id} activeTool={activeTool} onToolClick={onToolClick} />);
@@ -16,11 +20,6 @@ const ToolPalette = ({ activeTool, onToolClick }) => {
       {tools}
     </div>
   );
-};
-
-ToolPalette.propTypes = {
-  activeTool: PropTypes.string,
-  onToolClick: PropTypes.func
 };
 
 export default ToolPalette;
