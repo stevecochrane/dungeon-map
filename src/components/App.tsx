@@ -1,9 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 import Map from "./Map";
 import ToolPalette from "./ToolPalette";
 
-const App = ({ activeTool, isMouseDown, onToolClick }) => {
+type Props = {
+  activeTool?: string,
+  isMouseDown?: boolean,
+  onToolClick?: Function
+};
+
+const App: React.FC<Props> = ({ activeTool, isMouseDown, onToolClick }) => {
   return (
     <div className="flex flex-col flex-grow" data-testid="App">
       {/* <h1 className="font-bold py-8 text-3xl text-center">Dungeon Map</h1> */}
@@ -17,12 +22,6 @@ const App = ({ activeTool, isMouseDown, onToolClick }) => {
       <ToolPalette activeTool={activeTool} onToolClick={onToolClick} />
     </div>
   );
-};
-
-App.propTypes = {
-  activeTool: PropTypes.string,
-  isMouseDown: PropTypes.bool,
-  onToolClick: PropTypes.func
 };
 
 export default App;
