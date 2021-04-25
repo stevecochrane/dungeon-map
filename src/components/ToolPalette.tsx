@@ -3,8 +3,8 @@ import toolTypes from "../constants/toolTypes";
 import Tool from "./Tool";
 
 type Props = {
-  activeTool: string,
-  onToolClick: Function
+  activeTool?: string,
+  onToolClick?: Function
 };
 
 const ToolPalette: React.FC<Props> = ({ activeTool, onToolClick }) => {
