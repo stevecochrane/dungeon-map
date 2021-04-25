@@ -2,7 +2,7 @@ import * as React from "react";
 import toolTypes from "../constants/toolTypes";
 
 type Props = {
-  activeTool: string
+  activeTool?: string
 };
 
 const Room: React.FC<Props> = ({ activeTool }) => {
@@ -11,10 +11,6 @@ const Room: React.FC<Props> = ({ activeTool }) => {
     classes += " cursor-pointer";
   }
   return <div className={classes} data-testid="Room"></div>;
-};
-
-Room.defaultProps = {
-  activeTool: null
 };
 
 export default Room;
