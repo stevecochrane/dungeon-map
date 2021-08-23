@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
     "jsx": "react",
     "module": "es6",
     "noImplicitAny": true,
