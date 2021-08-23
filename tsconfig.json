@@ -2,11 +2,13 @@
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
-    "module": "es6",
+    "moduleResolution": "node",
     "noImplicitAny": true,
     "outDir": "./dist/",
+    "skipLibCheck": true,
     "target": "es5"
   },
   "exclude": [
