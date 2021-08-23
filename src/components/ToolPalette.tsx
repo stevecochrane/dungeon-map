@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import toolTypes from "../constants/toolTypes";
 import Tool from "./Tool";
 
