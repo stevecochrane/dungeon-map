@@ -1,4 +1,4 @@
-const path = require("path");
+import path from "path";
 
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ESLintWebpackPlugin = require("eslint-webpack-plugin");
@@ -17,14 +17,18 @@ module.exports = {
         use: [MiniCSSExtractPlugin.loader, "css-loader", "postcss-loader"]
       },
       {
-        test: /\.(ts|tsx)$/i,
+        test: /\.(js|jsx|ts|tsx)$/i,
         exclude: /node_modules/,
-        use: ["ts-loader"]
-      },
-      {
-        test: /\.js$/i,
-        exclude: /node_modules/,
-        use: ["babel-loader"]
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-react",
+              "@babel/preset-typescript",
+            ]
+          }
+        }
       }
     ]
   },
