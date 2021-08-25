@@ -14,7 +14,7 @@
     "noEmit": true,
     "noImplicitAny": true,
     "skipLibCheck": true,
-    "target": "es5"
+    "strict": true
   },
   "exclude": [
     "node_modules"
