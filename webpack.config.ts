@@ -1,14 +1,15 @@
 import path from "path";
+import webpack from "webpack";
 
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const ESLintWebpackPlugin = require("eslint-webpack-plugin");
-const HTMLInlineCSSWebpackPlugin = require("html-inline-css-webpack-plugin").default;
-const HTMLWebpackPlugin = require("html-webpack-plugin");
-const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const TerserWebpackPlugin = require("terser-webpack-plugin");
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
+import ESLintWebpackPlugin from "eslint-webpack-plugin";
+import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
+import HTMLInlineCSSWebpackPlugin from "html-inline-css-webpack-plugin";
+import HTMLWebpackPlugin from "html-webpack-plugin";
+import MiniCSSExtractPlugin from "mini-css-extract-plugin";
+import TerserWebpackPlugin from "terser-webpack-plugin";
 
-module.exports = {
+const config: webpack.Configuration = {
   entry: "./src/index.js",
   module: {
     rules: [
@@ -33,7 +34,12 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      async: false,
+      eslint: {
+        files: "./src/**/*",
+      }
+    }),
     new ESLintWebpackPlugin(),
     new MiniCSSExtractPlugin(),
     new HTMLWebpackPlugin({
@@ -42,9 +48,10 @@ module.exports = {
     new HTMLInlineCSSWebpackPlugin()
   ],
   optimization: {
-    minimizer: [new OptimizeCSSAssetsPlugin(), new TerserWebpackPlugin()]
+    minimizer: [new CssMinimizerPlugin(), new TerserWebpackPlugin()]
   },
   output: {
+    clean: true,
     filename: "main.js",
     path: path.resolve(process.cwd(), "dist")
   },
@@ -52,3 +59,5 @@ module.exports = {
     extensions: [".ts", ".tsx", ".js", ".css"]
   }
 };
+
+export default config;
