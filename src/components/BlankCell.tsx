@@ -2,7 +2,7 @@ import React from "react";
 import toolTypes from "../constants/toolTypes";
 
 type Props = {
-  activeTool?: string
+  activeTool?: string;
 };
 
 const BlankCell: React.FC<Props> = ({ activeTool }) => {

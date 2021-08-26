@@ -3,9 +3,9 @@ import Map from "./Map";
 import ToolPalette from "./ToolPalette";
 
 type Props = {
-  activeTool?: string,
-  isMouseDown?: boolean,
-  onToolClick?: Function
+  activeTool?: string;
+  isMouseDown?: boolean;
+  onToolClick?: Function;
 };
 
 const App: React.FC<Props> = ({ activeTool, isMouseDown, onToolClick }) => {
