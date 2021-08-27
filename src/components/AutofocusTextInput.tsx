@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 const AutofocusTextInput = (props: any) => {
-  const inputElement = React.useRef(null);
+  const inputElement = useRef<HTMLInputElement>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.requestAnimationFrame(() => {
       if (inputElement.current) {
         inputElement.current.focus();
