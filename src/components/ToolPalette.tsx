@@ -3,8 +3,8 @@ import toolTypes from "../constants/toolTypes";
 import Tool from "./Tool";
 
 type Props = {
-  activeTool?: string;
-  onToolClick?: Function;
+  activeTool: string;
+  onToolClick: (id: string) => void;
 };
 
 const ToolPalette = ({ activeTool, onToolClick }: Props) => {

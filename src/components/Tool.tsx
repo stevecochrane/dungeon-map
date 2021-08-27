@@ -1,9 +1,9 @@
 import React from "react";
 
 type Props = {
-  id?: string;
-  activeTool?: string;
-  onToolClick?: Function;
+  id: string;
+  activeTool: string;
+  onToolClick: (id: string) => void;
 };
 
 const Tool = ({ id, activeTool, onToolClick }: Props) => {
