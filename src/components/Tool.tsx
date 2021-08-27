@@ -6,7 +6,7 @@ type Props = {
   onToolClick?: Function;
 };
 
-const Tool: React.FC<Props> = ({ id, activeTool, onToolClick }) => {
+const Tool = ({ id, activeTool, onToolClick }: Props) => {
   const active = id === activeTool;
   let className = "cursor-pointer duration-300 h-12 m-2 rounded transition-colors w-12";
 

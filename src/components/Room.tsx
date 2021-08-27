@@ -5,7 +5,7 @@ type Props = {
   activeTool?: string;
 };
 
-const Room: React.FC<Props> = ({ activeTool }) => {
+const Room = ({ activeTool }: Props) => {
   let classes = "absolute bg-blue-400 inset-0";
   if (activeTool === toolTypes.NOTE || activeTool === toolTypes.ROOM || activeTool === toolTypes.SPONGE) {
     classes += " cursor-pointer";

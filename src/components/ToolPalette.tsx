@@ -7,7 +7,7 @@ type Props = {
   onToolClick?: Function;
 };
 
-const ToolPalette: React.FC<Props> = ({ activeTool, onToolClick }) => {
+const ToolPalette = ({ activeTool, onToolClick }: Props) => {
   let tools = [];
   for (const id of Object.values(toolTypes)) {
     tools.push(<Tool key={id} id={id} activeTool={activeTool} onToolClick={onToolClick} />);

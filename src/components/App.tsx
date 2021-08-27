@@ -8,7 +8,7 @@ type Props = {
   onToolClick?: Function;
 };
 
-const App: React.FC<Props> = ({ activeTool, isMouseDown, onToolClick }) => {
+const App = ({ activeTool, isMouseDown, onToolClick }: Props) => {
   return (
     <div className="flex flex-col flex-grow" data-testid="App">
       {/* <h1 className="font-bold py-8 text-3xl text-center">Dungeon Map</h1> */}
