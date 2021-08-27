@@ -8,7 +8,7 @@ type Props = {
 };
 
 const ToolPalette = ({ activeTool, onToolClick }: Props) => {
-  let tools = [];
+  const tools = [];
   for (const id of Object.values(toolTypes)) {
     tools.push(<Tool key={id} id={id} activeTool={activeTool} onToolClick={onToolClick} />);
   }

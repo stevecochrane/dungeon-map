@@ -6,8 +6,8 @@ type Props = {
 };
 
 const BlankLine = ({ activeTool }: Props) => {
-  let wrapperClasses = "absolute inset-0";
-  let inactiveClasses = "absolute bg-gray-400 inset-0 z-10";
+  const wrapperClasses = "absolute inset-0";
+  const inactiveClasses = "absolute bg-gray-400 inset-0 z-10";
   let activeClasses = "absolute bg-gray-600 duration-300 -inset-halfLine opacity-0 transition-opacity z-20";
 
   if (activeTool === toolTypes.DOOR || activeTool === toolTypes.WALL) {
