@@ -1,8 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-const Door = ({ orientation }) => {
-  let wallClasses = "absolute bg-blue-600 -inset-halfLine z-30";
+type Props = {
+  orientation: string;
+};
+
+const Door = ({ orientation = "vertical" }: Props): JSX.Element => {
+  const wallClasses = "absolute bg-blue-600 -inset-halfLine z-30";
   let doorClasses = "bg-yellow-600 pointer-events-none vertical-center";
 
   if (orientation === "vertical") {
@@ -16,14 +19,6 @@ const Door = ({ orientation }) => {
       <div className={doorClasses}></div>
     </div>
   );
-};
-
-Door.propTypes = {
-  orientation: PropTypes.string
-};
-
-Door.defaultProps = {
-  orientation: "vertical"
 };
 
 export default Door;
