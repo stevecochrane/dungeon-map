@@ -2,7 +2,6 @@ import path from "path";
 import webpack from "webpack";
 
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
-import ESLintWebpackPlugin from "eslint-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import HTMLInlineCSSWebpackPlugin from "html-inline-css-webpack-plugin";
 import HTMLWebpackPlugin from "html-webpack-plugin";
@@ -39,7 +38,6 @@ const config: webpack.Configuration = {
         files: "./src/**/*.{js,jsx,ts,tsx}",
       }
     }),
-    new ESLintWebpackPlugin(),
     new MiniCSSExtractPlugin(),
     new HTMLWebpackPlugin({
       template: "./src/templates/index.html"
