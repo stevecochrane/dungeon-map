@@ -1,4 +1,7 @@
 {
+  "ecmaFeatures": {
+    "jsx": true
+  },
   "env": {
     "browser": true,
     "commonjs": true,
