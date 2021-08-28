@@ -6,7 +6,7 @@ type Props = {
   onToolClick: (id: string) => void;
 };
 
-const Tool = ({ id, activeTool, onToolClick }: Props) => {
+const Tool = ({ id, activeTool, onToolClick }: Props): JSX.Element => {
   const active = id === activeTool;
   let className = "cursor-pointer duration-300 h-12 m-2 rounded transition-colors w-12";
 

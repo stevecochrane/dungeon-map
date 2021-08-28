@@ -6,7 +6,7 @@ type Props = {
   activeTool: string | null;
 };
 
-const Note = ({ activeTool = null }: Props) => {
+const Note = ({ activeTool = null }: Props): JSX.Element => {
   let roomClasses = "absolute bg-blue-400 inset-0";
   if (activeTool === toolTypes.NOTE || activeTool === toolTypes.ROOM || activeTool === toolTypes.SPONGE) {
     roomClasses += " cursor-pointer";

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-const AutofocusTextInput = (props: any) => {
+const AutofocusTextInput = (props: any): JSX.Element => {
   const inputElement = useRef<HTMLInputElement>(null);
 
   useEffect(() => {

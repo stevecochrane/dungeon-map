@@ -8,7 +8,7 @@ type Props = {
   onToolClick: (id: string) => void;
 };
 
-const App = ({ activeTool, isMouseDown, onToolClick }: Props) => {
+const App = ({ activeTool, isMouseDown, onToolClick }: Props): JSX.Element => {
   return (
     <div className="flex flex-col flex-grow" data-testid="App">
       {/* <h1 className="font-bold py-8 text-3xl text-center">Dungeon Map</h1> */}

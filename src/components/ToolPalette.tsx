@@ -7,7 +7,7 @@ type Props = {
   onToolClick: (id: string) => void;
 };
 
-const ToolPalette = ({ activeTool, onToolClick }: Props) => {
+const ToolPalette = ({ activeTool, onToolClick }: Props): JSX.Element => {
   const tools = [];
   for (const id of Object.values(toolTypes)) {
     tools.push(<Tool key={id} id={id} activeTool={activeTool} onToolClick={onToolClick} />);
