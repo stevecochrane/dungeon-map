@@ -1,13 +1,26 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import cellTypes from "../constants/cellTypes";
 import toolTypes from "../constants/toolTypes";
 import BlankCell from "./BlankCell";
 import Line from "./Line";
 import Note from "./Note";
-import Room from "./Room.tsx";
+import Room from "./Room";
 
-const Cell = ({ activeTool, cellType, hasBottomLine, hasRightLine, isMouseDown }) => {
+type Props = {
+  activeTool: string | null;
+  cellType: string;
+  hasBottomLine: boolean;
+  hasRightLine: boolean;
+  isMouseDown: boolean;
+};
+
+const Cell = ({
+  activeTool = null,
+  cellType = cellTypes.EMPTY,
+  hasBottomLine = false,
+  hasRightLine = false,
+  isMouseDown = false
+}: Props): JSX.Element => {
   const [type, setType] = useState(cellType);
 
   const changeCell = () => {
@@ -80,22 +93,6 @@ const Cell = ({ activeTool, cellType, hasBottomLine, hasRightLine, isMouseDown }
       })()}
     </div>
   );
-};
-
-Cell.propTypes = {
-  activeTool: PropTypes.string,
-  cellType: PropTypes.string,
-  hasRightLine: PropTypes.bool,
-  hasBottomLine: PropTypes.bool,
-  isMouseDown: PropTypes.bool
-};
-
-Cell.defaultProps = {
-  activeTool: null,
-  cellType: cellTypes.EMPTY,
-  hasRightLine: false,
-  hasBottomLine: false,
-  isMouseDown: false
 };
 
 export default Cell;
