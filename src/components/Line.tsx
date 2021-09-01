@@ -1,12 +1,34 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import lineTypes from "../constants/lineTypes";
 import toolTypes from "../constants/toolTypes";
 import BlankLine from "./BlankLine";
 import Door from "./Door";
 import Wall from "./Wall";
 
-const Line = ({ activeTool, extendedHorizontally, extendedVertically, isMouseDown, lineType, side }) => {
+type Props = {
+  activeTool: string | null;
+  isMouseDown: boolean;
+  side: string;
+  extendedHorizontally?: boolean;
+  extendedVertically?: boolean;
+  lineType?: string;
+};
+
+type DirectionMap = {
+  bottom: string;
+  left: string;
+  right: string;
+  top: string;
+};
+
+const Line = ({
+  activeTool = null,
+  isMouseDown = false,
+  side = "top",
+  extendedHorizontally = false,
+  extendedVertically = false,
+  lineType = lineTypes.EMPTY
+}: Props): JSX.Element => {
   const [type, setType] = useState(lineType);
 
   const changeLine = () => {
@@ -42,14 +64,14 @@ const Line = ({ activeTool, extendedHorizontally, extendedVertically, isMouseDow
     baseClasses += " pointer-events-none";
   }
 
-  const sideClasses = {
+  const sideClasses: DirectionMap = {
     top: "h-line top-0 left-0",
     left: "w-line top-0 left-0",
     right: "w-line top-0 right-0",
     bottom: "h-line bottom-0 left-0"
   };
 
-  let classes = `${baseClasses} ${sideClasses[side]}`;
+  let classes = `${baseClasses} ${sideClasses[side as keyof DirectionMap]}`;
 
   if (orientation === "horizontal") {
     if (extendedHorizontally) {
@@ -100,24 +122,6 @@ const Line = ({ activeTool, extendedHorizontally, extendedVertically, isMouseDow
       <div className={extendedAreaClasses}></div>
     </div>
   );
-};
-
-Line.propTypes = {
-  activeTool: PropTypes.string,
-  extendedHorizontally: PropTypes.bool,
-  extendedVertically: PropTypes.bool,
-  isMouseDown: PropTypes.bool,
-  lineType: PropTypes.string,
-  side: PropTypes.string
-};
-
-Line.defaultProps = {
-  activeTool: null,
-  extendedHorizontally: false,
-  extendedVertically: false,
-  isMouseDown: false,
-  lineType: lineTypes.EMPTY,
-  side: "top"
 };
 
 export default Line;

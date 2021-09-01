@@ -2,7 +2,7 @@ import React from "react";
 import toolTypes from "../constants/toolTypes";
 
 type Props = {
-  activeTool?: string;
+  activeTool: string | null;
 };
 
 const BlankLine = ({ activeTool }: Props): JSX.Element => {
