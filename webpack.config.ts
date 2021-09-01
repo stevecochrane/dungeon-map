@@ -9,7 +9,7 @@ import MiniCSSExtractPlugin from "mini-css-extract-plugin";
 import TerserWebpackPlugin from "terser-webpack-plugin";
 
 const config: webpack.Configuration = {
-  entry: "./src/index.js",
+  entry: "./src/index.tsx",
   module: {
     rules: [
       {
