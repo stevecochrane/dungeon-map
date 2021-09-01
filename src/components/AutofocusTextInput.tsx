@@ -1,6 +1,11 @@
 import React, { useEffect, useRef } from "react";
 
-const AutofocusTextInput = (props: any): JSX.Element => {
+type Props = {
+  handleBlur: (event: React.FocusEvent<HTMLInputElement>) => void;
+  handleKeyPress: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+};
+
+const AutofocusTextInput = ({ handleBlur, handleKeyPress }: Props): JSX.Element => {
   const inputElement = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -11,7 +16,16 @@ const AutofocusTextInput = (props: any): JSX.Element => {
     });
   }, []);
 
-  return <input type="text" data-testid="AutofocusTextInput" ref={inputElement} {...props} />;
+  return (
+    <input
+      type="text"
+      className="text-gray-800"
+      data-testid="AutofocusTextInput"
+      ref={inputElement}
+      onBlur={handleBlur}
+      onKeyPress={handleKeyPress}
+    />
+  );
 };
 
 export default AutofocusTextInput;
