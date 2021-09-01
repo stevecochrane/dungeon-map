@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AutofocusTextInput from "./AutofocusTextInput";
 
-const Tooltip = () => {
+const Tooltip = (): JSX.Element => {
   const [tooltipText, setTooltipText] = useState<string | null>(null);
 
   const checkEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
