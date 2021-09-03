@@ -1,6 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from "redux";
+import { MouseAction } from "../types/mouseActions";
+import { MouseState } from "../types/mouseState";
+import { ToolsAction } from "../types/toolsActions";
+import { ToolsState } from "../types/toolsState";
 import App from "../components/App";
 import { changeTool } from "../actions/tools.actions";
 import { changeMouseDown } from "../actions/mouse.actions";
@@ -8,10 +12,10 @@ import toolTypes from "../constants/toolTypes";
 
 /** TODO: Separate types into their own files to be reused by reducers and actions */
 type Props = {
-  changeMouseDown: (isMouseDown: boolean) => { type: string; payload: { isMouseDown: boolean } };
-  changeTool: (toolId: string) => { type: string; payload: { tool: string } };
-  mouse: { isMouseDown: boolean };
-  tools: { activeTool: string };
+  changeMouseDown: (isMouseDown: boolean) => MouseAction;
+  changeTool: (toolId: string) => ToolsAction;
+  mouse: MouseState;
+  tools: ToolsState;
 };
 
 type ReduxState = {
