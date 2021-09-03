@@ -17,7 +17,7 @@ const config: webpack.Configuration = {
         use: [MiniCSSExtractPlugin.loader, "css-loader", "postcss-loader"]
       },
       {
-        test: /\.(js|jsx|ts|tsx)$/i,
+        test: /\.(ts|tsx)$/i,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -35,7 +35,7 @@ const config: webpack.Configuration = {
   plugins: [
     new ForkTsCheckerWebpackPlugin({
       eslint: {
-        files: "./src/**/*.{js,jsx,ts,tsx}",
+        files: "./src/**/*.{ts,tsx}",
       }
     }),
     new MiniCSSExtractPlugin(),
