@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import AutofocusTextInput from "./AutofocusTextInput";
 
-const Tooltip = () => {
-  const [tooltipText, setTooltipText] = useState(null);
+const Tooltip = (): JSX.Element => {
+  const [tooltipText, setTooltipText] = useState<string | null>(null);
 
-  const checkEnter = event => {
+  const checkEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
       finishEdit(event);
     }
   };
 
-  const finishEdit = event => {
-    setTooltipText(event.target.value);
+  const finishEdit = (event: React.FocusEvent<HTMLInputElement> | React.KeyboardEvent<HTMLInputElement>) => {
+    const target = event.target as HTMLInputElement;
+    setTooltipText(target.value);
   };
 
   return (
@@ -23,7 +24,7 @@ const Tooltip = () => {
         {tooltipText ? (
           <span>{tooltipText}</span>
         ) : (
-          <AutofocusTextInput className="text-gray-800" onBlur={finishEdit} onKeyPress={checkEnter} />
+          <AutofocusTextInput handleBlur={finishEdit} handleKeyPress={checkEnter} />
         )}
         <div
           className="absolute border-gray-800 bottom-0 h-0 left-1/2 transform -translate-x-1/2 translate-y-full w-0"

@@ -1,15 +1,4 @@
 module.exports = {
-  presets: [
-    ["@babel/preset-react"],
-    [
-      "@babel/preset-env",
-      {
-        corejs: {
-          version: 3
-        },
-        useBuiltIns: "usage"
-      }
-    ]
-  ],
+  presets: ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"],
   plugins: []
 };

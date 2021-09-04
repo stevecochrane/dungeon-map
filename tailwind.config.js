@@ -1,5 +1,6 @@
 module.exports = {
-  purge: ["./src/templates/**/*.html", "./src/components/**/*.js"],
+  mode: "jit",
+  purge: ["./src/templates/**/*.html", "./src/components/**/*.tsx"],
   theme: {
     extend: {
       inset: {
@@ -17,14 +18,5 @@ module.exports = {
         line: "0.125rem"
       }
     }
-  },
-  variants: {
-    backgroundColor: ["responsive", "hover", "focus", "group-hover", "group-focus"],
-    inset: ["responsive", "hover", "focus", "group-hover", "group-focus"],
-    opacity: ["responsive", "hover", "focus", "group-hover", "group-focus"],
-    transitionDuration: ["responsive", "hover", "focus", "group-hover", "group-focus"],
-    transitionProperty: ["responsive", "hover", "focus", "group-hover", "group-focus"],
-    translate: ["responsive", "hover", "focus", "group-hover", "group-focus"],
-    zIndex: ["responsive", "hover", "focus", "group-hover", "group-focus"]
   }
 };

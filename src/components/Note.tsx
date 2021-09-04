@@ -1,9 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
 import toolTypes from "../constants/toolTypes";
 import Tooltip from "./Tooltip";
 
-const Note = ({ activeTool }) => {
+type Props = {
+  activeTool: string | null;
+};
+
+const Note = ({ activeTool = null }: Props): JSX.Element => {
   let roomClasses = "absolute bg-blue-400 inset-0";
   if (activeTool === toolTypes.NOTE || activeTool === toolTypes.ROOM || activeTool === toolTypes.SPONGE) {
     roomClasses += " cursor-pointer";
@@ -18,14 +21,6 @@ const Note = ({ activeTool }) => {
       </div>
     </div>
   );
-};
-
-Note.propTypes = {
-  activeTool: PropTypes.string
-};
-
-Note.defaultProps = {
-  activeTool: null
 };
 
 export default Note;

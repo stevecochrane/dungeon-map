@@ -1,6 +1,7 @@
+import { ToolsAction } from "../types/toolsActions";
 import { CHANGE_TOOL } from "../constants/actionTypes";
 
-export const changeTool = toolId => {
+export const changeTool = (toolId: string): ToolsAction => {
   return {
     type: CHANGE_TOOL,
     payload: {

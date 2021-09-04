@@ -1,10 +1,13 @@
 import React from "react";
-import PropTypes from "prop-types";
 import toolTypes from "../constants/toolTypes";
 
-const BlankLine = ({ activeTool }) => {
-  let wrapperClasses = "absolute inset-0";
-  let inactiveClasses = "absolute bg-gray-400 inset-0 z-10";
+type Props = {
+  activeTool: string | null;
+};
+
+const BlankLine = ({ activeTool }: Props): JSX.Element => {
+  const wrapperClasses = "absolute inset-0";
+  const inactiveClasses = "absolute bg-gray-400 inset-0 z-10";
   let activeClasses = "absolute bg-gray-600 duration-300 -inset-halfLine opacity-0 transition-opacity z-20";
 
   if (activeTool === toolTypes.DOOR || activeTool === toolTypes.WALL) {
@@ -17,14 +20,6 @@ const BlankLine = ({ activeTool }) => {
       <div className={activeClasses}></div>
     </div>
   );
-};
-
-BlankLine.propTypes = {
-  activeTool: PropTypes.string
-};
-
-BlankLine.defaultProps = {
-  activeTool: null
 };
 
 export default BlankLine;

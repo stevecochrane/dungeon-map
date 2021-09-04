@@ -1,7 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-const Tool = ({ id, activeTool, onToolClick }) => {
+type Props = {
+  id: string;
+  activeTool: string;
+  onToolClick: (id: string) => void;
+};
+
+const Tool = ({ id, activeTool, onToolClick }: Props): JSX.Element => {
   const active = id === activeTool;
   let className = "cursor-pointer duration-300 h-12 m-2 rounded transition-colors w-12";
 
@@ -20,12 +25,6 @@ const Tool = ({ id, activeTool, onToolClick }) => {
       onMouseDown={() => onToolClick(id)}
     ></div>
   );
-};
-
-Tool.propTypes = {
-  id: PropTypes.string,
-  activeTool: PropTypes.string,
-  onToolClick: PropTypes.func
 };
 
 export default Tool;
